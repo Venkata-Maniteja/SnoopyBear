@@ -1,0 +1,153 @@
+//
+//  drawView.m
+//  EraseAndSnap
+//
+//  Created by Venkata Maniteja on 2015-10-19.
+//  Copyright © 2015 Venkata Maniteja. All rights reserved.
+//
+
+#import "drawView.h"
+
+
+
+@implementation drawView
+
+- (id)initWithFrame:(CGRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+        wipingInProgress = NO;
+        eraser = [UIImage imageNamed:@"eraser.png"];
+        [self setBackgroundColor:[UIColor clearColor]];
+        
+               
+    }
+    return self;
+}
+
+
+
+- (void)newMaskWithColor:(UIColor *)color eraseSpeed:(CGFloat)speed {
+    
+    wipingInProgress = NO;
+    
+    eraseSpeed = speed;
+    
+    maskColor = color;
+    
+    [self setNeedsDisplay];
+    
+}
+
+-(void)drawImage:(UIImage *) imageToDraw{
+    
+    self.pic=imageToDraw;
+    [imageToDraw drawInRect:self.frame];
+    
+    wipingInProgress = NO;
+    
+    eraseSpeed = 0.4;
+    
+//    maskColor = color;
+    
+    [self setNeedsDisplay];
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    wipingInProgress = YES;
+    
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if ([touches count] == 1) {
+        UITouch *touch = [touches anyObject];
+        location = [touch locationInView:self];
+        location.x -= [eraser size].width/2;
+        location.y -= [eraser size].width/2;
+        [self setNeedsDisplay];
+    }
+    
+}
+
+-(void)recordScreen{
+    
+    self.timer= [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(takeSnapShot) userInfo:nil repeats:YES];
+    
+}
+
+-(void)takeSnapShot{
+    
+    //capture the screenshot of the uiimageview and save it in camera roll
+    UIGraphicsBeginImageContext(self.frame.size);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+     UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    
+}
+
+-(void)stopShot{
+    [self.timer invalidate];
+}
+
+- (void)drawRect:(CGRect)rect {
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    if (wipingInProgress) {
+        if (imageRef) {
+            // Restore the screen that was previously saved
+            CGContextTranslateCTM(context, 0, rect.size.height);
+            CGContextScaleCTM(context, 1.0, -1.0);
+            
+            CGContextDrawImage(context, rect, imageRef);
+            CGImageRelease(imageRef);
+            
+            CGContextTranslateCTM(context, 0, rect.size.height);
+            CGContextScaleCTM(context, 1.0, -1.0);
+        }
+        
+        // Erase the background -- raise the alpha to clear more away with eash swipe
+        [eraser drawAtPoint:location blendMode:kCGBlendModeDestinationOut alpha:eraseSpeed];
+    } else {
+        
+        CGRect targetBounds = self.layer.bounds;
+        // fit the image, preserving its aspect ratio, into our target bounds
+        CGRect imageRect = AVMakeRectWithAspectRatioInsideRect(self.pic.size,
+                                                               targetBounds);
+        
+        [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.size.height] forKey:@"height"];
+        [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.size.width] forKey:@"width"];
+        [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.x] forKey:@"x"];
+        [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.y] forKey:@"y"];
+        
+        // draw the image
+//        self.pic.CGImage tranform
+       // CGContextRotateCTM (context, -90/180*M_PI);
+        CGContextDrawImage(context, imageRect, self.pic.CGImage);
+        
+        CGAffineTransform transform = CGAffineTransformMakeRotation(radians(180));
+        self.transform = transform;
+        
+        // Repositions and resizes the view.
+        CGRect contentRect = self.frame;
+        self.bounds = contentRect;
+        
+        
+//        CGContextRotateCTM (context, radians(90));
+//        CGContextTranslateCTM(context, 0, rect.size.height);
+    }
+    
+    // Save the screen to restore next time around
+    imageRef = CGBitmapContextCreateImage(context);
+    
+}
+
+static inline double radians (double degrees) {return degrees * M_PI/180;}
+
+
+@end

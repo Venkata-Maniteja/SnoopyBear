@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fry-TS-fme">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="hAu-m8-aaO">
+            <objects>
+                <viewController id="Fry-TS-fme" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Go9-ko-fJH"/>
+                        <viewControllerLayoutGuide type="bottom" id="5d4-hz-HOr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xkr-I2-Bc2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-I7-ZOa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9u-aa-LHm">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gdD-hY-HPm"/>
+                                    <barButtonItem title="Take  Pic" id="hwu-gv-Jmd">
+                                        <color key="tintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="takeSecondPic:" destination="Fry-TS-fme" id="z69-Pb-tGr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WZM-0w-LHi"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uQL-I7-ZOa" firstAttribute="top" secondItem="Xkr-I2-Bc2" secondAttribute="top" id="3gl-Pd-cXM"/>
+                            <constraint firstItem="5d4-hz-HOr" firstAttribute="top" secondItem="U9u-aa-LHm" secondAttribute="bottom" id="EFv-vW-84p"/>
+                            <constraint firstItem="5d4-hz-HOr" firstAttribute="top" secondItem="uQL-I7-ZOa" secondAttribute="bottom" constant="44" id="NRD-RY-1G7"/>
+                            <constraint firstAttribute="trailing" secondItem="U9u-aa-LHm" secondAttribute="trailing" id="WgM-pH-vjh"/>
+                            <constraint firstItem="uQL-I7-ZOa" firstAttribute="top" secondItem="Go9-ko-fJH" secondAttribute="bottom" constant="-20" id="YpM-2Y-qcK"/>
+                            <constraint firstItem="U9u-aa-LHm" firstAttribute="top" secondItem="uQL-I7-ZOa" secondAttribute="bottom" id="aq1-iB-QLJ"/>
+                            <constraint firstAttribute="trailing" secondItem="uQL-I7-ZOa" secondAttribute="trailing" id="hBq-bG-aaX"/>
+                            <constraint firstItem="U9u-aa-LHm" firstAttribute="leading" secondItem="Xkr-I2-Bc2" secondAttribute="leading" id="uzz-eh-Bh9"/>
+                            <constraint firstItem="uQL-I7-ZOa" firstAttribute="leading" secondItem="Xkr-I2-Bc2" secondAttribute="leading" id="wc2-z1-GYt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YpM-2Y-qcK"/>
+                                <exclude reference="NRD-RY-1G7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="bbitemStart" destination="hwu-gv-Jmd" id="Ie9-cx-AEn"/>
+                        <outlet property="imageUIView" destination="uQL-I7-ZOa" id="evD-xD-3Al"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJY-Lt-MvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="179" y="264"/>
+        </scene>
+    </scenes>
+</document>
