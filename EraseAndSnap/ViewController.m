@@ -256,11 +256,11 @@
 -(void)addTwoViews{
     
     _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
-    _topV.backgroundColor=[UIColor whiteColor];
+    _topV.backgroundColor=[UIColor blackColor];
     [self.view addSubview:_topV];
     
     _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 550, imageUIView.frame.size.width, 150)];
-    _botV.backgroundColor=[UIColor whiteColor];
+    _botV.backgroundColor=[UIColor blackColor];
     [self.view addSubview:_botV];
 }
 
