@@ -14,12 +14,20 @@
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>
 
 @property (strong,nonatomic) IBOutlet UIView *imageUIView;
-
+@property (nonatomic,strong) UIView *topV;
+@property (nonatomic,strong) UIView *botV;
+@property (nonatomic,strong) UIView *snapView;
 @property  (strong,nonatomic) drawView *dView;
 
-@property (assign) BOOL firstPicTaken;
+@property (nonatomic,strong) UIImage *avCapturedImage;
+@property (nonatomic,strong) CALayer *subLayerCamera;
 
+
+@property (assign) BOOL firstPicTaken;
 @property (assign) BOOL secondPicTaken;
+
+
+
 
 
 
@@ -41,10 +49,27 @@
     
 }
 
+-(void)addTagsToViews{
+    
+    _topV.tag=0;
+    _botV.tag=1;
+    _snapView.tag=2;
+    imageUIView.tag=3;
+    dView.tag=4;
+    
+    
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
     
+    [self addTagsToViews];
+    
+}
+
+-(IBAction)clear:(id)sender{
+    [self stopReading];
 }
 
 -(IBAction)takeSecondPic:(id)sender{
@@ -86,6 +111,8 @@
 -(void)takeScreenShot{
     
        [[self captureManager] captureStillImage];
+    
+    //[self stopReading];
     
 }
 
@@ -151,9 +178,9 @@
 - (BOOL)startReading {
     
     
-    [self setCaptureManager:[[CaptureSessionManager alloc] init] ];
+    [self setCaptureManager:[[CaptureSessionManager alloc] init]];
     
-    [[self captureManager] addVideoInputFrontCamera:YES]; // set to YES for Front Camera, No for Back camera
+    [[self captureManager] addVideoInputFrontCamera:NO]; // set to YES for Front Camera, No for Back camera
     
     [[self captureManager] addStillImageOutput];
     
@@ -170,7 +197,9 @@
     CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);//[[[self view] layer] bounds];
     [[[self captureManager] previewLayer] setBounds:layerRect];
     [[[self captureManager] previewLayer] setPosition:CGPointMake(CGRectGetMidX(layerRect),CGRectGetMidY(layerRect))];
-    [imageUIView.layer insertSublayer:[[self captureManager]previewLayer] below:dView.layer];
+    _subLayerCamera=[[self captureManager]previewLayer];
+    
+    [imageUIView.layer insertSublayer:_subLayerCamera below:dView.layer];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveImageToPhotoAlbum) name:kImageCapturedSuccessfully object:nil];
     
     [[captureManager captureSession] startRunning];
@@ -180,13 +209,23 @@
 
 - (void)saveImageToPhotoAlbum
 {
-    UIImageWriteToSavedPhotosAlbum([[self captureManager] stillImage], self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//    UIImageWriteToSavedPhotosAlbum([[self captureManager] stillImage], self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
-    UIImage *imag=[[self captureManager] stillImage];
+    _avCapturedImage=[[self captureManager] stillImage];
     
+    [self addViewsForSnapShot];
     
-    UIView *snapView=[[UIView alloc]initWithFrame:imageUIView.frame];
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:imag];
+    [[self captureManager]stop];
+
+    
+    [self takeSnapShot];
+
+}
+
+-(void)addViewsForSnapShot{
+    
+    _snapView=[[UIView alloc]initWithFrame:imageUIView.frame];
+    UIImageView *imageView = [[UIImageView alloc]init];//WithImage:imag];
     
     
     
@@ -199,35 +238,33 @@
     
     CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
     
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
     [imageView setFrame:layerRect];
-    [snapView addSubview:imageView];
-    [snapView addSubview:dView];
-   // [snapView bringSubviewToFront:dView];
     
-  //  [self setConstraints:imageView];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    imageView.image=_avCapturedImage;
+    [imageView setFrame:AVMakeRectWithAspectRatioInsideRect(imageView.image.size, _snapView.frame)];
+    [_snapView addSubview:imageView];
+    [_snapView addSubview:dView];
     
-    [self.view addSubview:snapView];
     
-    [[self captureManager]stop];
-
+    [self.view addSubview:_snapView];
     
-    [self takeSnapShot];
+    [self addTwoViews];
 
 }
 
--(void)setConstraints:(UIView *)view{
+-(void)addTwoViews{
     
-    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
+    _topV.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:_topV];
     
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.width.lessThanOrEqualTo(self);
-        make.height.lessThanOrEqualTo(self);
-        
-    }];
-   
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 550, imageUIView.frame.size.width, 150)];
+    _botV.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:_botV];
 }
+
+
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
@@ -244,6 +281,21 @@
     firstPicTaken=NO;
     secondPicTaken=NO;
     _bbitemStart.title=@"Take Pic";
+    
+    [_topV removeFromSuperview];
+    [_botV removeFromSuperview];
+    [dView removeFromSuperview];
+    [_snapView removeFromSuperview];
+    [_subLayerCamera removeFromSuperlayer];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kImageCapturedSuccessfully object:nil];
+   // [imageUIView removeFromSuperview];
+   
+    _topV=nil;
+    _botV=nil;
+    dView=nil;
+  //  imageUIView=nil;
+    _snapView=nil;
     
 }
 
