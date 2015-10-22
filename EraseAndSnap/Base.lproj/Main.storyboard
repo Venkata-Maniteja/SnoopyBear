@@ -25,9 +25,10 @@
                                         <color key="backgroundColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="ZBB-jU-NdN"/>
-                                            <barButtonItem title="Item" id="c8H-B1-Zw4">
+                                            <barButtonItem image="switch_camera.png" id="c8H-B1-Zw4">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="ZDJ-iE-3Pr"/>
                                         </items>
                                         <color key="barTintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
                                     </toolbar>
@@ -96,4 +97,7 @@
             <point key="canvasLocation" x="179" y="264"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="switch_camera.png" width="30" height="30"/>
+    </resources>
 </document>

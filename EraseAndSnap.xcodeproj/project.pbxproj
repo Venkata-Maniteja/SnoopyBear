@@ -20,6 +20,7 @@
 		B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821E1BD57EC100252C4B /* MobileCoreServices.framework */; };
 		B80582241BD5C4F200252C4B /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = B80582231BD5C4F200252C4B /* eraser.png */; settings = {ASSET_TAGS = (); }; };
 		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		B80582231BD5C4F200252C4B /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
 		B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
 		B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
+		B8E5F4441BD96FC2004A2172 /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		EBEA171CC22B7A2A6AA0490A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				B80582191BD57E6700252C4B /* drawView.h */,
 				B805821A1BD57E6700252C4B /* drawView.m */,
 				B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */,
+				B8E5F4441BD96FC2004A2172 /* switch_camera.png */,
 				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
 				B80582231BD5C4F200252C4B /* eraser.png */,
 				B80582091BD57BFB00252C4B /* Main.storyboard */,
@@ -191,6 +194,7 @@
 				B80582101BD57BFB00252C4B /* LaunchScreen.storyboard in Resources */,
 				B805820D1BD57BFB00252C4B /* Assets.xcassets in Resources */,
 				B805820B1BD57BFB00252C4B /* Main.storyboard in Resources */,
+				B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */,
 				B80582241BD5C4F200252C4B /* eraser.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
