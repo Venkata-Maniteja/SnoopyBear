@@ -26,7 +26,10 @@
 @property (assign) BOOL firstPicTaken;
 @property (assign) BOOL secondPicTaken;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraFlipButton;
 
+
+- (IBAction)cameraFlip:(id)sender;
 
 
 
@@ -40,25 +43,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+  
     firstPicTaken=NO;
     secondPicTaken=NO;
     // Do any additional setup after loading the view, typically from a nib.
     
-    
 }
 
 -(void)addTagsToViews{
-    
     _topV.tag=0;
     _botV.tag=1;
     _snapView.tag=2;
     imageUIView.tag=3;
     dView.tag=4;
-    
-    
-}
+ }
 
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -75,47 +73,38 @@
 -(IBAction)takeSecondPic:(id)sender{
     
     if (!firstPicTaken && !secondPicTaken) {
-        
-        
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = YES;
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
-        [self presentViewController:picker animated:YES completion:NULL];
-        
-    }
+                [self startCamera];
+        }
     
     if (firstPicTaken && !secondPicTaken) {
        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self startReading];
-            
+            [self startReading:NO];
             secondPicTaken=YES;
-            
             [_bbitemStart setTitle:@"Snap!!!!"];
-            
-            
-        });
+            });
     }
     
     if (secondPicTaken) {
-       
          [self takeScreenShot];
-        
-    }
+     }
     
+}
+
+-(void)startCamera{
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:NULL];
 }
 
 -(void)takeScreenShot{
     
        [[self captureManager] captureStillImage];
     
-    //[self stopReading];
-    
 }
-
 
 -(void)takeSnapShot{
     
@@ -123,11 +112,9 @@
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
     
 }
-
 
 - (IBAction)selectPhoto:(UIButton *)sender {
     
@@ -135,9 +122,7 @@
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
     [self presentViewController:picker animated:YES completion:NULL];
-    
     
 }
 
@@ -146,12 +131,12 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
     dView=[[drawView alloc]initWithFrame:imageUIView.frame];
+    dView.delegate=self;
     [dView drawImage:chosenImage];
-    
     [imageUIView addSubview:dView];
     
     firstPicTaken=YES;
-    
+    _bbitemStart.enabled=NO;
     _bbitemStart.title=@"Take Another Pic";
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
@@ -175,12 +160,11 @@
 
 #pragma mark - Private method implementation
 
-- (BOOL)startReading {
-    
+- (BOOL)startReading :(BOOL) value{
     
     [self setCaptureManager:[[CaptureSessionManager alloc] init]];
     
-    [[self captureManager] addVideoInputFrontCamera:NO]; // set to YES for Front Camera, No for Back camera
+    [[self captureManager] addVideoInputFrontCamera:value]; // set to YES for Front Camera, No for Back camera
     
     [[self captureManager] addStillImageOutput];
     
@@ -209,15 +193,10 @@
 
 - (void)saveImageToPhotoAlbum
 {
-//    UIImageWriteToSavedPhotosAlbum([[self captureManager] stillImage], self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
     _avCapturedImage=[[self captureManager] stillImage];
     
     [self addViewsForSnapShot];
-    
     [[self captureManager]stop];
-
-    
     [self takeSnapShot];
 
 }
@@ -227,28 +206,20 @@
     _snapView=[[UIView alloc]initWithFrame:imageUIView.frame];
     UIImageView *imageView = [[UIImageView alloc]init];//WithImage:imag];
     
-    
-    
     NSNumber *x=[[NSUserDefaults standardUserDefaults]objectForKey:@"x"];
     NSNumber *y=[[NSUserDefaults standardUserDefaults]objectForKey:@"y"];
     NSNumber *width=[[NSUserDefaults standardUserDefaults]objectForKey:@"width"];
     NSNumber *height=[[NSUserDefaults standardUserDefaults]objectForKey:@"height"];
     
-    
-    
     CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
     
     [imageView setFrame:layerRect];
-    
     [imageView setContentMode:UIViewContentModeScaleAspectFill];
     imageView.image=_avCapturedImage;
     [imageView setFrame:AVMakeRectWithAspectRatioInsideRect(imageView.image.size, _snapView.frame)];
     [_snapView addSubview:imageView];
     [_snapView addSubview:dView];
-    
-    
     [self.view addSubview:_snapView];
-    
     [self addTwoViews];
 
 }
@@ -299,11 +270,30 @@
     
 }
 
+- (IBAction)cameraFlip:(id)sender {
+         
+         [_subLayerCamera removeFromSuperlayer];
+         
+         [[NSNotificationCenter defaultCenter] removeObserver:self name:kImageCapturedSuccessfully object:nil];
+         
+         [[self captureManager]stop];
+         
+         [self startReading:YES];
+}
 
+#pragma drawView delegate methods
 
+-(void)setDrawStarted:(BOOL)value{
+    
+    if (value) {
+        _bbitemStart.enabled=YES;
+    }
+    
+}
 
-
-
-
+-(BOOL)drawStarted{
+    
+    return YES;
+}
 
 @end

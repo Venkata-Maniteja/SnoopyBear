@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fry-TS-fme">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="slQ-i1-vps">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -17,27 +17,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-I7-ZOa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
-                                <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eit-f5-9tY">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <animations/>
-                                        <color key="backgroundColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
-                                        <items>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="ZBB-jU-NdN"/>
-                                            <barButtonItem image="switch_camera.png" id="c8H-B1-Zw4">
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="ZDJ-iE-3Pr"/>
-                                        </items>
-                                        <color key="barTintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
-                                    </toolbar>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9u-aa-LHm">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -87,12 +72,45 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="4om-bI-wpC">
+                        <barButtonItem key="rightBarButtonItem" image="switch_camera.png" id="IIB-Is-NWE">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cameraFlip:" destination="Fry-TS-fme" id="2B4-RX-oOZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bbitemStart" destination="hwu-gv-Jmd" id="Ie9-cx-AEn"/>
+                        <outlet property="cameraFlipButton" destination="IIB-Is-NWE" id="gFI-gJ-raw"/>
+                        <outlet property="choosePic" destination="pal-Uh-M4v" id="xx3-k6-Qa5"/>
+                        <outlet property="clear" destination="LMq-4A-fJF" id="saJ-IV-Htz"/>
                         <outlet property="imageUIView" destination="uQL-I7-ZOa" id="evD-xD-3Al"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJY-Lt-MvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991" y="264"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iJl-uS-ZPM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="slQ-i1-vps" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rww-B3-SXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="barTintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fry-TS-fme" kind="relationship" relationship="rootViewController" id="pfJ-Iw-hJw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSN-CA-YLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="179" y="264"/>
         </scene>

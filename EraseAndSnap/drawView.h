@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+
+@protocol DrawViewProtocolDelegate <NSObject>
+@required
+@property (assign) BOOL drawStarted;
+//-(BOOL)drawingStarted;
+//-(void)drawStarted:(BOOL) value;
+@end
+
+
 @interface drawView : UIView{
     
     CGPoint		location;
@@ -20,7 +29,7 @@
    
     
 }
-
+@property (assign) id<DrawViewProtocolDelegate> delegate;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong)  UIImage  *pic;
 

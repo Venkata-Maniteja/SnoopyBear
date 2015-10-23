@@ -12,6 +12,8 @@
 
 @implementation drawView
 
+@synthesize delegate;
+
 - (id)initWithFrame:(CGRect)frame {
     
     self = [super initWithFrame:frame];
@@ -19,6 +21,7 @@
         wipingInProgress = NO;
         eraser = [UIImage imageNamed:@"eraser.png"];
         [self setBackgroundColor:[UIColor clearColor]];
+        
         
                
     }
@@ -42,7 +45,7 @@
 -(void)drawImage:(UIImage *) imageToDraw{
     
     self.pic=imageToDraw;
-    [imageToDraw drawInRect:self.frame];
+//    [imageToDraw drawInRect:self.frame];
     
     wipingInProgress = NO;
     
@@ -57,6 +60,8 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     wipingInProgress = YES;
+    
+    [self.delegate setDrawStarted:YES];
     
 }
 
@@ -126,28 +131,14 @@
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.y] forKey:@"y"];
         
         // draw the image
-//        self.pic.CGImage tranform
-       // CGContextRotateCTM (context, -90/180*M_PI);
-        CGContextDrawImage(context, imageRect, self.pic.CGImage);
+        [self.pic drawInRect:imageRect];
         
-        CGAffineTransform transform = CGAffineTransformMakeRotation(radians(180));
-        self.transform = transform;
-        
-        // Repositions and resizes the view.
-        CGRect contentRect = self.frame;
-        self.bounds = contentRect;
-        
-        
-//        CGContextRotateCTM (context, radians(90));
-//        CGContextTranslateCTM(context, 0, rect.size.height);
-    }
+     }
     
     // Save the screen to restore next time around
     imageRef = CGBitmapContextCreateImage(context);
     
 }
-
-static inline double radians (double degrees) {return degrees * M_PI/180;}
 
 
 @end
