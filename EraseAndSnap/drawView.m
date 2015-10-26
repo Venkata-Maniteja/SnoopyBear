@@ -58,22 +58,30 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.drawLock) {
     
-    wipingInProgress = YES;
-    
-    [self.delegate setDrawStarted:YES];
+        wipingInProgress = YES;
+        
+        [self.delegate setDrawStarted:YES];
+        
+    }
     
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    if ([touches count] == 1) {
-        UITouch *touch = [touches anyObject];
-        location = [touch locationInView:self];
-        location.x -= [eraser size].width/2;
-        location.y -= [eraser size].width/2;
-        [self setNeedsDisplay];
+    if (!self.drawLock) {
+        
+        if ([touches count] == 1) {
+            UITouch *touch = [touches anyObject];
+            location = [touch locationInView:self];
+            location.x -= [eraser size].width/2;
+            location.y -= [eraser size].width/2;
+            [self setNeedsDisplay];
+        }
+
     }
+    
     
 }
 

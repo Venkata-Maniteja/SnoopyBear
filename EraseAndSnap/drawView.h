@@ -32,6 +32,7 @@
 @property (assign) id<DrawViewProtocolDelegate> delegate;
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong)  UIImage  *pic;
+@property (assign) BOOL drawLock;
 
 -(void)stopShot;
 -(void)recordScreen;

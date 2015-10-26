@@ -9,9 +9,10 @@
 #import "ViewController.h"
 #import "drawView.h"
 #import <ImageIO/CGImageProperties.h>
+#import <Photos/Photos.h>
 #import "Masonry.h"
 
-@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate>
+@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate>
 
 @property (strong,nonatomic) IBOutlet UIView *imageUIView;
 @property (nonatomic,strong) UIView *topV;
@@ -20,14 +21,25 @@
 @property  (strong,nonatomic) drawView *dView;
 
 @property (nonatomic,strong) UIImage *avCapturedImage;
+@property (nonatomic,strong) UIImage *savedImage;
 @property (nonatomic,strong) CALayer *subLayerCamera;
+
+
 
 
 @property (assign) BOOL firstPicTaken;
 @property (assign) BOOL secondPicTaken;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraFlipButton;
+@property (nonatomic,strong) NSArray *paths;
+@property (nonatomic,strong) NSString *documentsDirectory;
+@property (nonatomic,strong) NSString *savedImagePath;
 
+@property (nonatomic,strong) UIDocumentInteractionController *documentInteractionController;
+
+
+
+typedef double (^SpeedFunction)(double);
 
 - (IBAction)cameraFlip:(id)sender;
 
@@ -43,6 +55,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _documentsDirectory = [_paths objectAtIndex:0];
+    _savedImagePath = [_documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
   
     firstPicTaken=NO;
     secondPicTaken=NO;
@@ -56,19 +72,21 @@
     _snapView.tag=2;
     imageUIView.tag=3;
     dView.tag=4;
- }
+    
+    }
 
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
     
+    _cameraFlipButton.enabled=NO;
+    
     [self addTagsToViews];
+    
     
 }
 
--(IBAction)clear:(id)sender{
-    [self stopReading];
-}
+
 
 -(IBAction)takeSecondPic:(id)sender{
     
@@ -82,6 +100,8 @@
             [self startReading:NO];
             secondPicTaken=YES;
             [_bbitemStart setTitle:@"Snap!!!!"];
+            
+            dView.drawLock=YES;
             });
     }
     
@@ -104,15 +124,115 @@
     
        [[self captureManager] captureStillImage];
     
+    [self showAlert];
+    
+}
+
+-(void)showAlert{
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Image Saved in Album"
+                                  message:@"What you would like to do now ?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Continue editing"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self stopReading];
+                             
+                             dView=[[drawView alloc]initWithFrame:imageUIView.frame];
+                             dView.delegate=self;
+                             [dView drawImage:_savedImage];
+                             dView.drawLock=NO;
+                             [imageUIView addSubview:dView];
+                             
+                             firstPicTaken=YES;
+                             _bbitemStart.enabled=NO;
+                             _bbitemStart.title=@"Take Another Pic";
+                             
+                             
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    UIAlertAction* share = [UIAlertAction
+                             actionWithTitle:@"Share"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [self shareImage];
+                                 
+                                 
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:ok];
+    [alert addAction:share];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
+-(void)shareImage{
+    
+    UIButton *button = (UIButton *)nil;
+    NSURL *URL = [NSURL fileURLWithPath:_savedImagePath];
+    
+    if (URL) {
+        // Initialize Document Interaction Controller
+        self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
+        
+        // Configure Document Interaction Controller
+        [self.documentInteractionController setDelegate:self];
+        
+        // Present Open In Menu
+        [self.documentInteractionController presentOpenInMenuFromRect:[button frame] inView:self.view animated:YES];
+    }
+    
 }
 
 -(void)takeSnapShot{
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
+    UIGraphicsBeginImageContext(self.imageUIView.frame.size);
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    _savedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    //UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
+    
+//    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//        PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:_savedImage];
+//        
+//    } completionHandler:^(BOOL success, NSError *error) {
+//        if (success) {
+//            
+//            
+//            
+//        }
+//        else {
+//            
+//        }
+//    }];
+    
+    [self saveImageAtPath];
+    
+    
+    
+    
+}
+
+-(void)saveImageAtPath{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    
+    [fileManager removeItemAtPath:_savedImagePath error:&error];
+    
+    NSData *imageData = UIImagePNGRepresentation(_savedImage);
+    [imageData writeToFile:_savedImagePath atomically:NO];
+
+    
     
 }
 
@@ -133,6 +253,7 @@
     dView=[[drawView alloc]initWithFrame:imageUIView.frame];
     dView.delegate=self;
     [dView drawImage:chosenImage];
+    dView.drawLock=NO;
     [imageUIView addSubview:dView];
     
     firstPicTaken=YES;
@@ -287,9 +408,12 @@
     
     if (value) {
         _bbitemStart.enabled=YES;
+        _cameraFlipButton.enabled=YES;
     }
     
 }
+
+
 
 -(BOOL)drawStarted{
     

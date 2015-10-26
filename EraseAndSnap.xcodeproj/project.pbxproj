@@ -15,12 +15,12 @@
 		B805820D1BD57BFB00252C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B805820C1BD57BFB00252C4B /* Assets.xcassets */; };
 		B80582101BD57BFB00252C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B805820E1BD57BFB00252C4B /* LaunchScreen.storyboard */; };
 		B80582181BD57CFA00252C4B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B80582171BD57CFA00252C4B /* AVFoundation.framework */; };
-		B805821B1BD57E6700252C4B /* drawView.m in Sources */ = {isa = PBXBuildFile; fileRef = B805821A1BD57E6700252C4B /* drawView.m */; settings = {ASSET_TAGS = (); }; };
+		B805821B1BD57E6700252C4B /* drawView.m in Sources */ = {isa = PBXBuildFile; fileRef = B805821A1BD57E6700252C4B /* drawView.m */; };
 		B805821D1BD57EBB00252C4B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821C1BD57EBB00252C4B /* ImageIO.framework */; };
 		B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821E1BD57EC100252C4B /* MobileCoreServices.framework */; };
-		B80582241BD5C4F200252C4B /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = B80582231BD5C4F200252C4B /* eraser.png */; settings = {ASSET_TAGS = (); }; };
-		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; settings = {ASSET_TAGS = (); }; };
-		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; settings = {ASSET_TAGS = (); }; };
+		B80582241BD5C4F200252C4B /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = B80582231BD5C4F200252C4B /* eraser.png */; };
+		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; };
+		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
