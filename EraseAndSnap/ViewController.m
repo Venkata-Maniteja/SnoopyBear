@@ -37,10 +37,6 @@
 
 @property (nonatomic,strong) UIDocumentInteractionController *documentInteractionController;
 
-
-
-typedef double (^SpeedFunction)(double);
-
 - (IBAction)cameraFlip:(id)sender;
 
 
@@ -86,6 +82,9 @@ typedef double (^SpeedFunction)(double);
     
 }
 
+-(IBAction)clear:(id)sender{
+    [self stopReading];
+}
 
 
 -(IBAction)takeSecondPic:(id)sender{
