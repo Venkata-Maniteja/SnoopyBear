@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EraseAndSnap/ViewController.m"
-            timestampString = "467572556.40609"
+            timestampString = "467655922.797628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "-startCamera"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-showAlert"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

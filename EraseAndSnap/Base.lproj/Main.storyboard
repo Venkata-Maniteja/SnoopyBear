@@ -19,7 +19,7 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-I7-ZOa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9u-aa-LHm">
                                 <rect key="frame" x="0.0" y="512" width="600" height="44"/>
@@ -41,19 +41,13 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="9gs-EY-6RD"/>
-                                    <barButtonItem title="Clear" id="LMq-4A-fJF">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="clear:" destination="Fry-TS-fme" id="H0H-dk-Va9"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WZM-0w-LHi"/>
                                 </items>
                                 <color key="barTintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uQL-I7-ZOa" firstAttribute="top" secondItem="Xkr-I2-Bc2" secondAttribute="top" id="3gl-Pd-cXM"/>
                             <constraint firstItem="5d4-hz-HOr" firstAttribute="top" secondItem="U9u-aa-LHm" secondAttribute="bottom" id="EFv-vW-84p"/>
@@ -74,6 +68,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4om-bI-wpC">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="6Cj-e9-JmR">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="clear:" destination="Fry-TS-fme" id="uIa-9n-udR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="switch_camera.png" id="IIB-Is-NWE">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -86,7 +86,7 @@
                         <outlet property="bbitemStart" destination="hwu-gv-Jmd" id="Ie9-cx-AEn"/>
                         <outlet property="cameraFlipButton" destination="IIB-Is-NWE" id="gFI-gJ-raw"/>
                         <outlet property="choosePic" destination="pal-Uh-M4v" id="xx3-k6-Qa5"/>
-                        <outlet property="clear" destination="LMq-4A-fJF" id="saJ-IV-Htz"/>
+                        <outlet property="clear" destination="6Cj-e9-JmR" id="QJg-Ml-L6T"/>
                         <outlet property="imageUIView" destination="uQL-I7-ZOa" id="evD-xD-3Al"/>
                     </connections>
                 </viewController>

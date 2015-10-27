@@ -79,6 +79,8 @@
     
     [self addTagsToViews];
     
+   
+    
     
 }
 
@@ -150,7 +152,7 @@
                              firstPicTaken=YES;
                              _bbitemStart.enabled=NO;
                              _bbitemStart.title=@"Take Another Pic";
-                             
+                             _choosePic.enabled=NO;
                              
                              [alert dismissViewControllerAnimated:YES completion:nil];
                              
@@ -258,11 +260,13 @@
     firstPicTaken=YES;
     _bbitemStart.enabled=NO;
     _bbitemStart.title=@"Take Another Pic";
+    _choosePic.enabled=NO;
+    
+    [self addViewsBasedOnScreenSize];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
-
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -275,6 +279,29 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)addViewsBasedOnScreenSize{
+    
+    if ([[UIScreen mainScreen]bounds].size.height==568) {
+        
+        [self addTwoViewsForiPhone5];
+    }
+    
+    if ([[UIScreen mainScreen]bounds].size.height==480) {
+        
+        [self addTwoViewsForiPhone4];
+    }
+    
+    if ([[UIScreen mainScreen]bounds].size.height==667) {
+        
+        [self addTwoViewsForiPhone6];
+    }
+    
+    if ([[UIScreen mainScreen]bounds].size.height==736) {
+        
+        [self addTwoViews];
+    }
 }
 
 
@@ -355,6 +382,39 @@
     [self.view addSubview:_botV];
 }
 
+-(void)addTwoViewsForiPhone4{
+    
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
+    _topV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_topV];
+    
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 320, imageUIView.frame.size.width, 150)];
+    _botV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_botV];
+}
+
+-(void)addTwoViewsForiPhone5{
+    
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 160)];
+    _topV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_topV];
+    
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 360, imageUIView.frame.size.width, 170)];
+    _botV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_botV];
+}
+
+-(void)addTwoViewsForiPhone6{
+    
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 190)];
+    _topV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_topV];
+    
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 430, imageUIView.frame.size.width, 200)];
+    _botV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_botV];
+}
+
 
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -372,6 +432,7 @@
     firstPicTaken=NO;
     secondPicTaken=NO;
     _bbitemStart.title=@"Take Pic";
+    _choosePic.enabled=YES;
     
     [_topV removeFromSuperview];
     [_botV removeFromSuperview];
