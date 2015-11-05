@@ -22,7 +22,6 @@
 		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; };
 		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; };
 		B8FAC83E1BDFD6EC0042F5B2 /* EraseAndSnap.png in Resources */ = {isa = PBXBuildFile; fileRef = B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */; };
-		B8FAC8401BDFDC010042F5B2 /* iPhone4S.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8FAC83F1BDFDC010042F5B2 /* iPhone4S.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +47,6 @@
 		B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
 		B8E5F4441BD96FC2004A2172 /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EraseAndSnap.png; sourceTree = "<group>"; };
-		B8FAC83F1BDFDC010042F5B2 /* iPhone4S.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone4S.storyboard; sourceTree = "<group>"; };
 		EBEA171CC22B7A2A6AA0490A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +109,6 @@
 				B80582231BD5C4F200252C4B /* eraser.png */,
 				B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */,
 				B80582091BD57BFB00252C4B /* Main.storyboard */,
-				B8FAC83F1BDFDC010042F5B2 /* iPhone4S.storyboard */,
 				B805820C1BD57BFB00252C4B /* Assets.xcassets */,
 				B805820E1BD57BFB00252C4B /* LaunchScreen.storyboard */,
 				B80582111BD57BFC00252C4B /* Info.plist */,
@@ -204,7 +201,6 @@
 				B805820B1BD57BFB00252C4B /* Main.storyboard in Resources */,
 				B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */,
 				B80582241BD5C4F200252C4B /* eraser.png in Resources */,
-				B8FAC8401BDFDC010042F5B2 /* iPhone4S.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +379,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VenkataManiteja.EraseAndSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -396,6 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VenkataManiteja.EraseAndSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

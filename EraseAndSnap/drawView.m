@@ -133,6 +133,8 @@
         CGRect imageRect = AVMakeRectWithAspectRatioInsideRect(self.pic.size,
                                                                targetBounds);
         
+        
+        
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.size.height] forKey:@"height"];
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.size.width] forKey:@"width"];
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.x] forKey:@"x"];

@@ -86,6 +86,8 @@
 
 -(IBAction)clear:(id)sender{
     [self stopReading];
+    
+    _cameraFlipButton.enabled=NO;
 }
 
 
@@ -194,6 +196,31 @@
     
 }
 
+-(void)enableDrawLock{
+    
+    dView.drawLock=YES;
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Trail Period Expired"
+                                  message:@"Purchase the app to remove the erase lock"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Ok"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+   
+}
+
 -(void)takeSnapShot{
     
     UIGraphicsBeginImageContext(self.imageUIView.frame.size);
@@ -264,6 +291,8 @@
     
     [self addViewsBasedOnScreenSize];
     
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(enableDrawLock) userInfo:nil repeats:NO];
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -301,6 +330,14 @@
     if ([[UIScreen mainScreen]bounds].size.height==736) {
         
         [self addTwoViews];
+    }
+    if ([[UIScreen mainScreen]bounds].size.height==1024) {
+        
+        [self addTwoViewsForiPadRetina];
+    }
+    if ([[UIScreen mainScreen]bounds].size.height==1366) {
+        
+        [self addTwoViewsForiPadPro];
     }
 }
 
@@ -382,6 +419,30 @@
     [self.view addSubview:_botV];
 }
 
+-(void)addTwoViewsForiPadRetina{
+    
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 240)];
+    _topV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_topV];
+    
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 740, imageUIView.frame.size.width, 240)];
+    _botV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_botV];
+    
+    
+}
+
+-(void)addTwoViewsForiPadPro{
+    
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 330)];
+    _topV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_topV];
+    
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 962, imageUIView.frame.size.width, 360)];
+    _botV.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:_botV];
+}
+
 -(void)addTwoViewsForiPhone4{
     
     _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
@@ -420,9 +481,7 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error != NULL) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"Image couldn't be saved" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-        
+            //show alert
     }
     
 }
