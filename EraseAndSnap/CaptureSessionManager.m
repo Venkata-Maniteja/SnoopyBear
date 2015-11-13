@@ -118,26 +118,9 @@
                                                          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];    
                                                          UIImage *image = [[UIImage alloc]initWithData:imageData];
                                                            
-//                                                           UIImage *tempImage = nil;
-//                                                           CGSize targetSize = CGSizeMake(414,414);
-//                                                           UIGraphicsBeginImageContext(targetSize);
-//                                                           
-//                                                           CGRect thumbnailRect = CGRectMake(0, 0, 0, 0);
-//                                                           thumbnailRect.origin = CGPointMake(0.0,0.0);
-//                                                           thumbnailRect.size.width  = targetSize.width;
-//                                                           thumbnailRect.size.height = targetSize.height;
-//                                                           
-//                                                           [image drawInRect:thumbnailRect];
-//                                                           
-//                                                           tempImage = UIGraphicsGetImageFromCurrentImageContext();
-//                                                           
-//                                                           UIGraphicsEndImageContext();
-                                                          
+                                                      
                                                          [self setStillImage:image];
                                                            
-//                                                           [self setStillImage:tempImage];
-                                                           
-                                                                                                                      
                                                          [[NSNotificationCenter defaultCenter] postNotificationName:kImageCapturedSuccessfully object:nil];
                                                        }];
 }

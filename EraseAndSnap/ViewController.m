@@ -84,6 +84,7 @@
     
 }
 
+
 -(IBAction)clear:(id)sender{
     [self stopReading];
     
@@ -164,8 +165,11 @@
                              style:UIAlertActionStyleDefault
                              handler:^(UIAlertAction * action)
                              {
-                                 [self shareImage];
                                  
+                                 
+                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                     [self shareImage];
+                                 });
                                  
                                  [alert dismissViewControllerAnimated:YES completion:nil];
                                  
@@ -180,7 +184,6 @@
 
 -(void)shareImage{
     
-    UIButton *button = (UIButton *)nil;
     NSURL *URL = [NSURL fileURLWithPath:_savedImagePath];
     
     if (URL) {
@@ -191,8 +194,40 @@
         [self.documentInteractionController setDelegate:self];
         
         // Present Open In Menu
-        [self.documentInteractionController presentOpenInMenuFromRect:[button frame] inView:self.view animated:YES];
+        [self.documentInteractionController presentOptionsMenuFromBarButtonItem:_choosePic animated:YES];
     }
+    
+}
+
+
+
+- (void)documentInteractionControllerDidDismissOptionsMenu:(UIDocumentInteractionController *) controller
+{
+    
+    NSLog(@"cancelled/dismissed");
+    
+    [self stopReading];
+    
+    _cameraFlipButton.enabled=NO;
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Share View Dismissed"
+                                  message:@"The view is cleared as the share view is dismissed. The image is still saved in the camera roll for future reference"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"ok"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
     
 }
 
@@ -227,7 +262,7 @@
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     _savedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    //UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
     
 //    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
 //        PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:_savedImage];
@@ -289,9 +324,9 @@
     _bbitemStart.title=@"Take Another Pic";
     _choosePic.enabled=NO;
     
-    [self addViewsBasedOnScreenSize];
+//    [self addViewsBasedOnScreenSize];
     
-    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(enableDrawLock) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(enableDrawLock) userInfo:nil repeats:NO];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
