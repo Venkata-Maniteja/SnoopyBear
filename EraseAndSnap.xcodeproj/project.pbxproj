@@ -19,6 +19,7 @@
 		B805821D1BD57EBB00252C4B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821C1BD57EBB00252C4B /* ImageIO.framework */; };
 		B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821E1BD57EC100252C4B /* MobileCoreServices.framework */; };
 		B80582241BD5C4F200252C4B /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = B80582231BD5C4F200252C4B /* eraser.png */; };
+		B82058391C20670600C00CE8 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82058381C20670600C00CE8 /* CoreImage.framework */; };
 		B8211A931C08A41A0061C290 /* SnappingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8211A921C08A41A0061C290 /* SnappingView.m */; };
 		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; };
 		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; };
@@ -44,6 +45,7 @@
 		B805821C1BD57EBB00252C4B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B805821E1BD57EC100252C4B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B80582231BD5C4F200252C4B /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
+		B82058381C20670600C00CE8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B8211A911C08A41A0061C290 /* SnappingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnappingView.h; sourceTree = "<group>"; };
 		B8211A921C08A41A0061C290 /* SnappingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnappingView.m; sourceTree = "<group>"; };
 		B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82058391C20670600C00CE8 /* CoreImage.framework in Frameworks */,
 				B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */,
 				B805821D1BD57EBB00252C4B /* ImageIO.framework in Frameworks */,
 				B80582181BD57CFA00252C4B /* AVFoundation.framework in Frameworks */,
@@ -71,6 +74,7 @@
 		0C97A46CF6B785ED2F53DD60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B82058381C20670600C00CE8 /* CoreImage.framework */,
 				A249167AE2131EAB867E7B14 /* libPods.a */,
 			);
 			name = Frameworks;

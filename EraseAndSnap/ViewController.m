@@ -62,7 +62,7 @@
     firstPicTaken=NO;
     secondPicTaken=NO;
     
-    self.view.backgroundColor=[UIColor blackColor];
+    self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view, typically from a nib.
     
 }
@@ -305,12 +305,12 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    dView=[[drawView alloc]initWithFrame:imageUIView.frame];
+    dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)];
     dView.delegate=self;
     [dView drawImage:chosenImage];
     dView.drawLock=NO;
     [imageUIView addSubview:dView];
-    
+    [self animateImageUIView];
     
     firstPicTaken=YES;
     _bbitemStart.enabled=NO;
@@ -330,6 +330,20 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+-(void)animateImageUIView{
+    
+        imageUIView.alpha=1.0f;
+    [UIView animateWithDuration:2.0f animations:^{
+        imageUIView.alpha=0.0f;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:2.0f animations:^{
+            
+            [imageUIView setAlpha:1.0f];
+            
+        } completion:nil];
+    }];
 }
 
 

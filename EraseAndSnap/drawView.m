@@ -144,11 +144,16 @@
         // draw the image
        // [self.pic drawInRect:imageRect];
         
-        [self.pic drawInRect:self.frame];
-     }
+            [self.pic drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];//self.frame];
+        }
     
     // Save the screen to restore next time around
     imageRef = CGBitmapContextCreateImage(context);
+    
+}
+
+-(void)drawWithAnimation:(BOOL)value{
+    
     
 }
 
