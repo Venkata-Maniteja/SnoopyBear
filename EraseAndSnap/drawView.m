@@ -19,10 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         wipingInProgress = NO;
-        eraser = [UIImage imageNamed:@"eraser.png"];
-        [self setBackgroundColor:[UIColor clearColor]];
-        
-        
+              [self setBackgroundColor:[UIColor clearColor]];
                
     }
     return self;
@@ -40,6 +37,12 @@
     
     [self setNeedsDisplay];
     
+}
+
+-(void)setErase:(NSString *)name{
+    
+    eraser = [UIImage imageNamed:name];
+
 }
 
 -(void)drawImage:(UIImage *) imageToDraw{

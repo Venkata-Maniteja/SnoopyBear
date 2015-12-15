@@ -12,14 +12,33 @@
 #import <ImageIO/CGImageProperties.h>
 #import <Photos/Photos.h>
 #import "Masonry.h"
+#import "EraserCollectionViewCell.h"
 
-@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate>
+static const CGFloat kSlideMenuHeight = 95;
+static const CGFloat kSlideMenuOvershoot = 20;
+static const CGFloat kSlideCollectionViewHolderHeight = 200+kSlideMenuHeight;
+static const CGFloat kSlideCollectionViewOvershoot = 40;
 
-@property (strong,nonatomic) IBOutlet UIView *imageUIView;
-@property (nonatomic,strong) UIView *topV;
-@property (nonatomic,strong) UIView *botV;
-@property (nonatomic,strong) SnappingView *snapView;
-@property  (strong,nonatomic) drawView *dView;
+
+@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
+    
+    IBOutlet UICollectionView * eraserCollectionView;
+    BOOL    menuOpen;
+    BOOL    menuClose;
+    BOOL    isEraserSelected;
+    int     eraserSelected;
+}
+
+@property (strong,nonatomic)    IBOutlet UIView                 *   imageUIView;
+@property (nonatomic,weak)      IBOutlet UIView                 *   slideMenu;
+@property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForSlideMenu;
+@property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForCollectionViewHolder;
+
+@property (nonatomic,weak)      IBOutlet UIView                 *   collectionViewHolder;
+@property (nonatomic,strong)             UIView                 *   topV;
+@property (nonatomic,strong)             UIView                 *   botV;
+@property (nonatomic,strong)             SnappingView           *   snapView;
+@property  (strong,nonatomic)            drawView               *   dView;
 
 @property (nonatomic,strong) UIImage *avCapturedImage;
 @property (nonatomic,strong) UIImage *savedImage;
@@ -65,8 +84,93 @@
     self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self addSwipeGesture];
+    
+    _slideMenu.alpha=0.0f;
+    _collectionViewHolder.alpha=0.0f;
+
+    
+//    [self->eraserCollectionView registerClass:[EraserCollectionViewCell class] forCellWithReuseIdentifier:@"EraserCollectionViewCell"];
+   
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setItemSize:CGSizeMake(180, eraserCollectionView.frame.size.height-40)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    
+    [self->eraserCollectionView setCollectionViewLayout:flowLayout];
+
+
 }
 
+-(void)addSwipeGesture{
+    
+    UISwipeGestureRecognizer *recognizerDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFromDown:)];
+    recognizerDown.delegate=self;
+    [recognizerDown setDirection:(UISwipeGestureRecognizerDirectionDown)];
+    [[self view] addGestureRecognizer:recognizerDown];
+   
+    
+    UISwipeGestureRecognizer *recognizerUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFromUp:)];
+    recognizerUp.delegate=self;
+    [recognizerUp setDirection:(UISwipeGestureRecognizerDirectionUp)];
+    [[self view] addGestureRecognizer:recognizerUp];
+    
+}
+
+-(void)handleSwipeFromDown:(id)sender{
+    
+    NSLog(@"swiped down");
+    
+    [imageUIView bringSubviewToFront:_slideMenu];
+     _slideMenu.alpha=1.0f;
+    
+    _topConstraintForSlideMenu.constant = -kSlideMenuHeight - kSlideMenuOvershoot;
+    [self.view layoutIfNeeded];
+    
+    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = 0;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = -kSlideMenuOvershoot;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+
+    
+
+}
+
+-(void)handleSwipeFromUp:(id)sender{
+    
+    NSLog(@"swiped up");
+    
+    [self.view layoutIfNeeded];
+    
+    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = 0;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = -kSlideMenuHeight;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+    
+        _slideMenu.alpha=1.0f;;
+    }];
+    
+    
+    
+}
 -(void)addTagsToViews{
     _topV.tag=0;
     _botV.tag=1;
@@ -152,10 +256,11 @@
                          {
                              [self stopReading];
                              
-                             dView=[[drawView alloc]initWithFrame:imageUIView.frame];
+                             dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)];
                              dView.delegate=self;
                              [dView drawImage:_savedImage];
                              dView.drawLock=NO;
+                             dView.imgName=@"eraser.png";
                              [imageUIView addSubview:dView];
                              
                              firstPicTaken=YES;
@@ -309,6 +414,7 @@
     dView.delegate=self;
     [dView drawImage:chosenImage];
     dView.drawLock=NO;
+    [dView setErase:@"eraser.png"];
     [imageUIView addSubview:dView];
     [self animateImageUIView];
     
@@ -441,7 +547,7 @@
 //    
 //    CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
     
-    _snapView=[[SnappingView alloc]initWithFrame:imageUIView.bounds]; //imageUIView frame
+    _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
     
     
 //    [imageView setFrame:layerRect];
@@ -608,5 +714,138 @@
     
     return YES;
 }
+
+
+#pragma eraser collectionview delegate methods
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    return 3;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *cellIdentifier = @"EraserCollectionViewCell";
+    
+    EraserCollectionViewCell *cell = (EraserCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.layer.borderColor=[[UIColor clearColor]CGColor];
+    cell.layer.borderWidth=0.0;
+    cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
+    cell.imgView.backgroundColor=[UIColor purpleColor];
+    if (indexPath.row==0) {
+        
+        cell.imgView.image=[UIImage imageNamed:@"circleShape.png"];
+        
+    }
+    if (indexPath.row==1) {
+        cell.imgView.image=[UIImage imageNamed:@"heartShape.png"];
+    }
+    
+    
+       return cell;
+    
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    EraserCollectionViewCell *cell = (EraserCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    cell.layer.borderColor=[[UIColor colorWithRed:13/255.0 green:79/255.0 blue:139/255.0 alpha:1]CGColor];
+    cell.layer.borderWidth=3.0;
+    eraserSelected=indexPath.row;
+    isEraserSelected=YES;
+    
+    if (eraserSelected==0) {
+        
+            [dView setErase:@"eraser.png"];
+    }
+    if (eraserSelected==1) {
+           [dView setErase:@"heart.png"];
+    }
+    
+    [self hideCollectionView];
+    
+    // cell.backgroundColor = [UIColor magentaColor];
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    EraserCollectionViewCell *cell = (EraserCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.layer.borderColor=[[UIColor clearColor]CGColor];
+    cell.layer.borderWidth=0.0;
+    cell.backgroundColor = [UIColor whiteColor];
+    
+    isEraserSelected=NO;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return CGSizeMake(120.0f, 120.0f);
+}
+
+#pragma menu bar action methods
+
+-(IBAction)clickOnErase:(id)sender{
+    
+    _collectionViewHolder.alpha=1.0f;
+    [imageUIView bringSubviewToFront:_collectionViewHolder];
+    
+    _topConstraintForCollectionViewHolder.constant = -kSlideCollectionViewHolderHeight - kSlideCollectionViewOvershoot;
+    [self.view layoutIfNeeded];
+    
+    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        _topConstraintForCollectionViewHolder.constant = kSlideMenuHeight;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        _topConstraintForCollectionViewHolder.constant = kSlideCollectionViewOvershoot-40;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+}
+
+-(void)hideCollectionView{
+    
+    _collectionViewHolder.alpha=1.0f;
+    
+    
+    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        _topConstraintForCollectionViewHolder.constant = 0;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        _topConstraintForCollectionViewHolder.constant = -kSlideMenuHeight-kSlideCollectionViewHolderHeight;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        
+        _collectionViewHolder.alpha=1.0f;
+        
+        //also hide the menu if needed
+    }];
+    
+
+
+    
+    
+}
+
 
 @end
