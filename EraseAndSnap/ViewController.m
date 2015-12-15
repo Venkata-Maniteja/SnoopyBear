@@ -27,6 +27,7 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     BOOL    menuClose;
     BOOL    isEraserSelected;
     int     eraserSelected;
+    
 }
 
 @property (strong,nonatomic)    IBOutlet UIView                 *   imageUIView;
@@ -35,8 +36,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 @property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForCollectionViewHolder;
 
 @property (nonatomic,weak)      IBOutlet UIView                 *   collectionViewHolder;
-@property (nonatomic,strong)             UIView                 *   topV;
-@property (nonatomic,strong)             UIView                 *   botV;
 @property (nonatomic,strong)             SnappingView           *   snapView;
 @property  (strong,nonatomic)            drawView               *   dView;
 
@@ -74,111 +73,40 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initialSetup];
+
+}
+
+-(void)initialSetup{
+    
     _paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _documentsDirectory = [_paths objectAtIndex:0];
     _savedImagePath = [_documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
-  
+    
     firstPicTaken=NO;
     secondPicTaken=NO;
     
     self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self addSwipeGesture];
     
     _slideMenu.alpha=0.0f;
     _collectionViewHolder.alpha=0.0f;
-
     
-//    [self->eraserCollectionView registerClass:[EraserCollectionViewCell class] forCellWithReuseIdentifier:@"EraserCollectionViewCell"];
-   
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(180, eraserCollectionView.frame.size.height-40)];
     [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     [self->eraserCollectionView setCollectionViewLayout:flowLayout];
-
-
 }
 
--(void)addSwipeGesture{
-    
-    UISwipeGestureRecognizer *recognizerDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFromDown:)];
-    recognizerDown.delegate=self;
-    [recognizerDown setDirection:(UISwipeGestureRecognizerDirectionDown)];
-    [[self view] addGestureRecognizer:recognizerDown];
-   
-    
-    UISwipeGestureRecognizer *recognizerUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFromUp:)];
-    recognizerUp.delegate=self;
-    [recognizerUp setDirection:(UISwipeGestureRecognizerDirectionUp)];
-    [[self view] addGestureRecognizer:recognizerUp];
-    
-}
-
--(void)handleSwipeFromDown:(id)sender{
-    
-    NSLog(@"swiped down");
-    
-    [imageUIView bringSubviewToFront:_slideMenu];
-     _slideMenu.alpha=1.0f;
-    
-    _topConstraintForSlideMenu.constant = -kSlideMenuHeight - kSlideMenuOvershoot;
-    [self.view layoutIfNeeded];
-    
-    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        _topConstraintForSlideMenu.constant = 0;
-        [self.view layoutIfNeeded];
-        
-    } completion:^(BOOL finished) {}];
-    
-    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        _topConstraintForSlideMenu.constant = -kSlideMenuOvershoot;
-        [self.view layoutIfNeeded];
-        
-    } completion:^(BOOL finished) {}];
-
-    
-
-}
-
--(void)handleSwipeFromUp:(id)sender{
-    
-    NSLog(@"swiped up");
-    
-    [self.view layoutIfNeeded];
-    
-    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        _topConstraintForSlideMenu.constant = 0;
-        [self.view layoutIfNeeded];
-        
-    } completion:^(BOOL finished) {}];
-    
-    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        _topConstraintForSlideMenu.constant = -kSlideMenuHeight;
-        [self.view layoutIfNeeded];
-        
-    } completion:^(BOOL finished) {
-    
-        _slideMenu.alpha=1.0f;;
-    }];
-    
-    
-    
-}
 -(void)addTagsToViews{
-    _topV.tag=0;
-    _botV.tag=1;
     _snapView.tag=2;
     imageUIView.tag=3;
     dView.tag=4;
     
-    }
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     
@@ -344,26 +272,12 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 -(void)enableDrawLock{
     
     dView.drawLock=YES;
-    
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Trail Period Expired"
-                                  message:@"Purchase the app to remove the erase lock"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"Ok"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                             
-                         }];
-    
-    [alert addAction:ok];
-    
-    [self presentViewController:alert animated:YES completion:nil];
    
+}
+
+-(void)disableDrawLock{
+    
+     dView.drawLock=NO;
 }
 
 -(void)takeSnapShot{
@@ -423,10 +337,7 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     _bbitemStart.title=@"Take Another Pic";
     _choosePic.enabled=NO;
     
-//    [self addViewsBasedOnScreenSize];
-//    
-//    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(enableDrawLock) userInfo:nil repeats:NO];
-    
+
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -456,37 +367,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)addViewsBasedOnScreenSize{
-    
-    if ([[UIScreen mainScreen]bounds].size.height==568) {
-        
-        [self addTwoViewsForiPhone5];
-    }
-    
-    if ([[UIScreen mainScreen]bounds].size.height==480) {
-        
-        [self addTwoViewsForiPhone4];
-    }
-    
-    if ([[UIScreen mainScreen]bounds].size.height==667) {
-        
-        [self addTwoViewsForiPhone6];
-    }
-    
-    if ([[UIScreen mainScreen]bounds].size.height==736) {
-        
-        [self addTwoViews];
-    }
-    if ([[UIScreen mainScreen]bounds].size.height==1024) {
-        
-        [self addTwoViewsForiPadRetina];
-    }
-    if ([[UIScreen mainScreen]bounds].size.height==1366) {
-        
-        [self addTwoViewsForiPadPro];
-    }
 }
 
 
@@ -583,74 +463,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 
 }
 
--(void)addTwoViews{
-    
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
-    _topV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_topV];
-    
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 550, imageUIView.frame.size.width, 150)];
-    _botV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_botV];
-}
-
--(void)addTwoViewsForiPadRetina{
-    
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 240)];
-    _topV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_topV];
-    
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 740, imageUIView.frame.size.width, 240)];
-    _botV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_botV];
-    
-    
-}
-
--(void)addTwoViewsForiPadPro{
-    
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 330)];
-    _topV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_topV];
-    
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 962, imageUIView.frame.size.width, 360)];
-    _botV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_botV];
-}
-
--(void)addTwoViewsForiPhone4{
-    
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
-    _topV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_topV];
-    
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 370, imageUIView.frame.size.width, 75)];
-    _botV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_botV];
-}
-
--(void)addTwoViewsForiPhone5{
-    
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
-    _topV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_topV];
-    
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 380, imageUIView.frame.size.width, 150)];
-    _botV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_botV];
-}
-
--(void)addTwoViewsForiPhone6{
-    
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 190)];
-    _topV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_topV];
-    
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 430, imageUIView.frame.size.width, 200)];
-    _botV.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:_botV];
-}
-
 
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -669,8 +481,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     _choosePic.enabled=YES;
     _bbitemStart.enabled=YES;
     
-    [_topV removeFromSuperview];
-    [_botV removeFromSuperview];
     [dView removeFromSuperview];
     [_snapView removeFromSuperview];
     [_subLayerCamera removeFromSuperlayer];
@@ -678,8 +488,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kImageCapturedSuccessfully object:nil];
    // [imageUIView removeFromSuperview];
    
-    _topV=nil;
-    _botV=nil;
     dView=nil;
   //  imageUIView=nil;
     _snapView=nil;
@@ -843,6 +651,79 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     
 
 
+    
+    
+}
+
+-(IBAction)menuOpen:(id)sender{
+    
+    if (!menuOpen) {
+            [self openMenu];
+    }else{
+            [self closeMenu];
+    }
+    
+}
+
+-(void)openMenu{
+    
+    NSLog(@"swiped down");
+    
+    menuOpen=YES;
+    
+    [self enableDrawLock];
+    
+    [imageUIView bringSubviewToFront:_slideMenu];
+    _slideMenu.alpha=1.0f;
+    
+    _topConstraintForSlideMenu.constant = -kSlideMenuHeight - kSlideMenuOvershoot;
+    [self.view layoutIfNeeded];
+    
+    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = 0;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = -kSlideMenuOvershoot;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+
+    
+}
+
+-(void)closeMenu{
+    
+    
+    NSLog(@"swiped up");
+    
+    menuOpen=NO;
+    
+    [self disableDrawLock];
+    
+    [self.view layoutIfNeeded];
+    
+    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = 0;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {}];
+    
+    [UIView animateWithDuration:0.5 delay:0.5  options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        _topConstraintForSlideMenu.constant = -kSlideMenuHeight;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        
+        _slideMenu.alpha=1.0f;;
+    }];
+    
     
     
 }

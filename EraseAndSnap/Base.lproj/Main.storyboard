@@ -79,9 +79,31 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKr-QM-P23" userLabel="SliderView">
                                                 <rect key="frame" x="8" y="13" width="584" height="86"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eraser Size:" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="60W-wu-y3W">
+                                                        <rect key="frame" x="10" y="32" width="90" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="highlightedColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-GI-WyI">
+                                                        <rect key="frame" x="121" y="29" width="455" height="29"/>
+                                                        <segments>
+                                                            <segment title="Small"/>
+                                                            <segment title="Medium"/>
+                                                            <segment title="Large"/>
+                                                        </segments>
+                                                        <color key="tintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </segmentedControl>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="gLb-GI-WyI" firstAttribute="centerY" secondItem="60W-wu-y3W" secondAttribute="centerY" id="IGl-CB-tYS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gLb-GI-WyI" secondAttribute="trailing" constant="8" id="P5j-2F-gSe"/>
+                                                    <constraint firstItem="60W-wu-y3W" firstAttribute="centerY" secondItem="xKr-QM-P23" secondAttribute="centerY" id="eXs-eh-pMO"/>
                                                     <constraint firstAttribute="width" secondItem="xKr-QM-P23" secondAttribute="height" multiplier="292:43" id="fET-RT-eBK"/>
+                                                    <constraint firstItem="60W-wu-y3W" firstAttribute="leading" secondItem="xKr-QM-P23" secondAttribute="leading" constant="10" id="oUg-gH-uuU"/>
+                                                    <constraint firstItem="gLb-GI-WyI" firstAttribute="leading" secondItem="60W-wu-y3W" secondAttribute="trailing" constant="21" id="p23-65-XTB"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0z-3V-Fdd" userLabel="CollectionView">
@@ -206,12 +228,23 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4om-bI-wpC">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="6Cj-e9-JmR">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="clear:" destination="Fry-TS-fme" id="uIa-9n-udR"/>
                             </connections>
                         </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zum-ak-YkX">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Menu">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="menuOpen:" destination="Fry-TS-fme" eventType="touchUpInside" id="gxE-jW-Ia5"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" image="switch_camera.png" id="IIB-Is-NWE">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
