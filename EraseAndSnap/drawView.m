@@ -128,6 +128,7 @@
         [eraser drawAtPoint:location blendMode:kCGBlendModeDestinationOut alpha:eraseSpeed];
     } else {
         
+        
         CGRect targetBounds = self.layer.bounds;
         // fit the image, preserving its aspect ratio, into our target bounds
         CGRect imageRect = AVMakeRectWithAspectRatioInsideRect(self.pic.size,
@@ -141,8 +142,9 @@
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.y] forKey:@"y"];
         
         // draw the image
-        [self.pic drawInRect:imageRect];
+       // [self.pic drawInRect:imageRect];
         
+        [self.pic drawInRect:self.frame];
      }
     
     // Save the screen to restore next time around

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "drawView.h"
+#import "SnappingView.h"
 #import <ImageIO/CGImageProperties.h>
 #import <Photos/Photos.h>
 #import "Masonry.h"
@@ -17,12 +18,14 @@
 @property (strong,nonatomic) IBOutlet UIView *imageUIView;
 @property (nonatomic,strong) UIView *topV;
 @property (nonatomic,strong) UIView *botV;
-@property (nonatomic,strong) UIView *snapView;
+@property (nonatomic,strong) SnappingView *snapView;
 @property  (strong,nonatomic) drawView *dView;
 
 @property (nonatomic,strong) UIImage *avCapturedImage;
 @property (nonatomic,strong) UIImage *savedImage;
 @property (nonatomic,strong) CALayer *subLayerCamera;
+
+@property (nonatomic,weak) IBOutlet UIToolbar *toolBar;
 
 
 
@@ -58,6 +61,8 @@
   
     firstPicTaken=NO;
     secondPicTaken=NO;
+    
+    self.view.backgroundColor=[UIColor blackColor];
     // Do any additional setup after loading the view, typically from a nib.
     
 }
@@ -79,7 +84,6 @@
     
     [self addTagsToViews];
     
-   
     
     
 }
@@ -93,6 +97,8 @@
 
 
 -(IBAction)takeSecondPic:(id)sender{
+    
+    
     
     if (!firstPicTaken && !secondPicTaken) {
                 [self startCamera];
@@ -111,6 +117,7 @@
     
     if (secondPicTaken) {
          [self takeScreenShot];
+//        [self takeSnapShot];
      }
     
 }
@@ -126,9 +133,8 @@
 
 -(void)takeScreenShot{
     
-       [[self captureManager] captureStillImage];
-    
-    [self showAlert];
+    [[self captureManager] captureStillImage];
+//
     
 }
 
@@ -136,7 +142,7 @@
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Image Saved in Album"
-                                  message:@"What you would like to do now ?"
+                                  message:@"What would you like to do?"
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction
@@ -174,7 +180,6 @@
                                  [alert dismissViewControllerAnimated:YES completion:nil];
                                  
                              }];
-    
     [alert addAction:ok];
     [alert addAction:share];
     
@@ -258,30 +263,15 @@
 
 -(void)takeSnapShot{
     
+    
     UIGraphicsBeginImageContext(self.imageUIView.frame.size);
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()]; //changed layer
     _savedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
     
-//    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-//        PHAssetChangeRequest *changeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:_savedImage];
-//        
-//    } completionHandler:^(BOOL success, NSError *error) {
-//        if (success) {
-//            
-//            
-//            
-//        }
-//        else {
-//            
-//        }
-//    }];
     
     [self saveImageAtPath];
-    
-    
-    
     
 }
 
@@ -294,8 +284,10 @@
     
     NSData *imageData = UIImagePNGRepresentation(_savedImage);
     [imageData writeToFile:_savedImagePath atomically:NO];
-
     
+    [self showAlert];
+    
+ 
     
 }
 
@@ -319,13 +311,14 @@
     dView.drawLock=NO;
     [imageUIView addSubview:dView];
     
+    
     firstPicTaken=YES;
     _bbitemStart.enabled=NO;
     _bbitemStart.title=@"Take Another Pic";
     _choosePic.enabled=NO;
     
 //    [self addViewsBasedOnScreenSize];
-    
+//    
 //    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(enableDrawLock) userInfo:nil repeats:NO];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
@@ -398,7 +391,10 @@
     
     
     CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);//[[[self view] layer] bounds];
-    [[[self captureManager] previewLayer] setBounds:layerRect];
+//    [[[self captureManager] previewLayer] setBounds:layerRect];
+    
+    [[[self captureManager] previewLayer] setBounds:dView.bounds];
+    
     [[[self captureManager] previewLayer] setPosition:CGPointMake(CGRectGetMidX(layerRect),CGRectGetMidY(layerRect))];
     _subLayerCamera=[[self captureManager]previewLayer];
     
@@ -422,24 +418,48 @@
 
 -(void)addViewsForSnapShot{
     
-    _snapView=[[UIView alloc]initWithFrame:imageUIView.frame];
-    UIImageView *imageView = [[UIImageView alloc]init];//WithImage:imag];
+//    UIImageView *imageView = [[UIImageView alloc]init];//WithImage:imag];
     
-    NSNumber *x=[[NSUserDefaults standardUserDefaults]objectForKey:@"x"];
-    NSNumber *y=[[NSUserDefaults standardUserDefaults]objectForKey:@"y"];
-    NSNumber *width=[[NSUserDefaults standardUserDefaults]objectForKey:@"width"];
-    NSNumber *height=[[NSUserDefaults standardUserDefaults]objectForKey:@"height"];
+//    NSNumber *x=[[NSUserDefaults standardUserDefaults]objectForKey:@"x"];
+//    NSNumber *y=[[NSUserDefaults standardUserDefaults]objectForKey:@"y"];
+//    NSNumber *width=[[NSUserDefaults standardUserDefaults]objectForKey:@"width"];
+//    NSNumber *height=[[NSUserDefaults standardUserDefaults]objectForKey:@"height"];
+//    
+//    CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
     
-    CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
+    _snapView=[[SnappingView alloc]initWithFrame:imageUIView.bounds]; //imageUIView frame
     
-    [imageView setFrame:layerRect];
-    [imageView setContentMode:UIViewContentModeScaleAspectFill];
-    imageView.image=_avCapturedImage;
-    [imageView setFrame:AVMakeRectWithAspectRatioInsideRect(imageView.image.size, _snapView.frame)];
-    [_snapView addSubview:imageView];
+    
+//    [imageView setFrame:layerRect];
+//    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+   // imageView.image=_avCapturedImage;
+    
+//    imageView.frame=_snapView.frame;
+    
+    
+    
+    
+    //[imageView setFrame:AVMakeRectWithAspectRatioInsideRect(imageView.image.size, _snapView.bounds)]; //frame
+//    [imageView setFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y, 340, 436)];
+   // [_snapView addSubview:imageView];
+    
+//    _snapView.layer.contents=(id)_avCapturedImage.CGImage;
+//    _snapView.layer.contentsScale=0.0f;
+//    
+//    _snapView.layer.contentsGravity=kCAGravityCenter;
+//    CGAffineTransform rotateTransform = CGAffineTransformMakeRotation(M_PI / 2.0);
+//    [_snapView.layer setAffineTransform:rotateTransform];
+//
+  
+    [_snapView drawImage:_avCapturedImage];
+    
     [_snapView addSubview:dView];
     [self.view addSubview:_snapView];
-    [self addTwoViews];
+    
+//    [imageUIView addSubview:_snapView];
+//    [imageUIView.layer insertSublayer:_snapView.layer below:dView.layer];
+    
+   // [self addViewsBasedOnScreenSize];
 
 }
 
@@ -484,18 +504,18 @@
     _topV.backgroundColor=[UIColor blackColor];
     [self.view addSubview:_topV];
     
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 320, imageUIView.frame.size.width, 150)];
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 370, imageUIView.frame.size.width, 75)];
     _botV.backgroundColor=[UIColor blackColor];
     [self.view addSubview:_botV];
 }
 
 -(void)addTwoViewsForiPhone5{
     
-    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 160)];
+    _topV=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, 140)];
     _topV.backgroundColor=[UIColor blackColor];
     [self.view addSubview:_topV];
     
-    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 360, imageUIView.frame.size.width, 170)];
+    _botV=[[UIView alloc]initWithFrame:CGRectMake(0, 380, imageUIView.frame.size.width, 150)];
     _botV.backgroundColor=[UIColor blackColor];
     [self.view addSubview:_botV];
 }
@@ -527,6 +547,7 @@
     secondPicTaken=NO;
     _bbitemStart.title=@"Take Pic";
     _choosePic.enabled=YES;
+    _bbitemStart.enabled=YES;
     
     [_topV removeFromSuperview];
     [_botV removeFromSuperview];

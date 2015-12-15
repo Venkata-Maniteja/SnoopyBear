@@ -19,6 +19,7 @@
 		B805821D1BD57EBB00252C4B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821C1BD57EBB00252C4B /* ImageIO.framework */; };
 		B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821E1BD57EC100252C4B /* MobileCoreServices.framework */; };
 		B80582241BD5C4F200252C4B /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = B80582231BD5C4F200252C4B /* eraser.png */; };
+		B8211A931C08A41A0061C290 /* SnappingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8211A921C08A41A0061C290 /* SnappingView.m */; };
 		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; };
 		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; };
 		B8FAC83E1BDFD6EC0042F5B2 /* EraseAndSnap.png in Resources */ = {isa = PBXBuildFile; fileRef = B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */; };
@@ -43,6 +44,8 @@
 		B805821C1BD57EBB00252C4B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B805821E1BD57EC100252C4B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B80582231BD5C4F200252C4B /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
+		B8211A911C08A41A0061C290 /* SnappingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnappingView.h; sourceTree = "<group>"; };
+		B8211A921C08A41A0061C290 /* SnappingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnappingView.m; sourceTree = "<group>"; };
 		B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
 		B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
 		B8E5F4441BD96FC2004A2172 /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				B80582071BD57BFB00252C4B /* ViewController.m */,
 				B80582191BD57E6700252C4B /* drawView.h */,
 				B805821A1BD57E6700252C4B /* drawView.m */,
+				B8211A911C08A41A0061C290 /* SnappingView.h */,
+				B8211A921C08A41A0061C290 /* SnappingView.m */,
 				B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */,
 				B8E5F4441BD96FC2004A2172 /* switch_camera.png */,
 				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
@@ -263,6 +268,7 @@
 				B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */,
 				B80582051BD57BFB00252C4B /* AppDelegate.m in Sources */,
 				B805821B1BD57E6700252C4B /* drawView.m in Sources */,
+				B8211A931C08A41A0061C290 /* SnappingView.m in Sources */,
 				B80582021BD57BFB00252C4B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,7 +385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VenkataManiteja.EraseAndSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -393,7 +399,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VenkataManiteja.EraseAndSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
