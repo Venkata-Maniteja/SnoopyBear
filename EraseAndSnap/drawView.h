@@ -33,7 +33,6 @@
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong)  UIImage  *pic;
 @property (assign) BOOL drawLock;
-@property (nonatomic,strong) NSString *imgName;
 
 -(void)stopShot;
 -(void)recordScreen;

@@ -19,6 +19,13 @@ static const CGFloat kSlideMenuOvershoot = 20;
 static const CGFloat kSlideCollectionViewHolderHeight = 200+kSlideMenuHeight;
 static const CGFloat kSlideCollectionViewOvershoot = 40;
 
+static NSString  * kSmallCircleErase=@"eraser_small.png";
+static NSString  * kMediumCircleErase=@"eraser.png";
+static NSString  * kLargeCircleErase=@"eraser_large.png";
+static NSString  * kSmallHeartErase=@"heart_small.png";
+static NSString  * kMediumHeartErase=@"heart_medium.png";
+static NSString  * kLargeHeartErase=@"heart.png";
+
 
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
     
@@ -27,23 +34,23 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     BOOL    menuClose;
     BOOL    isEraserSelected;
     int     eraserSelected;
+    BOOL    eraserSubMenuOpened;
     
 }
 
 @property (strong,nonatomic)    IBOutlet UIView                 *   imageUIView;
 @property (nonatomic,weak)      IBOutlet UIView                 *   slideMenu;
+@property (nonatomic,weak)      IBOutlet UISegmentedControl     *   eraserSegmentControl;
 @property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForSlideMenu;
 @property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForCollectionViewHolder;
-
 @property (nonatomic,weak)      IBOutlet UIView                 *   collectionViewHolder;
 @property (nonatomic,strong)             SnappingView           *   snapView;
 @property  (strong,nonatomic)            drawView               *   dView;
+@property (nonatomic,strong)             UIImage                *   avCapturedImage;
+@property (nonatomic,strong)             UIImage                *   savedImage;
+@property (nonatomic,strong)             CALayer                *  subLayerCamera;
 
-@property (nonatomic,strong) UIImage *avCapturedImage;
-@property (nonatomic,strong) UIImage *savedImage;
-@property (nonatomic,strong) CALayer *subLayerCamera;
-
-@property (nonatomic,weak) IBOutlet UIToolbar *toolBar;
+@property (nonatomic,weak)      IBOutlet     UIToolbar *toolBar;
 
 
 
@@ -114,8 +121,9 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     
     _cameraFlipButton.enabled=NO;
     
-    [self addTagsToViews];
+    //need to take care of my singleton model
     
+    [self addTagsToViews];
     
     
 }
@@ -188,7 +196,7 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
                              dView.delegate=self;
                              [dView drawImage:_savedImage];
                              dView.drawLock=NO;
-                             dView.imgName=@"eraser.png";
+                             [dView setErase:kSmallHeartErase];
                              [imageUIView addSubview:dView];
                              
                              firstPicTaken=YES;
@@ -288,8 +296,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     _savedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
-    
-    
     [self saveImageAtPath];
     
 }
@@ -298,15 +304,10 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
-    
     [fileManager removeItemAtPath:_savedImagePath error:&error];
-    
     NSData *imageData = UIImagePNGRepresentation(_savedImage);
     [imageData writeToFile:_savedImagePath atomically:NO];
-    
     [self showAlert];
-    
- 
     
 }
 
@@ -328,7 +329,7 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     dView.delegate=self;
     [dView drawImage:chosenImage];
     dView.drawLock=NO;
-    [dView setErase:@"eraser.png"];
+    [dView setErase:kSmallHeartErase];
     [imageUIView addSubview:dView];
     [self animateImageUIView];
     
@@ -337,7 +338,6 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     _bbitemStart.title=@"Take Another Pic";
     _choosePic.enabled=NO;
     
-
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -418,49 +418,11 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 
 -(void)addViewsForSnapShot{
     
-//    UIImageView *imageView = [[UIImageView alloc]init];//WithImage:imag];
-    
-//    NSNumber *x=[[NSUserDefaults standardUserDefaults]objectForKey:@"x"];
-//    NSNumber *y=[[NSUserDefaults standardUserDefaults]objectForKey:@"y"];
-//    NSNumber *width=[[NSUserDefaults standardUserDefaults]objectForKey:@"width"];
-//    NSNumber *height=[[NSUserDefaults standardUserDefaults]objectForKey:@"height"];
-//    
-//    CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
-    
     _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
-    
-    
-//    [imageView setFrame:layerRect];
-//    [imageView setContentMode:UIViewContentModeScaleAspectFit];
-   // imageView.image=_avCapturedImage;
-    
-//    imageView.frame=_snapView.frame;
-    
-    
-    
-    
-    //[imageView setFrame:AVMakeRectWithAspectRatioInsideRect(imageView.image.size, _snapView.bounds)]; //frame
-//    [imageView setFrame:CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y, 340, 436)];
-   // [_snapView addSubview:imageView];
-    
-//    _snapView.layer.contents=(id)_avCapturedImage.CGImage;
-//    _snapView.layer.contentsScale=0.0f;
-//    
-//    _snapView.layer.contentsGravity=kCAGravityCenter;
-//    CGAffineTransform rotateTransform = CGAffineTransformMakeRotation(M_PI / 2.0);
-//    [_snapView.layer setAffineTransform:rotateTransform];
-//
-  
     [_snapView drawImage:_avCapturedImage];
-    
     [_snapView addSubview:dView];
     [self.view addSubview:_snapView];
-    
-//    [imageUIView addSubview:_snapView];
-//    [imageUIView.layer insertSublayer:_snapView.layer below:dView.layer];
-    
-   // [self addViewsBasedOnScreenSize];
-
+  
 }
 
 
@@ -486,10 +448,8 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     [_subLayerCamera removeFromSuperlayer];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kImageCapturedSuccessfully object:nil];
-   // [imageUIView removeFromSuperview];
    
     dView=nil;
-  //  imageUIView=nil;
     _snapView=nil;
     
 }
@@ -603,6 +563,7 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 
 -(IBAction)clickOnErase:(id)sender{
     
+    eraserSubMenuOpened=YES;
     _collectionViewHolder.alpha=1.0f;
     [imageUIView bringSubviewToFront:_collectionViewHolder];
     
@@ -627,8 +588,8 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 
 -(void)hideCollectionView{
     
+    eraserSubMenuOpened=NO;
     _collectionViewHolder.alpha=1.0f;
-    
     
     [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
         
@@ -658,9 +619,14 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
 -(IBAction)menuOpen:(id)sender{
     
     if (!menuOpen) {
-            [self openMenu];
+        
+        [self openMenu];
+        
     }else{
             [self closeMenu];
+        if (eraserSubMenuOpened) {
+            [self hideCollectionView];
+        }
     }
     
 }
@@ -670,6 +636,7 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     NSLog(@"swiped down");
     
     menuOpen=YES;
+    eraserSubMenuOpened=NO;
     
     [self enableDrawLock];
     
@@ -725,6 +692,26 @@ static const CGFloat kSlideCollectionViewOvershoot = 40;
     }];
     
     
+    
+}
+
+-(IBAction)eraseSegmentControl:(UISegmentedControl *)sender{
+    
+    if (sender.selectedSegmentIndex==0) {
+        
+        NSLog(@"small eraser selected");
+        [dView setErase:kSmallHeartErase];
+    }
+    if (sender.selectedSegmentIndex==1) {
+        
+        NSLog(@"medium eraser selected");
+        [dView setErase:kMediumHeartErase];
+    }
+    if (sender.selectedSegmentIndex==2) {
+        
+        NSLog(@"large eraser selected");
+        [dView setErase:kLargeHeartErase];
+    }
     
 }
 

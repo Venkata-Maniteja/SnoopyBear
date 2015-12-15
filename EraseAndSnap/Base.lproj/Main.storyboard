@@ -94,6 +94,9 @@
                                                             <segment title="Large"/>
                                                         </segments>
                                                         <color key="tintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="eraseSegmentControl:" destination="Fry-TS-fme" eventType="valueChanged" id="pkz-Ue-CoW"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -260,6 +263,7 @@
                         <outlet property="clear" destination="6Cj-e9-JmR" id="QJg-Ml-L6T"/>
                         <outlet property="collectionViewHolder" destination="18F-za-aVq" id="KIR-8l-YGS"/>
                         <outlet property="eraserCollectionView" destination="nae-hW-sF1" id="W0o-Pm-8PS"/>
+                        <outlet property="eraserSegmentControl" destination="gLb-GI-WyI" id="jDD-lZ-DOE"/>
                         <outlet property="imageUIView" destination="uQL-I7-ZOa" id="evD-xD-3Al"/>
                         <outlet property="slideMenu" destination="aax-fv-CVN" id="7O5-zc-k3X"/>
                         <outlet property="toolBar" destination="U9u-aa-LHm" id="rez-H8-Zoq"/>
