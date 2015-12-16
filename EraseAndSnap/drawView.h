@@ -38,5 +38,5 @@
 -(void)recordScreen;
 - (void)newMaskWithColor:(UIColor *)color eraseSpeed:(CGFloat)speed;
 -(void)drawImage:(UIImage *) imageToDraw;
--(void)setErase:(NSString *)name;
+-(void)setErase:(UIImage *)img;
 @end

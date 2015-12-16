@@ -39,9 +39,9 @@
     
 }
 
--(void)setErase:(NSString *)name{
+-(void)setErase:(UIImage *)img{
     
-    eraser = [UIImage imageNamed:name];
+    eraser =img;
 
 }
 

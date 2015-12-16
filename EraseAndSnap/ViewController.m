@@ -35,6 +35,9 @@ static NSString  * kLargeHeartErase=@"heart.png";
     BOOL    isEraserSelected;
     int     eraserSelected;
     BOOL    eraserSubMenuOpened;
+    BOOL    smallImage;
+    BOOL    mediumImage;
+    BOOL    largeImage;
     
 }
 
@@ -45,14 +48,17 @@ static NSString  * kLargeHeartErase=@"heart.png";
 @property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForCollectionViewHolder;
 @property (nonatomic,weak)      IBOutlet UIView                 *   collectionViewHolder;
 @property (nonatomic,strong)             SnappingView           *   snapView;
-@property  (strong,nonatomic)            drawView               *   dView;
+@property (strong,nonatomic)             drawView               *   dView;
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
 @property (nonatomic,strong)             UIImage                *   savedImage;
-@property (nonatomic,strong)             CALayer                *  subLayerCamera;
+@property (nonatomic,strong)             CALayer                *   subLayerCamera;
 
-@property (nonatomic,weak)      IBOutlet     UIToolbar *toolBar;
+@property (nonatomic,weak)      IBOutlet UIToolbar              *   toolBar;
 
-
+@property (nonatomic,strong)             NSMutableArray         *   smallImageArray;
+@property (nonatomic,strong)             NSMutableArray         *   mediumImageArray;
+@property (nonatomic,strong)             NSMutableArray         *   largeImageArray;
+@property (nonatomic,strong)             NSMutableArray         *   imageShapeArray;
 
 
 @property (assign) BOOL firstPicTaken;
@@ -100,12 +106,54 @@ static NSString  * kLargeHeartErase=@"heart.png";
     _slideMenu.alpha=0.0f;
     _collectionViewHolder.alpha=0.0f;
     
+    _smallImageArray=[[NSMutableArray alloc]init];
+    _mediumImageArray=[[NSMutableArray alloc]init];
+    _largeImageArray=[[NSMutableArray alloc]init];
+    _imageShapeArray=[[NSMutableArray alloc]init];
+    
+    [self loadImagesIntoArray];
+    
+    [self addCollectionViewFlowLayout];
+    
+}
+
+-(void)addCollectionViewFlowLayout{
+ 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(180, eraserCollectionView.frame.size.height-40)];
     [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     [self->eraserCollectionView setCollectionViewLayout:flowLayout];
+}
+
+-(void)loadImagesIntoArray{
+    
+    [_smallImageArray addObject:[UIImage imageNamed:@"eraser_small.png"]];
+    [_smallImageArray addObject:[UIImage imageNamed:@"heart_small.png"]];
+//    [_smallImageArray addObject:[UIImage imageNamed:@"apple_small.png"]];
+//    [_smallImageArray addObject:[UIImage imageNamed:@"maple_small.png"]];
+//    [_smallImageArray addObject:[UIImage imageNamed:@"skeleton_small.png"]];
+    
+    [_mediumImageArray addObject:[UIImage imageNamed:@"eraser.png"]];
+    [_mediumImageArray addObject:[UIImage imageNamed:@"heart_medium.png"]];
+//    [_mediumImageArray addObject:[UIImage imageNamed:@"apple_medium.png"]];
+//    [_mediumImageArray addObject:[UIImage imageNamed:@"maple_medium.png"]];
+//    [_mediumImageArray addObject:[UIImage imageNamed:@"skeleton_medium.png"]];
+    
+    [_largeImageArray addObject:[UIImage imageNamed:@"eraser_large.png"]];
+    [_largeImageArray addObject:[UIImage imageNamed:@"heart.png"]];
+//    [_largeImageArray addObject:[UIImage imageNamed:@"apple_large.png"]];
+//    [_largeImageArray addObject:[UIImage imageNamed:@"maple_large.png"]];
+//    [_largeImageArray addObject:[UIImage imageNamed:@"skeleton_large.png"]];
+    
+    [_imageShapeArray addObject:[UIImage imageNamed:@"circleShape.png"]];
+    [_imageShapeArray addObject:[UIImage imageNamed:@"heartShape.png"]];
+//    [_imageShapeArray addObject:[UIImage imageNamed:@"appleShape.png"]];
+//    [_imageShapeArray addObject:[UIImage imageNamed:@"mapleShape.png"]];
+//    [_imageShapeArray addObject:[UIImage imageNamed:@"skeletonShape.png"]];
+
+    
 }
 
 -(void)addTagsToViews{
@@ -491,7 +539,7 @@ static NSString  * kLargeHeartErase=@"heart.png";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return 3;
+    return 2;//_smallImageArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -505,15 +553,7 @@ static NSString  * kLargeHeartErase=@"heart.png";
     cell.layer.borderWidth=0.0;
     cell.imgView.contentMode=UIViewContentModeScaleAspectFit;
     cell.imgView.backgroundColor=[UIColor purpleColor];
-    if (indexPath.row==0) {
-        
-        cell.imgView.image=[UIImage imageNamed:@"circleShape.png"];
-        
-    }
-    if (indexPath.row==1) {
-        cell.imgView.image=[UIImage imageNamed:@"heartShape.png"];
-    }
-    
+    cell.imgView.image=[_imageShapeArray objectAtIndex:indexPath.row];
     
        return cell;
     
@@ -525,20 +565,28 @@ static NSString  * kLargeHeartErase=@"heart.png";
     
     cell.layer.borderColor=[[UIColor colorWithRed:13/255.0 green:79/255.0 blue:139/255.0 alpha:1]CGColor];
     cell.layer.borderWidth=3.0;
-    eraserSelected=indexPath.row;
+    eraserSelected=(int)indexPath.row;
     isEraserSelected=YES;
-    
-    if (eraserSelected==0) {
-        
-            [dView setErase:@"eraser.png"];
-    }
-    if (eraserSelected==1) {
-           [dView setErase:@"heart.png"];
-    }
+    [dView setErase:[self getImageBasedOnSelection]];
     
     [self hideCollectionView];
     
-    // cell.backgroundColor = [UIColor magentaColor];
+    
+}
+
+-(UIImage *)getImageBasedOnSelection{
+    
+    if (smallImage) {
+        return [_smallImageArray objectAtIndex:eraserSelected];
+    }
+    if (mediumImage) {
+        return [_mediumImageArray objectAtIndex:eraserSelected];
+    }
+    if (largeImage) {
+        return [_largeImageArray objectAtIndex:eraserSelected];
+    }
+    
+    return [UIImage imageNamed:@"noImage"];
     
 }
 
@@ -565,6 +613,12 @@ static NSString  * kLargeHeartErase=@"heart.png";
     
     eraserSubMenuOpened=YES;
     _collectionViewHolder.alpha=1.0f;
+    
+    //load saved value on segment control
+    [_eraserSegmentControl setSelectedSegmentIndex:0];
+    
+    //TODO: load the current selected value in singleton source/user defualts
+    
     [imageUIView bringSubviewToFront:_collectionViewHolder];
     
     _topConstraintForCollectionViewHolder.constant = -kSlideCollectionViewHolderHeight - kSlideCollectionViewOvershoot;
@@ -700,17 +754,19 @@ static NSString  * kLargeHeartErase=@"heart.png";
     if (sender.selectedSegmentIndex==0) {
         
         NSLog(@"small eraser selected");
-        [dView setErase:kSmallHeartErase];
+        smallImage=YES;mediumImage=NO;largeImage=NO;
+        
     }
     if (sender.selectedSegmentIndex==1) {
         
         NSLog(@"medium eraser selected");
-        [dView setErase:kMediumHeartErase];
+        smallImage=NO;mediumImage=YES;largeImage=NO;
+        
     }
     if (sender.selectedSegmentIndex==2) {
         
         NSLog(@"large eraser selected");
-        [dView setErase:kLargeHeartErase];
+        smallImage=NO;mediumImage=NO;largeImage=YES;
     }
     
 }
