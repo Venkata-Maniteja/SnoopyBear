@@ -25,6 +25,15 @@ static NSString  * kLargeCircleErase=@"eraser_large.png";
 static NSString  * kSmallHeartErase=@"heart_small.png";
 static NSString  * kMediumHeartErase=@"heart_medium.png";
 static NSString  * kLargeHeartErase=@"heart.png";
+static NSString  * kSmallMapleErase=@"maple_small.png";
+static NSString  * kMediumMapleErase=@"maple_medium.png";
+static NSString  * kLargeMapleErase=@"maple_large.png";
+static NSString  * kSmallAppleErase=@"apple_small.png";
+static NSString  * kMediumAppleErase=@"apple_medium.png";
+static NSString  * kLargeAppleErase=@"apple_large.png";
+static NSString  * kSmallSkeletonErase=@"skeleton_small.png";
+static NSString  * kMediumSkeletonErase=@"skeleton_medium.png";
+static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
 
 
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
