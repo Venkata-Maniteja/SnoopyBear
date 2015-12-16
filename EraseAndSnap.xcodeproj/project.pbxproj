@@ -19,11 +19,13 @@
 		B805821D1BD57EBB00252C4B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821C1BD57EBB00252C4B /* ImageIO.framework */; };
 		B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805821E1BD57EC100252C4B /* MobileCoreServices.framework */; };
 		B80582241BD5C4F200252C4B /* eraser_medium.png in Resources */ = {isa = PBXBuildFile; fileRef = B80582231BD5C4F200252C4B /* eraser_medium.png */; };
+		B811956E1C21C65F00FB85CB /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = B811956D1C21C65F00FB85CB /* CropView.m */; };
 		B82058391C20670600C00CE8 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82058381C20670600C00CE8 /* CoreImage.framework */; };
 		B820583B1C20722000C00CE8 /* heart_large.png in Resources */ = {isa = PBXBuildFile; fileRef = B820583A1C20722000C00CE8 /* heart_large.png */; };
 		B820583E1C208E5A00C00CE8 /* EraserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B820583D1C208E5A00C00CE8 /* EraserCollectionViewCell.m */; };
 		B8211A931C08A41A0061C290 /* SnappingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8211A921C08A41A0061C290 /* SnappingView.m */; };
 		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; };
+		B8C921C11C21DADE0062737D /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C921C01C21DADE0062737D /* Line.m */; };
 		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; };
 		B8FAC83E1BDFD6EC0042F5B2 /* EraseAndSnap.png in Resources */ = {isa = PBXBuildFile; fileRef = B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */; };
 		B8FC1D001C20A32400532E7D /* circleShape.png in Resources */ = {isa = PBXBuildFile; fileRef = B8FC1CFE1C20A32400532E7D /* circleShape.png */; };
@@ -66,6 +68,8 @@
 		B805821C1BD57EBB00252C4B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B805821E1BD57EC100252C4B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B80582231BD5C4F200252C4B /* eraser_medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser_medium.png; sourceTree = "<group>"; };
+		B811956C1C21C65F00FB85CB /* CropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
+		B811956D1C21C65F00FB85CB /* CropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropView.m; sourceTree = "<group>"; };
 		B82058381C20670600C00CE8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B820583A1C20722000C00CE8 /* heart_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_large.png; sourceTree = "<group>"; };
 		B820583C1C208E5A00C00CE8 /* EraserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EraserCollectionViewCell.h; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		B8211A921C08A41A0061C290 /* SnappingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnappingView.m; sourceTree = "<group>"; };
 		B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
 		B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
+		B8C921BF1C21DADE0062737D /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		B8C921C01C21DADE0062737D /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		B8E5F4441BD96FC2004A2172 /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EraseAndSnap.png; sourceTree = "<group>"; };
 		B8FC1CFE1C20A32400532E7D /* circleShape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circleShape.png; sourceTree = "<group>"; };
@@ -155,6 +161,10 @@
 				B80582191BD57E6700252C4B /* drawView.h */,
 				B805821A1BD57E6700252C4B /* drawView.m */,
 				B8211A911C08A41A0061C290 /* SnappingView.h */,
+				B811956C1C21C65F00FB85CB /* CropView.h */,
+				B811956D1C21C65F00FB85CB /* CropView.m */,
+				B8C921BF1C21DADE0062737D /* Line.h */,
+				B8C921C01C21DADE0062737D /* Line.m */,
 				B8211A921C08A41A0061C290 /* SnappingView.m */,
 				B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */,
 				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
@@ -366,6 +376,8 @@
 				B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */,
 				B820583E1C208E5A00C00CE8 /* EraserCollectionViewCell.m in Sources */,
 				B80582051BD57BFB00252C4B /* AppDelegate.m in Sources */,
+				B811956E1C21C65F00FB85CB /* CropView.m in Sources */,
+				B8C921C11C21DADE0062737D /* Line.m in Sources */,
 				B805821B1BD57E6700252C4B /* drawView.m in Sources */,
 				B8211A931C08A41A0061C290 /* SnappingView.m in Sources */,
 				B80582021BD57BFB00252C4B /* main.m in Sources */,
@@ -412,7 +424,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Teja Nandamuri (4A8EC7E6YE)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -455,7 +467,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Teja Nandamuri (4A8EC7E6YE)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;

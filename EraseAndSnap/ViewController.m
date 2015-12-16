@@ -13,6 +13,7 @@
 #import <Photos/Photos.h>
 #import "Masonry.h"
 #import "EraserCollectionViewCell.h"
+#import "CropView.h"
 
 static const CGFloat kSlideMenuHeight = 95;
 static const CGFloat kSlideMenuOvershoot = 20;
@@ -52,6 +53,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     BOOL    smallImage;
     BOOL    mediumImage;
     BOOL    largeImage;
+    BOOL    cropMode;
     
 }
 
@@ -63,6 +65,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (nonatomic,weak)      IBOutlet UIView                 *   collectionViewHolder;
 @property (nonatomic,strong)             SnappingView           *   snapView;
 @property (strong,nonatomic)             drawView               *   dView;
+@property (strong,nonatomic)    IBOutlet CropView               *   cropView;
+
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
 @property (nonatomic,strong)             UIImage                *   savedImage;
 @property (nonatomic,strong)             CALayer                *   subLayerCamera;
@@ -95,8 +99,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 @implementation ViewController
 
-@synthesize imageUIView,firstPicTaken,secondPicTaken,dView,captureManager;
-;
+@synthesize imageUIView,firstPicTaken,secondPicTaken,dView,captureManager,drawStarted,lineInteresctedInCropView;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -123,6 +127,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     smallImage=YES;
     _undoButton.enabled=NO;
+    
+    _cropView.hidden=YES;
     
     _smallImageArray=[[NSMutableArray alloc]init];
     _mediumImageArray=[[NSMutableArray alloc]init];
@@ -200,6 +206,12 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     _cameraFlipButton.enabled=NO;
     _undoButton.enabled=NO;
+    
+    if (cropMode) {
+        
+        cropMode=NO;
+        _cropView.hidden=YES;
+    }
 }
 
 
@@ -403,6 +415,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     [imageUIView addSubview:dView];
     [self animateImageUIView];
     
+    
     firstPicTaken=YES;
     _bbitemStart.enabled=NO;
     _bbitemStart.title=@"Take Another Pic";
@@ -538,6 +551,10 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 -(IBAction)undo:(id)sender{
     
     [dView undoTheErasing];
+    
+    if (cropMode) {
+        [_cropView erase];
+    }
 }
 
 #pragma drawView delegate methods
@@ -545,18 +562,36 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 -(void)setDrawStarted:(BOOL)value{
     
     if (value) {
-        _bbitemStart.enabled=YES;
-        _cameraFlipButton.enabled=YES;
+        if (!cropMode) {
+            _bbitemStart.enabled=YES;
+            _cameraFlipButton.enabled=YES;
+        }
         _undoButton.enabled=YES;
     }
     
 }
 
+-(void)setLineInteresctedInCropView:(BOOL)value
+{
+    if (value) {
+        
+        NSLog(@"path interesected");
+        
+       
+    }
+}
 
-
--(BOOL)drawStarted{
+-(void)sendBezierPath:(UIBezierPath *)path{
     
-    return YES;
+    CAShapeLayer *shapeLayer=[[CAShapeLayer alloc]init];
+    shapeLayer.frame=imageUIView.frame;
+    shapeLayer.path=path.CGPath;
+//    shapeLayer.backgroundColor=[UIColor blueColor].CGColor;
+  //  shapeLayer.position=CGPointMake(160, 100);
+    imageUIView.layer.mask=shapeLayer;
+    
+    [self undo:nil];
+    _cropView.hidden=YES;
 }
 
 
@@ -672,11 +707,16 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     [self closeMenu];
     
-    [dView setCropMode:YES];
-    [dView setLineColor:[UIColor whiteColor]];
-    [dView setLineWidth:3];
-    dView.drawLock=YES;
-    [dView setNeedsDisplay];
+    cropMode=YES;
+    _cropView.hidden=NO;
+    _cropView.delegate=self;
+    _cropView.alpha=0.4;
+    _cropView.backgroundColor=[UIColor blackColor];
+    _cropView.lineColor=[UIColor whiteColor];
+    _cropView.lineWidth=5.0;
+    _cropView.path=[UIBezierPath bezierPath];
+    
+    [_cropView setNeedsDisplay];
     
     
 }

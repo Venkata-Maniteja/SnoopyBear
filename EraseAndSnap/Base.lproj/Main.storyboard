@@ -190,6 +190,10 @@
                                     <constraint firstAttribute="trailing" secondItem="aax-fv-CVN" secondAttribute="trailing" id="pG0-PR-HM7"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqj-pA-P5Q" userLabel="CropView" customClass="CropView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9u-aa-LHm">
                                 <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,15 +220,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="U9u-aa-LHm" firstAttribute="top" secondItem="nqj-pA-P5Q" secondAttribute="bottom" id="1L3-Wt-g4G"/>
                             <constraint firstAttribute="trailing" secondItem="uQL-I7-ZOa" secondAttribute="trailing" id="Ace-5O-CfV"/>
                             <constraint firstItem="5d4-hz-HOr" firstAttribute="top" secondItem="U9u-aa-LHm" secondAttribute="bottom" id="EFv-vW-84p"/>
                             <constraint firstItem="uQL-I7-ZOa" firstAttribute="top" secondItem="Go9-ko-fJH" secondAttribute="bottom" id="G0q-uI-EgL"/>
                             <constraint firstItem="uQL-I7-ZOa" firstAttribute="leading" secondItem="Xkr-I2-Bc2" secondAttribute="leading" id="Iaz-KE-Taa"/>
+                            <constraint firstItem="nqj-pA-P5Q" firstAttribute="leading" secondItem="Xkr-I2-Bc2" secondAttribute="leading" id="JyH-qz-S3P"/>
+                            <constraint firstItem="nqj-pA-P5Q" firstAttribute="top" secondItem="Go9-ko-fJH" secondAttribute="bottom" id="Krh-6g-nWA"/>
                             <constraint firstItem="5d4-hz-HOr" firstAttribute="top" secondItem="uQL-I7-ZOa" secondAttribute="bottom" constant="44" id="NRD-RY-1G7"/>
                             <constraint firstAttribute="trailing" secondItem="U9u-aa-LHm" secondAttribute="trailing" id="WgM-pH-vjh"/>
                             <constraint firstItem="uQL-I7-ZOa" firstAttribute="top" secondItem="Go9-ko-fJH" secondAttribute="bottom" constant="-20" id="YpM-2Y-qcK"/>
                             <constraint firstItem="U9u-aa-LHm" firstAttribute="top" secondItem="uQL-I7-ZOa" secondAttribute="bottom" id="lqK-JM-s09"/>
                             <constraint firstItem="U9u-aa-LHm" firstAttribute="leading" secondItem="Xkr-I2-Bc2" secondAttribute="leading" id="uzz-eh-Bh9"/>
+                            <constraint firstAttribute="trailing" secondItem="nqj-pA-P5Q" secondAttribute="trailing" id="yA2-dN-Bfd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -274,6 +282,7 @@
                         <outlet property="choosePic" destination="pal-Uh-M4v" id="xx3-k6-Qa5"/>
                         <outlet property="clear" destination="6Cj-e9-JmR" id="QJg-Ml-L6T"/>
                         <outlet property="collectionViewHolder" destination="18F-za-aVq" id="KIR-8l-YGS"/>
+                        <outlet property="cropView" destination="nqj-pA-P5Q" id="XfT-Hd-7mi"/>
                         <outlet property="eraserCollectionView" destination="nae-hW-sF1" id="W0o-Pm-8PS"/>
                         <outlet property="eraserSegmentControl" destination="gLb-GI-WyI" id="jDD-lZ-DOE"/>
                         <outlet property="imageUIView" destination="uQL-I7-ZOa" id="evD-xD-3Al"/>

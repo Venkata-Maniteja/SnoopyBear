@@ -12,8 +12,8 @@
 @protocol DrawViewProtocolDelegate <NSObject>
 @required
 @property (assign) BOOL drawStarted;
-//-(BOOL)drawingStarted;
-//-(void)drawStarted:(BOOL) value;
+@property (assign) BOOL  lineInteresctedInCropView;
+-(void)sendBezierPath:(UIBezierPath *)path;
 @end
 
 

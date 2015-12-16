@@ -11,7 +11,7 @@
 #import <ImageIO/ImageIO.h>
 #import "CaptureSessionManager.h"
 #import "drawView.h"
-
+#import "CropView.h"
 @interface ViewController : UIViewController<DrawViewProtocolDelegate>
 
 
