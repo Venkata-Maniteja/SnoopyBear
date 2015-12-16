@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -41,6 +42,9 @@
                                                         <state key="normal" title="Crop">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="crop:" destination="Fry-TS-fme" eventType="touchUpInside" id="wcc-EA-pko"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGl-XD-Dse">
                                                         <rect key="frame" x="295" y="0.0" width="142" height="59"/>
@@ -248,12 +252,20 @@
                                 <action selector="menuOpen:" destination="Fry-TS-fme" eventType="touchUpInside" id="gxE-jW-Ia5"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" image="switch_camera.png" id="IIB-Is-NWE">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="cameraFlip:" destination="Fry-TS-fme" id="2B4-RX-oOZ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="switch_camera.png" id="IIB-Is-NWE">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="cameraFlip:" destination="Fry-TS-fme" id="2B4-RX-oOZ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Undo" id="IEo-9D-aK7">
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="undo:" destination="Fry-TS-fme" id="ZGX-Xc-KQs"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -269,6 +281,7 @@
                         <outlet property="toolBar" destination="U9u-aa-LHm" id="rez-H8-Zoq"/>
                         <outlet property="topConstraintForCollectionViewHolder" destination="kLl-ly-4g8" id="zpM-cr-s8l"/>
                         <outlet property="topConstraintForSlideMenu" destination="kfe-xy-CNZ" id="ywV-x4-Zfe"/>
+                        <outlet property="undoButton" destination="IEo-9D-aK7" id="jrd-ds-pFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJY-Lt-MvM" userLabel="First Responder" sceneMemberID="firstResponder"/>

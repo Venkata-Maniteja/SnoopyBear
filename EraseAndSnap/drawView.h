@@ -26,7 +26,7 @@
     UIColor		*maskColor;
     CGFloat		eraseSpeed;
     BOOL        imageDraw;
-   
+    
     
 }
 @property (assign) id<DrawViewProtocolDelegate> delegate;
@@ -39,4 +39,7 @@
 - (void)newMaskWithColor:(UIColor *)color eraseSpeed:(CGFloat)speed;
 -(void)drawImage:(UIImage *) imageToDraw;
 -(void)setErase:(UIImage *)img;
+-(void)undoTheErasing;
+
+
 @end

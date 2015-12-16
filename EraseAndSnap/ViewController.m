@@ -20,11 +20,11 @@ static const CGFloat kSlideCollectionViewHolderHeight = 200+kSlideMenuHeight;
 static const CGFloat kSlideCollectionViewOvershoot = 40;
 
 static NSString  * kSmallCircleErase=@"eraser_small.png";
-static NSString  * kMediumCircleErase=@"eraser.png";
+static NSString  * kMediumCircleErase=@"eraser_medium.png";
 static NSString  * kLargeCircleErase=@"eraser_large.png";
 static NSString  * kSmallHeartErase=@"heart_small.png";
 static NSString  * kMediumHeartErase=@"heart_medium.png";
-static NSString  * kLargeHeartErase=@"heart.png";
+static NSString  * kLargeHeartErase=@"heart_large.png";
 static NSString  * kSmallMapleErase=@"maple_small.png";
 static NSString  * kMediumMapleErase=@"maple_medium.png";
 static NSString  * kLargeMapleErase=@"maple_large.png";
@@ -33,7 +33,12 @@ static NSString  * kMediumAppleErase=@"apple_medium.png";
 static NSString  * kLargeAppleErase=@"apple_large.png";
 static NSString  * kSmallSkeletonErase=@"skeleton_small.png";
 static NSString  * kMediumSkeletonErase=@"skeleton_medium.png";
-static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
+static NSString  * kLargeSkeletonErase=@"skeleton_large.png";
+static NSString  * kCircleShape=@"circleShape.png";
+static NSString  * kHeartShape=@"heartShape.png";
+static NSString  * kAppleShape=@"appleShape.png";
+static NSString  * kMapleShape=@"mapleShape.png";
+static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
@@ -74,6 +79,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
 @property (assign) BOOL secondPicTaken;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraFlipButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton;
 @property (nonatomic,strong) NSArray *paths;
 @property (nonatomic,strong) NSString *documentsDirectory;
 @property (nonatomic,strong) NSString *savedImagePath;
@@ -115,6 +121,9 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
     _slideMenu.alpha=0.0f;
     _collectionViewHolder.alpha=0.0f;
     
+    smallImage=YES;
+    _undoButton.enabled=NO;
+    
     _smallImageArray=[[NSMutableArray alloc]init];
     _mediumImageArray=[[NSMutableArray alloc]init];
     _largeImageArray=[[NSMutableArray alloc]init];
@@ -138,29 +147,29 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
 
 -(void)loadImagesIntoArray{
     
-    [_smallImageArray addObject:[UIImage imageNamed:@"eraser_small.png"]];
-    [_smallImageArray addObject:[UIImage imageNamed:@"heart_small.png"]];
-//    [_smallImageArray addObject:[UIImage imageNamed:@"apple_small.png"]];
-//    [_smallImageArray addObject:[UIImage imageNamed:@"maple_small.png"]];
-//    [_smallImageArray addObject:[UIImage imageNamed:@"skeleton_small.png"]];
+    [_smallImageArray addObject:[UIImage imageNamed:kSmallCircleErase]];
+    [_smallImageArray addObject:[UIImage imageNamed:kSmallHeartErase]];
+    [_smallImageArray addObject:[UIImage imageNamed:kSmallAppleErase]];
+    [_smallImageArray addObject:[UIImage imageNamed:kSmallMapleErase]];
+    [_smallImageArray addObject:[UIImage imageNamed:kSmallSkeletonErase]];
     
-    [_mediumImageArray addObject:[UIImage imageNamed:@"eraser.png"]];
-    [_mediumImageArray addObject:[UIImage imageNamed:@"heart_medium.png"]];
-//    [_mediumImageArray addObject:[UIImage imageNamed:@"apple_medium.png"]];
-//    [_mediumImageArray addObject:[UIImage imageNamed:@"maple_medium.png"]];
-//    [_mediumImageArray addObject:[UIImage imageNamed:@"skeleton_medium.png"]];
+    [_mediumImageArray addObject:[UIImage imageNamed:kMediumCircleErase]];
+    [_mediumImageArray addObject:[UIImage imageNamed:kMediumHeartErase]];
+    [_mediumImageArray addObject:[UIImage imageNamed:kMediumAppleErase]];
+    [_mediumImageArray addObject:[UIImage imageNamed:kMediumMapleErase]];
+    [_mediumImageArray addObject:[UIImage imageNamed:kMediumSkeletonErase]];
     
-    [_largeImageArray addObject:[UIImage imageNamed:@"eraser_large.png"]];
-    [_largeImageArray addObject:[UIImage imageNamed:@"heart.png"]];
-//    [_largeImageArray addObject:[UIImage imageNamed:@"apple_large.png"]];
-//    [_largeImageArray addObject:[UIImage imageNamed:@"maple_large.png"]];
-//    [_largeImageArray addObject:[UIImage imageNamed:@"skeleton_large.png"]];
+    [_largeImageArray addObject:[UIImage imageNamed:kLargeCircleErase]];
+    [_largeImageArray addObject:[UIImage imageNamed:kLargeHeartErase]];
+    [_largeImageArray addObject:[UIImage imageNamed:kLargeAppleErase]];
+    [_largeImageArray addObject:[UIImage imageNamed:kLargeMapleErase]];
+    [_largeImageArray addObject:[UIImage imageNamed:kLargeSkeletonErase]];
     
-    [_imageShapeArray addObject:[UIImage imageNamed:@"circleShape.png"]];
-    [_imageShapeArray addObject:[UIImage imageNamed:@"heartShape.png"]];
-//    [_imageShapeArray addObject:[UIImage imageNamed:@"appleShape.png"]];
-//    [_imageShapeArray addObject:[UIImage imageNamed:@"mapleShape.png"]];
-//    [_imageShapeArray addObject:[UIImage imageNamed:@"skeletonShape.png"]];
+    [_imageShapeArray addObject:[UIImage imageNamed:kCircleShape]];
+    [_imageShapeArray addObject:[UIImage imageNamed:kHeartShape]];
+    [_imageShapeArray addObject:[UIImage imageNamed:kAppleShape]];
+    [_imageShapeArray addObject:[UIImage imageNamed:kMapleShape]];
+    [_imageShapeArray addObject:[UIImage imageNamed:kSkeletonShape]];
 
     
 }
@@ -190,6 +199,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
     [self stopReading];
     
     _cameraFlipButton.enabled=NO;
+    _undoButton.enabled=NO;
 }
 
 
@@ -218,6 +228,8 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
      }
     
 }
+
+
 
 -(void)startCamera{
     
@@ -253,7 +265,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
                              dView.delegate=self;
                              [dView drawImage:_savedImage];
                              dView.drawLock=NO;
-                             [dView setErase:kSmallHeartErase];
+                             [dView setErase:[self getImageBasedOnSelection]];
                              [imageUIView addSubview:dView];
                              
                              firstPicTaken=YES;
@@ -312,6 +324,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
     [self stopReading];
     
     _cameraFlipButton.enabled=NO;
+    _undoButton.enabled=NO;
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Share View Dismissed"
@@ -386,7 +399,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
     dView.delegate=self;
     [dView drawImage:chosenImage];
     dView.drawLock=NO;
-    [dView setErase:kSmallHeartErase];
+    [dView setErase:[self getImageBasedOnSelection]];
     [imageUIView addSubview:dView];
     [self animateImageUIView];
     
@@ -522,6 +535,11 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
          [self startReading:YES];
 }
 
+-(IBAction)undo:(id)sender{
+    
+    [dView undoTheErasing];
+}
+
 #pragma drawView delegate methods
 
 -(void)setDrawStarted:(BOOL)value{
@@ -529,6 +547,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
     if (value) {
         _bbitemStart.enabled=YES;
         _cameraFlipButton.enabled=YES;
+        _undoButton.enabled=YES;
     }
     
 }
@@ -548,7 +567,7 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return 2;//_smallImageArray.count;
+    return _smallImageArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -649,6 +668,18 @@ static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
     
 }
 
+-(IBAction)crop:(id)sender{
+    
+    [self closeMenu];
+    
+    [dView setCropMode:YES];
+    [dView setLineColor:[UIColor whiteColor]];
+    [dView setLineWidth:3];
+    dView.drawLock=YES;
+    [dView setNeedsDisplay];
+    
+    
+}
 -(void)hideCollectionView{
     
     eraserSubMenuOpened=NO;

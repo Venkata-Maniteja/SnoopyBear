@@ -60,6 +60,13 @@
     
 }
 
+-(void)undoTheErasing{
+    
+    wipingInProgress=NO;
+    [self setNeedsDisplay];
+    
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (!self.drawLock) {
     
