@@ -25,6 +25,15 @@ static NSString  * kLargeCircleErase=@"eraser_large.png";
 static NSString  * kSmallHeartErase=@"heart_small.png";
 static NSString  * kMediumHeartErase=@"heart_medium.png";
 static NSString  * kLargeHeartErase=@"heart.png";
+static NSString  * kSmallMapleErase=@"maple_small.png";
+static NSString  * kMediumMapleErase=@"maple_medium.png";
+static NSString  * kLargeMapleErase=@"maple_large.png";
+static NSString  * kSmallAppleErase=@"apple_small.png";
+static NSString  * kMediumAppleErase=@"apple_medium.png";
+static NSString  * kLargeAppleErase=@"apple_large.png";
+static NSString  * kSmallSkeletonErase=@"skeleton_small.png";
+static NSString  * kMediumSkeletonErase=@"skeleton_medium.png";
+static NSString  * kLargeHeartSkeletonErase=@"skeleton_large.png";
 
 
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
@@ -491,7 +500,7 @@ static NSString  * kLargeHeartErase=@"heart.png";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return 3;
+    return 5;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -513,6 +522,15 @@ static NSString  * kLargeHeartErase=@"heart.png";
     if (indexPath.row==1) {
         cell.imgView.image=[UIImage imageNamed:@"heartShape.png"];
     }
+    if (indexPath.row==2) {
+        cell.imgView.image=[UIImage imageNamed:@"appleShape.png"];
+    }
+    if (indexPath.row==3) {
+        cell.imgView.image=[UIImage imageNamed:@"mapleShape.png"];
+    }
+    if (indexPath.row==4) {
+        cell.imgView.image=[UIImage imageNamed:@"skeletonShape.png"];
+    }
     
     
        return cell;
@@ -530,11 +548,22 @@ static NSString  * kLargeHeartErase=@"heart.png";
     
     if (eraserSelected==0) {
         
-            [dView setErase:@"eraser.png"];
+            [dView setErase:kMediumCircleErase];
     }
     if (eraserSelected==1) {
-           [dView setErase:@"heart.png"];
+           [dView setErase:kMediumHeartErase];
     }
+    if (eraserSelected==2) {
+        
+        [dView setErase:kMediumAppleErase];
+    }
+    if (eraserSelected==3) {
+        [dView setErase:kMediumMapleErase];
+    }if (eraserSelected==4) {
+        
+        [dView setErase:kMediumSkeletonErase];
+    }
+    
     
     [self hideCollectionView];
     
