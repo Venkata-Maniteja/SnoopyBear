@@ -14,5 +14,7 @@
 @property (nonatomic,strong)  UIImage  *pic;
 -(void)drawImage:(UIImage *) imageToDraw;
 
+- (UIImage *)imageScaledToSize:(CGSize)size;
+- (UIImage *)imageScaledToFitSize:(CGSize)size;
 
 @end

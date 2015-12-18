@@ -197,8 +197,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     [self addTagsToViews];
     
-    
-}
+    }
 
 
 -(IBAction)clear:(id)sender{
@@ -474,9 +473,9 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     
     CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);//[[[self view] layer] bounds];
-//    [[[self captureManager] previewLayer] setBounds:layerRect];
+    [[[self captureManager] previewLayer] setBounds:layerRect];
     
-    [[[self captureManager] previewLayer] setBounds:dView.bounds];
+//    [[[self captureManager] previewLayer] setBounds:dView.bounds];
     
     [[[self captureManager] previewLayer] setPosition:CGPointMake(CGRectGetMidX(layerRect),CGRectGetMidY(layerRect))];
     _subLayerCamera=[[self captureManager]previewLayer];
@@ -501,8 +500,20 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 -(void)addViewsForSnapShot{
     
+    NSNumber *x=[[NSUserDefaults standardUserDefaults]objectForKey:@"x"];
+    NSNumber *y=[[NSUserDefaults standardUserDefaults]objectForKey:@"y"];
+    NSNumber *width=[[NSUserDefaults standardUserDefaults]objectForKey:@"width"];
+    NSNumber *height=[[NSUserDefaults standardUserDefaults]objectForKey:@"height"];
+    
+    
+    
+    CGRect layerRect = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);//[[[self view] layer] bounds];
+    
+    
     _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
-    [_snapView drawImage:_avCapturedImage];
+  //  [_snapView drawImage:_avCapturedImage];
+    _snapView.pic=_avCapturedImage;
+    [_snapView imageScaledToSize:layerRect.size];
     [_snapView addSubview:dView];
     [self.view addSubview:_snapView];
   
