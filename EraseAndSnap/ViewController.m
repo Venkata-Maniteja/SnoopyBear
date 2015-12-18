@@ -69,6 +69,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
 @property (nonatomic,strong)             UIImage                *   savedImage;
+@property (nonatomic,strong)             UIImage                *   savedCropImage;
 @property (nonatomic,strong)             CALayer                *   subLayerCamera;
 
 @property (nonatomic,weak)      IBOutlet UIToolbar              *   toolBar;
@@ -77,7 +78,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (nonatomic,strong)             NSMutableArray         *   mediumImageArray;
 @property (nonatomic,strong)             NSMutableArray         *   largeImageArray;
 @property (nonatomic,strong)             NSMutableArray         *   imageShapeArray;
-
+@property (nonatomic,strong)             CAShapeLayer           *   shapeLayer;
 
 @property (assign) BOOL firstPicTaken;
 @property (assign) BOOL secondPicTaken;
@@ -87,6 +88,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (nonatomic,strong) NSArray *paths;
 @property (nonatomic,strong) NSString *documentsDirectory;
 @property (nonatomic,strong) NSString *savedImagePath;
+@property (nonatomic,strong) NSString *savedCropImagePath;
 
 @property (nonatomic,strong) UIDocumentInteractionController *documentInteractionController;
 
@@ -114,7 +116,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     _paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _documentsDirectory = [_paths objectAtIndex:0];
     _savedImagePath = [_documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
-    
+    _savedCropImagePath=[_documentsDirectory stringByAppendingPathComponent:@"savedCropImage.png"];
     firstPicTaken=NO;
     secondPicTaken=NO;
     
@@ -211,6 +213,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
         
         cropMode=NO;
         _cropView.hidden=YES;
+       
     }
 }
 
@@ -296,7 +299,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
                                  
                                  
                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                     [self shareImage];
+                                     [self shareImageWithPath:_savedImagePath];
                                  });
                                  
                                  [alert dismissViewControllerAnimated:YES completion:nil];
@@ -309,9 +312,9 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 }
 
--(void)shareImage{
+-(void)shareImageWithPath:(NSString *)path{
     
-    NSURL *URL = [NSURL fileURLWithPath:_savedImagePath];
+    NSURL *URL = [NSURL fileURLWithPath:path];
     
     if (URL) {
         // Initialize Document Interaction Controller
@@ -378,19 +381,20 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     _savedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
-    [self saveImageAtPath];
+    [self saveImageAtPath:_savedImagePath withImage:_savedImage];
     
 }
 
--(void)saveImageAtPath{
+-(void)saveImageAtPath:(NSString *)path withImage:(UIImage *)image{
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
-    [fileManager removeItemAtPath:_savedImagePath error:&error];
-    NSData *imageData = UIImagePNGRepresentation(_savedImage);
-    [imageData writeToFile:_savedImagePath atomically:NO];
+    [fileManager removeItemAtPath:path error:&error];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:path atomically:NO];
+    if(!cropMode){
     [self showAlert];
-    
+    }
 }
 
 - (IBAction)selectPhoto:(UIButton *)sender {
@@ -554,6 +558,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     if (cropMode) {
         [_cropView erase];
+         dView.layer.mask=nil;
     }
 }
 
@@ -583,17 +588,78 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 -(void)sendBezierPath:(UIBezierPath *)path{
     
-    CAShapeLayer *shapeLayer=[[CAShapeLayer alloc]init];
-    shapeLayer.frame=imageUIView.frame;
-    shapeLayer.path=path.CGPath;
-//    shapeLayer.backgroundColor=[UIColor blueColor].CGColor;
-  //  shapeLayer.position=CGPointMake(160, 100);
-    imageUIView.layer.mask=shapeLayer;
+    _shapeLayer=[[CAShapeLayer alloc]init];
+    _shapeLayer.frame=imageUIView.bounds;
+    _shapeLayer.path=path.CGPath;
+ //   imageUIView.layer.mask=_shapeLayer; //this thing is to crop the bezier path image and remove rest
     
-    [self undo:nil];
+//    [dView.layer addSublayer:_shapeLayer];  //this is to remove the bezier path and keep the rest
+    
+    dView.layer.mask=_shapeLayer;
+    
     _cropView.hidden=YES;
+    [self saveCroppedPhoto];
+    [self showAlertForCrop];
 }
 
+-(void)showAlertForCrop{
+    
+    UIAlertController *aCon=[UIAlertController alertControllerWithTitle:@"Image Cropped!" message:@"Do you want to share the image?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *saveAction=[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+       
+        
+        [aCon dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *shareAction=[UIAlertAction actionWithTitle:@"Share" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        //save the crop image in the sandbox/photoalbum
+        [self shareCroppedPhoto];
+        [aCon dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *clearAct=[UIAlertAction actionWithTitle:@"Clear Everything" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+       //do nothing
+        //save the crop image in album and dismiss the view and everything
+        [aCon dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *noAct=[UIAlertAction actionWithTitle:@"Do nothing" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //do nothing
+        //save the crop image in album and dismiss the view and everything
+        [aCon dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [aCon addAction:saveAction];
+    [aCon addAction:shareAction];
+    [aCon addAction:clearAct];
+    [aCon addAction:noAct];
+    
+    [self presentViewController:aCon animated:YES completion:nil];
+}
+
+-(void)shareCroppedPhoto{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self shareImageWithPath:_savedCropImagePath];
+    });
+    
+}
+
+-(void)saveCroppedPhoto{
+    
+    UIGraphicsBeginImageContextWithOptions(dView.bounds.size, NO, 0.0);
+    [dView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+   _savedCropImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    [self saveImageAtPath:_savedCropImagePath withImage:_savedCropImage];
+    
+    
+}
 
 #pragma eraser collectionview delegate methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
