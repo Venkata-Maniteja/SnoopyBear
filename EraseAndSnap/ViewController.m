@@ -79,6 +79,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (nonatomic,strong)             NSMutableArray         *   largeImageArray;
 @property (nonatomic,strong)             NSMutableArray         *   imageShapeArray;
 @property (nonatomic,strong)             CAShapeLayer           *   shapeLayer;
+@property (nonatomic,strong)             UIBezierPath           *   cropBezierPath;
+
 
 @property (assign) BOOL firstPicTaken;
 @property (assign) BOOL secondPicTaken;
@@ -220,7 +222,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 -(IBAction)takeSecondPic:(id)sender{
     
-    
+    cropMode=NO;
     
     if (!firstPicTaken && !secondPicTaken) {
                 [self startCamera];
@@ -258,7 +260,6 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 -(void)takeScreenShot{
     
     [[self captureManager] captureStillImage];
-//
     
 }
 
@@ -483,9 +484,21 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     [[[self captureManager] previewLayer] setBounds:dView.bounds];
     
     [[[self captureManager] previewLayer] setPosition:CGPointMake(CGRectGetMidX(layerRect),CGRectGetMidY(layerRect))];
+  
     _subLayerCamera=[[self captureManager]previewLayer];
     
-    [imageUIView.layer insertSublayer:_subLayerCamera below:dView.layer];
+    
+    if (cropMode) { //!cropmode for testing, else replace it with !cropmode
+        
+        CAShapeLayer *newLayer=[[CAShapeLayer alloc]init];
+        newLayer.path=_cropBezierPath.CGPath;
+        _subLayerCamera.mask=newLayer;
+    }
+   
+    
+    
+ //i will also try masking the imageuiview
+    [imageUIView.layer insertSublayer:_subLayerCamera below:dView.layer]; //imageUIView.layer
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveImageToPhotoAlbum) name:kImageCapturedSuccessfully object:nil];
     
     [[captureManager captureSession] startRunning];
@@ -508,6 +521,11 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
     [_snapView drawImage:_avCapturedImage];
     [_snapView addSubview:dView];
+    
+    
+    //try to mask the snappingview
+    _snapView.layer.mask=_shapeLayer;
+    
     [self.view addSubview:_snapView];
   
 }
@@ -524,6 +542,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 -(void)stopReading{
     
+    cropMode=NO;
     firstPicTaken=NO;
     secondPicTaken=NO;
     _bbitemStart.title=@"Take Pic";
@@ -542,7 +561,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 }
 
 - (IBAction)cameraFlip:(id)sender {
-         
+    
+        cropMode=NO;
          [_subLayerCamera removeFromSuperlayer];
          
          [[NSNotificationCenter defaultCenter] removeObserver:self name:kImageCapturedSuccessfully object:nil];
@@ -588,6 +608,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 -(void)sendBezierPath:(UIBezierPath *)path{
     
+    _cropBezierPath=path;
     _shapeLayer=[[CAShapeLayer alloc]init];
     _shapeLayer.frame=imageUIView.bounds;
     _shapeLayer.path=path.CGPath;
@@ -596,6 +617,9 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 //    [dView.layer addSublayer:_shapeLayer];  //this is to remove the bezier path and keep the rest
     
     dView.layer.mask=_shapeLayer;
+    
+    NSLog(@"layer count after take pic is %lu",dView.layer.sublayers.count);
+    
     
     _cropView.hidden=YES;
     [self saveCroppedPhoto];
@@ -698,6 +722,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     isEraserSelected=YES;
     [dView setErase:[self getImageBasedOnSelection]];
     
+    [self closeMenu];
     [self hideCollectionView];
     
     
@@ -837,6 +862,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     menuOpen=YES;
     eraserSubMenuOpened=NO;
+    _slideMenu.hidden=NO;
     
     [self enableDrawLock];
     
@@ -888,7 +914,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
         
     } completion:^(BOOL finished) {
         
-        _slideMenu.alpha=1.0f;;
+        _slideMenu.alpha=1.0f;
+        _slideMenu.hidden=YES;
     }];
     
     
