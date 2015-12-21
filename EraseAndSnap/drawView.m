@@ -120,20 +120,6 @@
 - (void)drawRect:(CGRect)rect {
     
     
-    
-    
-    UIImageView * iv_tap = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"switch_camera.png"]];
-    [self addSubview:iv_tap];   //this could be self in your case
-    iv_tap.tag = 779;
-    
-    [UIView animateWithDuration:0.5 delay:0  options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        iv_tap.center=self.center;
-        iv_tap.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.8, 1.8);
-        [self layoutIfNeeded];    //this could be self in your case
-        
-    } completion:^(BOOL finished) {}];
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     if (wipingInProgress) {
