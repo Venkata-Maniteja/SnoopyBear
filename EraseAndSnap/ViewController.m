@@ -76,6 +76,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
 @property (nonatomic,strong)             UIImage                *   savedImage;
 @property (nonatomic,strong)             UIImage                *   savedCropImage;
+@property (nonatomic,assign)             CGSize                     oldImageSize;
+
 @property (nonatomic,strong)             CALayer                *   subLayerCamera;
 
 @property (nonatomic,weak)      IBOutlet UIToolbar              *   toolBar;
@@ -242,6 +244,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 -(IBAction)takeSecondPic:(id)sender{
     
     cropMode=NO;
+    _cameraFlipButton.enabled=YES; //enable flip camera only when back camera is started
     
     if (!firstPicTaken && !secondPicTaken) {
                 [self startCamera];
@@ -396,10 +399,13 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 -(void)takeSnapShot{
     
     
-    UIGraphicsBeginImageContext(self.imageUIView.frame.size);
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()]; //changed layer
+    UIGraphicsBeginImageContext(self.imageUIView.bounds.size); //imageUIView
+    [self.snapView.layer renderInContext:UIGraphicsGetCurrentContext()]; //changed layer
     _savedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    //try to resize the image and save the aspect fit image
+    
     UIImageWriteToSavedPhotosAlbum(_savedImage, nil, nil, nil);
     [self saveImageAtPath:_savedImagePath withImage:_savedImage];
     
@@ -431,7 +437,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)];
+    dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)]; //0,0 to 0,64
     dView.delegate=self;
     [dView drawImage:chosenImage];
     dView.drawLock=NO;
@@ -539,11 +545,11 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
     [_snapView drawImage:_avCapturedImage];
-//    [_snapView addSubview:dView];
+    [_snapView addSubview:dView]; //y do i comment this
     
     
     //try to mask the snappingview
-    _snapView.layer.mask=_shapeLayer;
+    _snapView.layer.mask=_shapeLayer; //is this only when in crop mode ?
     
     [self.view addSubview:_snapView];
   
@@ -608,7 +614,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     if (value) {
         if (!cropMode) {
             _bbitemStart.enabled=YES;
-            _cameraFlipButton.enabled=YES;
+            _cameraFlipButton.enabled=NO;
         }
         _undoButton.enabled=YES;
     }
