@@ -19,7 +19,7 @@
                                                            targetBounds);
     
     
-    [self.pic drawInRect:imageRect];
+    [self.pic drawInRect:rect]; //imageRect
     
 }
 

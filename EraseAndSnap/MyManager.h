@@ -12,5 +12,19 @@
 
 //my singleton model
 
+//when menu is opened
+
+//when menu option is selected
+
+//draw mode is on/off
+
+//first pic mode, second pic mode,
+
+//front cam/back cam mode
+
+
+
+//how can i use my manager for, other than saving the flags ?
+
 
 @end

@@ -5,7 +5,13 @@
 //  Created by Venkata Maniteja on 2015-10-19.
 //  Copyright © 2015 Venkata Maniteja. All rights reserved.
 //
+//TODO: imgae shfts down , after tap on continue editing
+//      fill the image after second snap
 
+//TODO: tap on undo , hide the camera flip button
+
+//TODO: add bar code/qr code scanning to the app(not necessary at this point)
+//TODO: add drawing on the image
 #import "ViewController.h"
 #import "drawView.h"
 #import "SnappingView.h"
@@ -113,6 +119,16 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 
 }
 
+
+-(void)testAvFoundation{
+    
+    _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
+    [_snapView drawImage:[UIImage imageNamed:@"savedImage_large.png"]];
+    [_snapView addSubview:dView];
+    [self.view addSubview:_snapView];
+    
+}
+
 -(void)initialSetup{
     
     _paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -131,6 +147,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     smallImage=YES;
     _undoButton.enabled=NO;
+    _bbitemStart.enabled=NO;
     
     _cropView.hidden=YES;
     
@@ -200,6 +217,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     //need to take care of my singleton model
     
     [self addTagsToViews];
+    
+//    [self testAvFoundation];
     
     
 }
@@ -520,7 +539,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     _snapView=[[SnappingView alloc]initWithFrame:imageUIView.frame]; //imageUIView frame
     [_snapView drawImage:_avCapturedImage];
-    [_snapView addSubview:dView];
+//    [_snapView addSubview:dView];
     
     
     //try to mask the snappingview
@@ -618,7 +637,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     dView.layer.mask=_shapeLayer;
     
-    NSLog(@"layer count after take pic is %lu",dView.layer.sublayers.count);
+    NSLog(@"layer count after take pic is %u",dView.layer.sublayers.count);
     
     
     _cropView.hidden=YES;
