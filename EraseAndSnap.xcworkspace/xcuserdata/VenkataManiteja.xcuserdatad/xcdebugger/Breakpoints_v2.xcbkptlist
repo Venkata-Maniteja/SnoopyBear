@@ -140,11 +140,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EraseAndSnap/ViewController.m"
-            timestampString = "473178245.322734"
+            timestampString = "473805907.136152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
             landmarkName = "-takeSnapShot"
             landmarkType = "5">
          </BreakpointContent>
@@ -156,28 +156,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EraseAndSnap/ViewController.m"
-            timestampString = "473792327.100896"
+            timestampString = "473805907.136152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "538"
-            endingLineNumber = "538"
-            landmarkName = "-saveImageToPhotoAlbum"
+            startingLineNumber = "586"
+            endingLineNumber = "586"
+            landmarkName = "-image:didFinishSavingWithError:contextInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EraseAndSnap/ViewController.m"
-            timestampString = "473792342.704686"
+            timestampString = "473805907.136152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "559"
-            endingLineNumber = "559"
-            landmarkName = "-image:didFinishSavingWithError:contextInfo:"
+            startingLineNumber = "915"
+            endingLineNumber = "915"
+            landmarkName = "-applyMask"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

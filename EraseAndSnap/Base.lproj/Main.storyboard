@@ -22,6 +22,79 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-I7-ZOa">
                                 <rect key="frame" x="0.0" y="64" width="600" height="448"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-IK-mtA" userLabel="BlurSettingsView">
+                                        <rect key="frame" x="180" y="164" width="240" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BM4-NC-P12">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="h5o-yI-4fz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="highlightedColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Hg-Ty-PYd">
+                                                <rect key="frame" x="70" y="0.0" width="172" height="31"/>
+                                                <connections>
+                                                    <action selector="blurViewAlphaValue:" destination="Fry-TS-fme" eventType="valueChanged" id="VcE-EC-HJz"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAlpha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2C-i0-IG7">
+                                                <rect key="frame" x="0.0" y="40" width="63" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-gX-Vz5">
+                                                <rect key="frame" x="70" y="45" width="164" height="31"/>
+                                                <connections>
+                                                    <action selector="seeThroughViewAlphaValue:" destination="Fry-TS-fme" eventType="valueChanged" id="0zI-gf-H7f"/>
+                                                </connections>
+                                            </slider>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjM-b8-14b">
+                                                <rect key="frame" x="73" y="75" width="94" height="30"/>
+                                                <state key="normal" title="Choose Color"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-2r-JJg">
+                                                <rect key="frame" x="167" y="75" width="30" height="30"/>
+                                                <state key="normal" title="ok"/>
+                                                <connections>
+                                                    <action selector="dismissBlurSettings:" destination="Fry-TS-fme" eventType="touchUpInside" id="f5a-Hg-EiL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="9Hg-Ty-PYd" secondAttribute="trailing" id="0mB-R2-mWP"/>
+                                            <constraint firstItem="a2C-i0-IG7" firstAttribute="top" secondItem="BM4-NC-P12" secondAttribute="top" constant="20" id="39j-bT-0Mr"/>
+                                            <constraint firstItem="TH6-gX-Vz5" firstAttribute="trailing" secondItem="8ws-IK-mtA" secondAttribute="trailingMargin" id="4E8-jl-V6g"/>
+                                            <constraint firstItem="TH6-gX-Vz5" firstAttribute="top" secondItem="9Hg-Ty-PYd" secondAttribute="bottom" constant="15" id="61q-vp-wUq"/>
+                                            <constraint firstAttribute="height" constant="120" id="78t-B3-sDc"/>
+                                            <constraint firstItem="B5M-2r-JJg" firstAttribute="centerY" secondItem="bjM-b8-14b" secondAttribute="centerY" id="DXG-br-yCH"/>
+                                            <constraint firstItem="a2C-i0-IG7" firstAttribute="leading" secondItem="BM4-NC-P12" secondAttribute="leading" id="HXU-Kl-ZXy"/>
+                                            <constraint firstItem="B5M-2r-JJg" firstAttribute="leading" secondItem="bjM-b8-14b" secondAttribute="trailing" id="IEP-oQ-ynD"/>
+                                            <constraint firstItem="bjM-b8-14b" firstAttribute="centerY" secondItem="8ws-IK-mtA" secondAttribute="centerY" id="M0B-Yn-AUQ"/>
+                                            <constraint firstItem="bjM-b8-14b" firstAttribute="top" secondItem="9Hg-Ty-PYd" secondAttribute="bottom" constant="40" id="OPC-aW-EcO"/>
+                                            <constraint firstItem="bjM-b8-14b" firstAttribute="top" secondItem="TH6-gX-Vz5" secondAttribute="bottom" id="Rtw-cS-Z8O"/>
+                                            <constraint firstAttribute="width" constant="240" id="XmP-Y8-uK8"/>
+                                            <constraint firstItem="9Hg-Ty-PYd" firstAttribute="top" secondItem="8ws-IK-mtA" secondAttribute="top" id="Xp3-G4-GUO"/>
+                                            <constraint firstItem="9Hg-Ty-PYd" firstAttribute="leading" secondItem="BM4-NC-P12" secondAttribute="trailing" constant="28" id="axA-0g-1z1"/>
+                                            <constraint firstItem="BM4-NC-P12" firstAttribute="top" secondItem="8ws-IK-mtA" secondAttribute="top" id="b6E-yI-Wx8"/>
+                                            <constraint firstItem="TH6-gX-Vz5" firstAttribute="leading" secondItem="9Hg-Ty-PYd" secondAttribute="leading" id="ctd-8s-kB5"/>
+                                            <constraint firstItem="bjM-b8-14b" firstAttribute="centerX" secondItem="8ws-IK-mtA" secondAttribute="centerX" id="qNu-hU-lbu"/>
+                                            <constraint firstItem="BM4-NC-P12" firstAttribute="leading" secondItem="8ws-IK-mtA" secondAttribute="leading" id="tKn-BK-mk1"/>
+                                            <constraint firstItem="a2C-i0-IG7" firstAttribute="top" secondItem="BM4-NC-P12" secondAttribute="bottom" constant="10" id="v80-6r-D3q"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="39j-bT-0Mr"/>
+                                                <exclude reference="M0B-Yn-AUQ"/>
+                                                <exclude reference="OPC-aW-EcO"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aax-fv-CVN">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="95"/>
                                         <subviews>
@@ -51,6 +124,9 @@
                                                         <state key="normal" title="Blur">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="blur:" destination="Fry-TS-fme" eventType="touchUpInside" id="PfM-SA-MMd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bh-kN-CIJ">
                                                         <rect key="frame" x="442" y="0.0" width="142" height="59"/>
@@ -183,6 +259,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="18F-za-aVq" firstAttribute="leading" secondItem="uQL-I7-ZOa" secondAttribute="leading" id="4Fl-aU-bqb"/>
+                                    <constraint firstItem="8ws-IK-mtA" firstAttribute="centerX" secondItem="uQL-I7-ZOa" secondAttribute="centerX" id="Kud-Wz-uG4"/>
+                                    <constraint firstItem="8ws-IK-mtA" firstAttribute="centerY" secondItem="uQL-I7-ZOa" secondAttribute="centerY" id="NL2-EK-0PO"/>
                                     <constraint firstItem="aax-fv-CVN" firstAttribute="leading" secondItem="uQL-I7-ZOa" secondAttribute="leading" id="d49-XE-C25"/>
                                     <constraint firstAttribute="trailing" secondItem="18F-za-aVq" secondAttribute="trailing" id="ifZ-uR-xfG"/>
                                     <constraint firstItem="18F-za-aVq" firstAttribute="top" secondItem="aax-fv-CVN" secondAttribute="bottom" id="kLl-ly-4g8"/>
@@ -278,6 +356,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bbitemStart" destination="hwu-gv-Jmd" id="Ie9-cx-AEn"/>
+                        <outlet property="blurSettingsView" destination="8ws-IK-mtA" id="nnE-H8-bqs"/>
+                        <outlet property="blurViewAlphaSlider" destination="9Hg-Ty-PYd" id="4Ue-Kg-f15"/>
                         <outlet property="cameraFlipButton" destination="IIB-Is-NWE" id="gFI-gJ-raw"/>
                         <outlet property="choosePic" destination="pal-Uh-M4v" id="xx3-k6-Qa5"/>
                         <outlet property="clear" destination="6Cj-e9-JmR" id="QJg-Ml-L6T"/>

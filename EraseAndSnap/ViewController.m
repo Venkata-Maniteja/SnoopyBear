@@ -20,6 +20,9 @@
 #import "Masonry.h"
 #import "EraserCollectionViewCell.h"
 #import "CropView.h"
+#import "circleView.h"
+#import "BlurView.h"
+#import "BlurEffectView.h"
 
 static const CGFloat kSlideMenuHeight = 95;
 static const CGFloat kSlideMenuOvershoot = 20;
@@ -60,6 +63,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     BOOL    mediumImage;
     BOOL    largeImage;
     BOOL    cropMode;
+    BOOL    blurMode;
+    BOOL    photoSelected;
     
 }
 
@@ -69,8 +74,15 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForSlideMenu;
 @property (nonatomic,weak)      IBOutlet NSLayoutConstraint     *   topConstraintForCollectionViewHolder;
 @property (nonatomic,weak)      IBOutlet UIView                 *   collectionViewHolder;
+@property (nonatomic,weak)      IBOutlet UIView                 *   blurSettingsView;
+@property (nonatomic,weak)      IBOutlet UISlider               *   blurViewAlphaSlider;
+@property (nonatomic,weak)      IBOutlet UISlider               *   seeThroughViewAlphaSlider;
+
 @property (nonatomic,strong)             SnappingView           *   snapView;
 @property (strong,nonatomic)             drawView               *   dView;
+@property (nonatomic,strong)             circleView             *   circleBlurMaskView;
+@property (strong,nonatomic)             BlurView               *   blurView;
+@property (strong,nonatomic)             BlurEffectView         *   blurEffectView;
 @property (strong,nonatomic)    IBOutlet CropView               *   cropView;
 
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
@@ -152,6 +164,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     _bbitemStart.enabled=NO;
     
     _cropView.hidden=YES;
+    _blurSettingsView.hidden=YES;
     
     _smallImageArray=[[NSMutableArray alloc]init];
     _mediumImageArray=[[NSMutableArray alloc]init];
@@ -231,6 +244,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     _cameraFlipButton.enabled=NO;
     _undoButton.enabled=NO;
+    photoSelected=NO;
     
     if (cropMode) {
         
@@ -450,6 +464,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     _bbitemStart.enabled=NO;
     _bbitemStart.title=@"Take Another Pic";
     _choosePic.enabled=NO;
+    
+    photoSelected=YES;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
@@ -847,6 +863,67 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     
 }
+
+-(IBAction)blur:(id)sender{
+    
+    blurMode=YES;
+    
+    [self closeMenu];
+    
+    // is picture selected.....YES/NO
+    if (photoSelected) {
+        
+        _blurView=[[BlurView alloc]initWithFrame:imageUIView.bounds];
+        _blurView.backgroundColor=[UIColor blueColor];
+        _blurView.alpha=0.8;
+        _blurView.opaque=NO;
+        _blurView.maskAlpha=0.7;
+       
+        [imageUIView addSubview: _blurView];
+        
+        _circleBlurMaskView=[[circleView alloc]initWithFrame:CGRectMake(20, 20, 60, 60)];
+        _circleBlurMaskView.circleSize=CGSizeMake(60, 60);
+        _circleBlurMaskView.backgroundColor=[UIColor clearColor];
+        [_blurView addSubview:_circleBlurMaskView];
+        
+        [self applyMask];
+        
+    }else{
+        
+        //show alert to tell user to take or select a picture
+    }
+    
+    
+}
+
+-(void)addBLurEffectView{
+    
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    _blurEffectView = [[BlurEffectView alloc] initWithEffect:blurEffect];
+    _blurEffectView.frame = self.dView.frame;
+    _blurEffectView.backgroundColor=[UIColor clearColor];
+    _blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self.dView addSubview:_blurEffectView];
+    
+}
+
+-(void)applyMask{
+    
+  
+    [_circleBlurMaskView setNeedsDisplay];
+    [_blurView setSeeRect:_circleBlurMaskView.frame];    //set the transparency cut on transparency view
+    [_blurView setNeedsDisplay];
+//    [_blurEffectView setNeedsDisplay];
+    
+}
+
+-(void)moveCircleViewwithX:(float) x withY:(float) y{
+    
+    _circleBlurMaskView.frame=CGRectMake(x, y, _circleBlurMaskView.frame.size.width, _circleBlurMaskView.frame.size.height);
+    [self applyMask];
+}
 -(void)hideCollectionView{
     
     eraserSubMenuOpened=NO;
@@ -977,6 +1054,85 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
         NSLog(@"large eraser selected");
         smallImage=NO;mediumImage=NO;largeImage=YES;
     }
+    
+}
+
+#pragma touches delegate mehtods
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [[event allTouches] anyObject];
+   
+    if ([touch tapCount] == 2 ) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+           //create a popup
+            [self showBluerSettingspopUp];
+        });
+       
+    
+    }
+}
+
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:_blurView];
+
+    
+    if (blurMode) {
+        
+        [self moveCircleViewwithX:touchLocation.x+30 withY:touchLocation.y-30];
+        
+    }
+}
+
+-(void)showBluerSettingspopUp{
+    
+    _blurSettingsView.hidden=NO;
+    [imageUIView bringSubviewToFront:_blurSettingsView];
+    
+    _blurSettingsView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        _blurSettingsView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+    }];
+    
+    
+   
+}
+
+-(IBAction)dismissBlurSettings:(id)sender{
+    
+   
+    _blurSettingsView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        // animate it to the identity transform (100% scale)
+        _blurSettingsView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // if you want to do something once the animation finishes, put it here
+        
+         _blurSettingsView.hidden=YES;
+        
+    }];
+}
+
+-(IBAction)blurViewAlphaValue:(id)sender{
+    
+    UISlider *slider=(UISlider *)sender;
+    
+    _blurView.alpha=slider.value;
+    
+}
+
+-(IBAction)seeThroughViewAlphaValue:(id)sender{
+    
+    UISlider *slider=(UISlider *)sender;
+    
+    _blurView.maskAlpha=slider.value;
+    [_blurView setNeedsDisplay];
     
 }
 
