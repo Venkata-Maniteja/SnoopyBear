@@ -535,10 +535,21 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 {
     _avCapturedImage=[[self captureManager] stillImage];
     
+    _avCapturedImage=[self imageWithImage:_avCapturedImage scaledToSize:CGSizeMake(imageUIView.frame.size.width, imageUIView.frame.size.height)];
+    
     [self addViewsForSnapShot];
     [[self captureManager]stop];
     [self takeSnapShot];
 
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 -(void)addViewsForSnapShot{
