@@ -874,7 +874,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     if (photoSelected) {
         
         _blurView=[[BlurView alloc]initWithFrame:imageUIView.bounds];
-        _blurView.backgroundColor=[UIColor blueColor];
+        _blurView.backgroundColor=[UIColor clearColor];
         _blurView.alpha=0.8;
         _blurView.opaque=NO;
         _blurView.maskAlpha=0.7;
