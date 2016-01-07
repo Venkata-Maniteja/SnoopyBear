@@ -11,6 +11,8 @@
 @interface BlurEffectView : UIVisualEffectView
 
 @property (assign) CGRect seeRect;
+@property (assign) CGFloat maskAlpha;
+
 
 
 @end
