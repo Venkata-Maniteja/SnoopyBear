@@ -1,1 +1,4 @@
 pod 'Masonry'
+pod 'TOCropViewController'
+pod 'ACEDrawingView'
+pod 'iOS-Color-Picker'

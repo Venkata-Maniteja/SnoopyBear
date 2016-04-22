@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AceDrawingView.nib</key>
+		<data>
+		V+mNHkLEFoePusOisDi6C/9gxIk=
+		</data>
 		<key>AppIcon29x29@2x.png</key>
 		<data>
 		cl3DM//Pk6Dc5NhPOMJiyfy6S58=
@@ -52,11 +56,15 @@
 		<data>
 		L3owNTNu81jL/YsGDTOaVF6T2dM=
 		</data>
+		<key>Assets.car</key>
+		<data>
+		LE5zr9MYZUi0Tufh5hLesgKOUEE=
+		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VPxSIxYFEjfl3pEmsJ88vxvX/gM=
+			Ks0j2DVsSWlmfXA2TK30kdxxIFU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -74,7 +82,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BiuirXk9Acyxdibva1cFx22+HcM=
+			AdkhKaLreTJK0awZjsvZz6Q2xvo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -83,7 +91,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SxQH5fuYZn06mCe0DLbiTmoLHhg=
+			SlzRB3e/WE8hQzpa/qfdI+5L8sI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -101,15 +109,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vag1DB0CZBg5LQxDxy7VSn0GtAs=
+			WqB0OflUrZR0Jpg5y7fFYqxT3DI=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>EraseAndSnap.png</key>
-		<data>
-		iOW28Td0nkaQiAFkA8WfNGv+zLU=
-		</data>
 		<key>Info.plist</key>
 		<data>
 		Zcnd9G+EH8vp79ELEyLjrCO4F1o=
@@ -118,97 +122,184 @@
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
-		<key>appleShape.png</key>
+		<key>SeeThroughView.nib</key>
 		<data>
-		d9KCVnDYuk/RqoEKA1R9pZqcMtc=
+		jaFwtoDWoIcMH6EyYRdQhqx3zns=
 		</data>
-		<key>apple_large.png</key>
-		<data>
-		QTL8g7QasHIi9ARlywGzc4+5r+g=
-		</data>
-		<key>apple_medium.png</key>
-		<data>
-		I7Ff+s4cXitJZLQWMRICYsYn/iE=
-		</data>
-		<key>apple_small.png</key>
-		<data>
-		NOgHu71FFW/lmGAs8IggiQuHOXo=
-		</data>
-		<key>circleShape.png</key>
-		<data>
-		9oEb+hRZyQNCMjuSaS3W0G9TNQQ=
-		</data>
+		<key>TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CHWQYN5qLwERQQgUi0u4vwv812s=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ar.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZovqS7tWrd8BKeYOq48FgdpaeY0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/da.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eUQ5FSXie6fKVn+bpItu65mSwZc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/de.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QZnqrqjlw8UOgTDv2Nay5h/lSDA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/en.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CHWQYN5qLwERQQgUi0u4vwv812s=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/es.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LU7XSBXgVy08sIbfXb3rsC+KQls=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/fr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y1qn/QPyVBHAzd+R3no+g1fEiUc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/id.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C35TvpAq6Bj85XdroW+z/t0Y8Wg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/it.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kkuhFsIk0xmKIsNUeHRLYEDBdWE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ja.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Rg6oYvsmneeCvp9XP/Bo5F/oBXE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ko.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tG3dXBvwDmovoz6bRuHq9fF6FJg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/nl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JnVhz1EmcREc3jaIi7u2QitbH98=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/pl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Et91YBrq+1q9P1QvgBnf3FqneWM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/pt.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NnL2EQpiJDFAscuSOBv1b6lCw10=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ru.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/lTN5285Su5gEnMpRJ+tGoHFFcg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/tr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4TElYnExd6h6reCfGx/d5KZo9Xs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/vi.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YHUxuTu/dc5NGqIEof2sXek0/co=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/zh-Hans.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			agYFSvz1kA6+sCFczsG7yRckTE8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/zh-Hant.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ps2VkckhnvVJ9uAJV2Aty4Yws/Q=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>embedded.mobileprovision</key>
 		<data>
 		2dQSFBlvPDmJP/gTr1uw7eI01I0=
-		</data>
-		<key>eraser_large.png</key>
-		<data>
-		MDHTdG6wYUc1e77kXw5GxpkMQNE=
-		</data>
-		<key>eraser_medium.png</key>
-		<data>
-		YqXfXya7dS+wL7aSdODhvD9FvrE=
-		</data>
-		<key>eraser_small.png</key>
-		<data>
-		UYKkq84oQ742Zt1XzjCFXV1s1Os=
-		</data>
-		<key>heartShape.png</key>
-		<data>
-		jEIf1KkpDtdiO68GJttTkQHnrbI=
-		</data>
-		<key>heart_large.png</key>
-		<data>
-		1GSoTlOwcai1+JA/DwUUmnHQwMg=
-		</data>
-		<key>heart_medium.png</key>
-		<data>
-		2wbE9v7lzy1o6AK43bopa1yZXno=
-		</data>
-		<key>heart_small.png</key>
-		<data>
-		1tb8I6Ibc+m77G+kna6edpY6nxw=
-		</data>
-		<key>mapleShape.png</key>
-		<data>
-		gHAf17D0A9DWq17+KH5dmwSvcrE=
-		</data>
-		<key>maple_large.png</key>
-		<data>
-		fRoIRDwwECm0bC2d83xy2b0sqWk=
-		</data>
-		<key>maple_medium.png</key>
-		<data>
-		bZCaBZJdNTJZsNDfSCMFr2aLFoQ=
-		</data>
-		<key>maple_small.png</key>
-		<data>
-		fdaFYjLe95cCwXjfp1iwYPWUPwE=
-		</data>
-		<key>savedImage_large.png</key>
-		<data>
-		+WWDV8p9v78bfqbALBYq2PvklcA=
-		</data>
-		<key>savedImage_small.png</key>
-		<data>
-		CcPIMl8jNOEOIywMQCFZCzyhhpM=
-		</data>
-		<key>skeletonShape.png</key>
-		<data>
-		FMxnaAFka7PebGcmK32vXz3XxLs=
-		</data>
-		<key>skeleton_large.png</key>
-		<data>
-		LDebvdNmRQkT6mIOQYI4TSohglM=
-		</data>
-		<key>skeleton_medium.png</key>
-		<data>
-		HYutjbydgmgbuhsePMa/ZmbSEuo=
-		</data>
-		<key>skeleton_small.png</key>
-		<data>
-		LTDQ+K8Ig7UJ3JcxgsP2qP+IeaA=
 		</data>
 		<key>switch_camera.png</key>
 		<data>
@@ -217,6 +308,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AceDrawingView.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V+mNHkLEFoePusOisDi6C/9gxIk=
+			</data>
+			<key>hash2</key>
+			<data>
+			tmMXPsbUcOR2vvu+04D0l1lmPFVhIQVTDRD5T10nFjw=
+			</data>
+		</dict>
 		<key>AppIcon29x29@2x.png</key>
 		<dict>
 			<key>hash</key>
@@ -349,15 +451,26 @@
 			r9N2OG8TA3IhJIgrpWS4hMUQMHdYQX5SGFjVcrvXEjI=
 			</data>
 		</dict>
+		<key>Assets.car</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LE5zr9MYZUi0Tufh5hLesgKOUEE=
+			</data>
+			<key>hash2</key>
+			<data>
+			H7oGrb+Zs4W6Y13fqrzZqluhqMDItkkLBlVf6xyBtsw=
+			</data>
+		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VPxSIxYFEjfl3pEmsJ88vxvX/gM=
+			Ks0j2DVsSWlmfXA2TK30kdxxIFU=
 			</data>
 			<key>hash2</key>
 			<data>
-			hCY/gf3bo6bwU6hfNHAzoQvRNy/yKgcGHlNqizv+kEI=
+			ShsK++XK/zbwZlBmkYdCfbh2h50SczhtoUZYo5GVcGo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -379,11 +492,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BiuirXk9Acyxdibva1cFx22+HcM=
+			AdkhKaLreTJK0awZjsvZz6Q2xvo=
 			</data>
 			<key>hash2</key>
 			<data>
-			CKOBPkU2pJc+9awWwp2gYQcPORvZmsJf7k0p1pSa+/A=
+			DqfMR0Qwv12ZZqau+SJwMsov7ELgFYEWyEsajddrifc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -392,11 +505,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SxQH5fuYZn06mCe0DLbiTmoLHhg=
+			SlzRB3e/WE8hQzpa/qfdI+5L8sI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4WNIAlT4Be/rDO5W/pCrExX293QogsPtKPTXkrxZAWY=
+			U+ZLO2t9jL2q1mKmi6QLOyhwfHL3uXypabqZfih/ac8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -418,80 +531,272 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vag1DB0CZBg5LQxDxy7VSn0GtAs=
+			WqB0OflUrZR0Jpg5y7fFYqxT3DI=
 			</data>
 			<key>hash2</key>
 			<data>
-			bmVlSnWfl451q+hBbkhCqJQnMOgUtJVWCRUfv6QyEYo=
+			tYnea2zYXQg5/nSZ30+QHVSlAUO0QAMfkfvXLjmr0LA=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>EraseAndSnap.png</key>
+		<key>SeeThroughView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iOW28Td0nkaQiAFkA8WfNGv+zLU=
+			jaFwtoDWoIcMH6EyYRdQhqx3zns=
 			</data>
 			<key>hash2</key>
 			<data>
-			JXgzvQtcPVJjiVZFk8K49FwmlbYM4ueloLcK3lo2LA4=
+			R0Mlqbdb8cdXlOSLcHheRPohRdNeDpcBVGIb5MwSwPs=
 			</data>
 		</dict>
-		<key>appleShape.png</key>
+		<key>TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d9KCVnDYuk/RqoEKA1R9pZqcMtc=
+			CHWQYN5qLwERQQgUi0u4vwv812s=
 			</data>
 			<key>hash2</key>
 			<data>
-			V45LxqQs/5y/uVBi2HYhEPBmzWbz16sKqn/7fg1nelo=
+			5JRkxJUEBh1vZ83cnuEZv99906HUgevYX2adrOHaRnM=
 			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
-		<key>apple_large.png</key>
+		<key>TOCropViewControllerBundle.bundle/ar.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QTL8g7QasHIi9ARlywGzc4+5r+g=
+			ZovqS7tWrd8BKeYOq48FgdpaeY0=
 			</data>
 			<key>hash2</key>
 			<data>
-			aaKeC+CnyRLzpnKIoIOry90jtrH/kwo0ohXzvc3FTQo=
+			a6QQwuw3JL4vsYJHf03EIOFhC2HhkK8TlCiBMWBd4WU=
 			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
-		<key>apple_medium.png</key>
+		<key>TOCropViewControllerBundle.bundle/da.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I7Ff+s4cXitJZLQWMRICYsYn/iE=
+			eUQ5FSXie6fKVn+bpItu65mSwZc=
 			</data>
 			<key>hash2</key>
 			<data>
-			4cqszbyVlknPayCHo2qjwG9ZdtbZv4p57eNugT8QgK8=
+			T8NthfLWIcfxqGyvgZztpzNOZUMTIpo5kaRqHgpAGzQ=
 			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
-		<key>apple_small.png</key>
+		<key>TOCropViewControllerBundle.bundle/de.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NOgHu71FFW/lmGAs8IggiQuHOXo=
+			QZnqrqjlw8UOgTDv2Nay5h/lSDA=
 			</data>
 			<key>hash2</key>
 			<data>
-			jZyx7AgreX01QO/l31z6ktpNUOriakwb+72/pSRDMn0=
+			2KxdQhoSJbHjaiyuZtb2r0TvS/zuLV8tzrqAcmmBx0c=
 			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
-		<key>circleShape.png</key>
+		<key>TOCropViewControllerBundle.bundle/en.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9oEb+hRZyQNCMjuSaS3W0G9TNQQ=
+			CHWQYN5qLwERQQgUi0u4vwv812s=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ddb9DKsc1dYaT6Qv1AiQfxJ67+jMW+aN1489auXc2jM=
+			5JRkxJUEBh1vZ83cnuEZv99906HUgevYX2adrOHaRnM=
 			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/es.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LU7XSBXgVy08sIbfXb3rsC+KQls=
+			</data>
+			<key>hash2</key>
+			<data>
+			IRi5viKy2C2QfsjjvfNYy6A1+AbhHfz6npAdFlTsKoE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/fr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y1qn/QPyVBHAzd+R3no+g1fEiUc=
+			</data>
+			<key>hash2</key>
+			<data>
+			K187OHTkus67YHrxNK2fAFWmqS5m+BaMBcKqL0f1my4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/id.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C35TvpAq6Bj85XdroW+z/t0Y8Wg=
+			</data>
+			<key>hash2</key>
+			<data>
+			SE1rkQJ8GskqwNTK4vnsWtX3JZzajMdFqOIsoTQ39l0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/it.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kkuhFsIk0xmKIsNUeHRLYEDBdWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			3EYA/g7v1tzNlByanGim/2jI5NheeNxlIXmr6J+Ivr4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ja.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Rg6oYvsmneeCvp9XP/Bo5F/oBXE=
+			</data>
+			<key>hash2</key>
+			<data>
+			SuCOlxNpFhjKdcYQmzNItbfGzk9D65X4zw2iIFI3Rjo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ko.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tG3dXBvwDmovoz6bRuHq9fF6FJg=
+			</data>
+			<key>hash2</key>
+			<data>
+			JnaPtaXioYSuNW0LH2y2E8R4e1stALp5ZXNV1tnrGpE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/nl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JnVhz1EmcREc3jaIi7u2QitbH98=
+			</data>
+			<key>hash2</key>
+			<data>
+			IwwOA7K8sxyt/dV4AOACdH8NtaA63D/Vc3Snd6trhDk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/pl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Et91YBrq+1q9P1QvgBnf3FqneWM=
+			</data>
+			<key>hash2</key>
+			<data>
+			y3Zl3MvEPXHvx+9WuKp8tTM2Ce49YM00b4rGafSyq4s=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/pt.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NnL2EQpiJDFAscuSOBv1b6lCw10=
+			</data>
+			<key>hash2</key>
+			<data>
+			V6i2CkDPz5F5YJvkEU22q/FNtjSW1K68tLLJrRIEHPc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/ru.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/lTN5285Su5gEnMpRJ+tGoHFFcg=
+			</data>
+			<key>hash2</key>
+			<data>
+			4e9HQlV4kHtiXWD+VlG03ywO5+ZSDdb73etBbBC1+rU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/tr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4TElYnExd6h6reCfGx/d5KZo9Xs=
+			</data>
+			<key>hash2</key>
+			<data>
+			9DvqEM0q2GfMCdHc0foTARD4jZp4XPcKuSM9+Uw4vsU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/vi.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YHUxuTu/dc5NGqIEof2sXek0/co=
+			</data>
+			<key>hash2</key>
+			<data>
+			cfcqrjAVhTyhz1FfBHRV/DnZSRfn03vk3UsSsS+CEvs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/zh-Hans.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			agYFSvz1kA6+sCFczsG7yRckTE8=
+			</data>
+			<key>hash2</key>
+			<data>
+			/wSYF7xCd3abHcL0VqD3vJXvmZP0KwpO95LzA6U3RZ8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>TOCropViewControllerBundle.bundle/zh-Hant.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ps2VkckhnvVJ9uAJV2Aty4Yws/Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			KVjOXQxzCMJpcJWl1DnRXIX7O/y3vNhyHeAC9xVcJXE=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
@@ -502,193 +807,6 @@
 			<key>hash2</key>
 			<data>
 			vFrB5F4sW/Bvmm8XvRHitoP5QeAlPJMgWe2whRXvEYc=
-			</data>
-		</dict>
-		<key>eraser_large.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MDHTdG6wYUc1e77kXw5GxpkMQNE=
-			</data>
-			<key>hash2</key>
-			<data>
-			VYfPGankY4Z4eVXvkODKvQZFEQAkbQ81egth1ygUvDg=
-			</data>
-		</dict>
-		<key>eraser_medium.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YqXfXya7dS+wL7aSdODhvD9FvrE=
-			</data>
-			<key>hash2</key>
-			<data>
-			29oQWJhZDIYTBefN5HCArO5ch12PAyME1QoYi/M8g1M=
-			</data>
-		</dict>
-		<key>eraser_small.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UYKkq84oQ742Zt1XzjCFXV1s1Os=
-			</data>
-			<key>hash2</key>
-			<data>
-			EPmQiD6BNqW7izDgOWc/g0EfUJRJh0JDXa5ExWf/K+I=
-			</data>
-		</dict>
-		<key>heartShape.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jEIf1KkpDtdiO68GJttTkQHnrbI=
-			</data>
-			<key>hash2</key>
-			<data>
-			SV0WR+3VoxMXC0ZtWVOP9xy6pHVHzYdqYyyQ0UOQi5Q=
-			</data>
-		</dict>
-		<key>heart_large.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1GSoTlOwcai1+JA/DwUUmnHQwMg=
-			</data>
-			<key>hash2</key>
-			<data>
-			SuOI+Tzhnt0Xx4mC7vgbIcHAezE24dLQol2qtVtMUOM=
-			</data>
-		</dict>
-		<key>heart_medium.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2wbE9v7lzy1o6AK43bopa1yZXno=
-			</data>
-			<key>hash2</key>
-			<data>
-			wYA4DrkOcnisM6aE+iPsUd5UOFmIdBT/2bvBHLvYeFA=
-			</data>
-		</dict>
-		<key>heart_small.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1tb8I6Ibc+m77G+kna6edpY6nxw=
-			</data>
-			<key>hash2</key>
-			<data>
-			CYnU8193isxWUMkhTOdmgvrlyKFBtwQ/CYyPmKxR7Tg=
-			</data>
-		</dict>
-		<key>mapleShape.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gHAf17D0A9DWq17+KH5dmwSvcrE=
-			</data>
-			<key>hash2</key>
-			<data>
-			M/myhTgsayNMh+LTYzRHqikgzd8oOuxdFggsv/7Bukg=
-			</data>
-		</dict>
-		<key>maple_large.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fRoIRDwwECm0bC2d83xy2b0sqWk=
-			</data>
-			<key>hash2</key>
-			<data>
-			izORDMlQC4gNvEesSo9BS6QQzYol31Nmq1KPJuFHV5g=
-			</data>
-		</dict>
-		<key>maple_medium.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bZCaBZJdNTJZsNDfSCMFr2aLFoQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			q9VLBARQiqi8rNSSEuHs4c9fb58XTuXHeZkARakrBos=
-			</data>
-		</dict>
-		<key>maple_small.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fdaFYjLe95cCwXjfp1iwYPWUPwE=
-			</data>
-			<key>hash2</key>
-			<data>
-			uSzJ0txHElZDh1aynbWEL8xQr8pScFzrOSloq8fr82c=
-			</data>
-		</dict>
-		<key>savedImage_large.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+WWDV8p9v78bfqbALBYq2PvklcA=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZefpL6t9EriDBKJcCETPJ1Lc9D9yrijgMWJX4vIWWog=
-			</data>
-		</dict>
-		<key>savedImage_small.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			CcPIMl8jNOEOIywMQCFZCzyhhpM=
-			</data>
-			<key>hash2</key>
-			<data>
-			EOg9GO0utcVYuvNFqsbCtSYNu/SVpyf7Kmg7GFhjuUU=
-			</data>
-		</dict>
-		<key>skeletonShape.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FMxnaAFka7PebGcmK32vXz3XxLs=
-			</data>
-			<key>hash2</key>
-			<data>
-			DTyJx3aFxZGO/XKwAUQTeOtZdTZASLSkPkDbbW4Uprg=
-			</data>
-		</dict>
-		<key>skeleton_large.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LDebvdNmRQkT6mIOQYI4TSohglM=
-			</data>
-			<key>hash2</key>
-			<data>
-			0x2XjOEo1rQL53u0dmV8lCwtObykXw0qsKbGgVukITY=
-			</data>
-		</dict>
-		<key>skeleton_medium.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			HYutjbydgmgbuhsePMa/ZmbSEuo=
-			</data>
-			<key>hash2</key>
-			<data>
-			Ypyl1YD5zEHF3GEiUzYYmkEkjeb3Tm5UzgR8GWhEQnM=
-			</data>
-		</dict>
-		<key>skeleton_small.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LTDQ+K8Ig7UJ3JcxgsP2qP+IeaA=
-			</data>
-			<key>hash2</key>
-			<data>
-			Z/sCfD0HjxsyNVEoveMjVCG0FD7FeDazEzhpY9dBGlc=
 			</data>
 		</dict>
 		<key>switch_camera.png</key>

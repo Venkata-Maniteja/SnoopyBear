@@ -22,35 +22,38 @@
 #import "CropView.h"
 #import "circleView.h"
 #import "BlurView.h"
+#import "MyManager.h"
+#import "TOCropViewController.h"
+#import "AceDrawingView.h"
 
-static const CGFloat kSlideMenuHeight = 95;
-static const CGFloat kSlideMenuOvershoot = 20;
-static const CGFloat kSlideCollectionViewHolderHeight = 200+kSlideMenuHeight;
-static const CGFloat kSlideCollectionViewOvershoot = 40;
+static const CGFloat kSlideMenuHeight                       = 95;
+static const CGFloat kSlideMenuOvershoot                    = 20;
+static const CGFloat kSlideCollectionViewHolderHeight       = 200+kSlideMenuHeight;
+static const CGFloat kSlideCollectionViewOvershoot          = 40;
 
-static NSString  * kSmallCircleErase=@"eraser_small.png";
-static NSString  * kMediumCircleErase=@"eraser_medium.png";
-static NSString  * kLargeCircleErase=@"eraser_large.png";
-static NSString  * kSmallHeartErase=@"heart_small.png";
-static NSString  * kMediumHeartErase=@"heart_medium.png";
-static NSString  * kLargeHeartErase=@"heart_large.png";
-static NSString  * kSmallMapleErase=@"maple_small.png";
-static NSString  * kMediumMapleErase=@"maple_medium.png";
-static NSString  * kLargeMapleErase=@"maple_large.png";
-static NSString  * kSmallAppleErase=@"apple_small.png";
-static NSString  * kMediumAppleErase=@"apple_medium.png";
-static NSString  * kLargeAppleErase=@"apple_large.png";
-static NSString  * kSmallSkeletonErase=@"skeleton_small.png";
-static NSString  * kMediumSkeletonErase=@"skeleton_medium.png";
-static NSString  * kLargeSkeletonErase=@"skeleton_large.png";
-static NSString  * kCircleShape=@"circleShape.png";
-static NSString  * kHeartShape=@"heartShape.png";
-static NSString  * kAppleShape=@"appleShape.png";
-static NSString  * kMapleShape=@"mapleShape.png";
-static NSString  * kSkeletonShape=@"skeletonShape.png";
+static NSString  * kSmallCircleErase        =@"eraser_small";
+static NSString  * kMediumCircleErase       =@"eraser_medium";
+static NSString  * kLargeCircleErase        =@"eraser_large";
+static NSString  * kSmallHeartErase         =@"heart_small";
+static NSString  * kMediumHeartErase        =@"heart_medium";
+static NSString  * kLargeHeartErase         =@"heart_large";
+static NSString  * kSmallMapleErase         =@"maple_small";
+static NSString  * kMediumMapleErase        =@"maple_medium";
+static NSString  * kLargeMapleErase         =@"maple_large";
+static NSString  * kSmallAppleErase         =@"apple_small";
+static NSString  * kMediumAppleErase        =@"apple_medium";
+static NSString  * kLargeAppleErase         =@"apple_large";
+static NSString  * kSmallSkeletonErase      =@"skeleton_small";
+static NSString  * kMediumSkeletonErase     =@"skeleton_medium";
+static NSString  * kLargeSkeletonErase      =@"skeleton_large";
+static NSString  * kCircleShape             =@"circleShape";
+static NSString  * kHeartShape              =@"heartShape";
+static NSString  * kAppleShape              =@"appleShape";
+static NSString  * kMapleShape              =@"mapleShape";
+static NSString  * kSkeletonShape           =@"skeletonShape";
 
 
-@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
+@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,UIDocumentInteractionControllerDelegate,UIGestureRecognizerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,TOCropViewControllerDelegate>{
     
     IBOutlet UICollectionView * eraserCollectionView;
     BOOL    menuOpen;
@@ -81,6 +84,8 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (strong,nonatomic)             drawView               *   dView;
 @property (nonatomic,strong)             circleView             *   circleBlurMaskView;
 @property (strong,nonatomic)             BlurView               *   blurView;
+@property (strong,nonatomic)             MyManager              *   myManager;
+@property (strong,nonatomic)             ACEDrawingView         *   aceDrawView;
 @property (strong,nonatomic)    IBOutlet CropView               *   cropView;
 
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
@@ -153,6 +158,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     self.view.backgroundColor=[UIColor whiteColor];
     // Do any additional setup after loading the view, typically from a nib.
     
+    _myManager=[MyManager sharedInstance];
     
     _slideMenu.alpha=0.0f;
     _collectionViewHolder.alpha=0.0f;
@@ -445,13 +451,32 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
 }
 
+#pragma marks picker delegate  methods
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
+    [self loadDrawViewWithSelectedImage:chosenImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+-(void)loadDrawViewWithSelectedImage:(UIImage *)choosenImage{
+    
+    [_myManager showOverlay];
+    
     dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)]; //0,0 to 0,64
     dView.delegate=self;
-    [dView drawImage:chosenImage];
+    [dView drawImage:choosenImage];
     dView.drawLock=NO;
     [dView setErase:[self getImageBasedOnSelection]];
     [imageUIView addSubview:dView];
@@ -465,16 +490,29 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     photoSelected=YES;
     
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
     
 }
 
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+#pragma Crop controller delegate methods
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
+{
+    // 'image' is the newly cropped version of the original image
+     [self loadDrawViewWithSelectedImage:image];
     
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (void)presentCropViewControllerWithImage:(UIImage*)img
+{
+    UIImage *image = img; //Load an image
+    
+    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
+    cropViewController.delegate = self;
+    [self presentViewController:cropViewController animated:YES completion:nil];
+}
+
 
 -(void)animateImageUIView{
     
@@ -668,7 +706,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     dView.layer.mask=_shapeLayer;
     
-    NSLog(@"layer count after take pic is %u",dView.layer.sublayers.count);
+    NSLog(@"layer count after take pic is %lu",dView.layer.sublayers.count);
     
     
     _cropView.hidden=YES;
@@ -682,6 +720,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     UIAlertAction *saveAction=[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
        
+      //TODO save crop image here
         
         [aCon dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -730,8 +769,22 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     UIGraphicsEndImageContext();
     
+    //TODO: save image to photo gallery or save to app sandbox ?
     [self saveImageAtPath:_savedCropImagePath withImage:_savedCropImage];
     
+    
+}
+
+-(UIImage *)getImageFromDrawView{
+    
+    UIGraphicsBeginImageContextWithOptions(dView.bounds.size, NO, 0.0);
+    [dView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
     
 }
 
@@ -848,16 +901,38 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     [self closeMenu];
     
-    cropMode=YES;
-    _cropView.hidden=NO;
-    _cropView.delegate=self;
-    _cropView.alpha=0.4;
-    _cropView.backgroundColor=[UIColor blackColor];
-    _cropView.lineColor=[UIColor whiteColor];
-    _cropView.lineWidth=5.0;
-    _cropView.path=[UIBezierPath bezierPath];
+    //show an alert with two options 1. freestyle crop, basic crop
+    UIAlertController *aCon=[UIAlertController alertControllerWithTitle:@"Choose Crop mode" message:@"Which type of crop mode you want to use?" preferredStyle:UIAlertControllerStyleAlert];
     
-    [_cropView setNeedsDisplay];
+    UIAlertAction *freeStyleCrop=[UIAlertAction actionWithTitle:@"Freestyle crop" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        //TODO: show overlay on how to crop the image, overlay with please draw a closed path to crop the image
+        
+        cropMode=YES;
+        _cropView.hidden=NO;
+        _cropView.delegate=self;
+        _cropView.alpha=0.4;
+        _cropView.backgroundColor=[UIColor blackColor];
+        _cropView.lineColor=[UIColor whiteColor];
+        _cropView.lineWidth=5.0;
+        _cropView.path=[UIBezierPath bezierPath];
+        
+        [_cropView setNeedsDisplay];
+        
+        [aCon dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIAlertAction *basicCrop=[UIAlertAction actionWithTitle:@"Basic Crop" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self presentCropViewControllerWithImage:[self getImageFromDrawView]];
+        [aCon dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [aCon addAction:freeStyleCrop];
+    [aCon addAction:basicCrop];
+    
+    [self presentViewController:aCon animated:YES completion:nil];
+    
     
     
 }
@@ -893,7 +968,10 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
 }
 
-
+-(IBAction)draw:(id)sender{
+      [self closeMenu];
+      [self showAceDrawingViewWithCroppedImage:_savedImage];
+}
 
 -(void)applyMask{
     
@@ -1120,6 +1198,18 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
     
 }
+
+#pragma marks Ace drawing view
+
+-(void)showAceDrawingViewWithCroppedImage:(UIImage*)img{
+    
+    _aceDrawView=[[[NSBundle mainBundle] loadNibNamed:@"AceDrawingView" owner:self options:nil] objectAtIndex:0];
+    _aceDrawView.frame=dView.bounds;
+    [imageUIView addSubview:_aceDrawView];
+    
+    //TODO: add ace draw view as subview to dview and redraw the contents of dview into ace draw view
+}
+
 
 
 @end

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ACEDrawingView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,15 +19,50 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TOCropViewController-TOCropViewControllerBundle.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TOCropViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>iOS-Color-Picker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2B1CB56A5F4491950E9BBE77A7CBD3E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>660D7C18573951D8F09434C11E127EC4</key>
+		<key>6B6BDEFEE27EA382DCBDDFE03422A7D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C2F75D06DE5E43E24ED4B36E847B1D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A65D31CACB7CC646414E347A48CAAB23</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFF11B5A14C98DDC19CA15D0921AE511</key>
 		<dict>
 			<key>primary</key>
 			<true/>
