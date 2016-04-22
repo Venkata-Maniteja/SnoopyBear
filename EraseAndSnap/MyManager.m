@@ -10,4 +10,14 @@
 
 @implementation MyManager
 
++ (instancetype)sharedInstance
+{
+    static MyManager *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[MyManager alloc] init];
+        // Do any other initialisation stuff here
+    });
+    return sharedInstance;
+}
 @end

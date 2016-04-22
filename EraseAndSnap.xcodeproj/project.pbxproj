@@ -29,7 +29,6 @@
 		B823133C1BD6B66200BD6E8E /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */; };
 		B87FCA391C3D845C00BF5DDF /* circleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87FCA381C3D845C00BF5DDF /* circleView.m */; };
 		B87FCA3C1C3D848E00BF5DDF /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87FCA3B1C3D848E00BF5DDF /* BlurView.m */; };
-		B87FCA3F1C3D91A900BF5DDF /* BlurEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87FCA3E1C3D91A900BF5DDF /* BlurEffectView.m */; };
 		B8C921C11C21DADE0062737D /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C921C01C21DADE0062737D /* Line.m */; };
 		B8E5F4451BD96FC2004A2172 /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B8E5F4441BD96FC2004A2172 /* switch_camera.png */; };
 		B8FAC83E1BDFD6EC0042F5B2 /* EraseAndSnap.png in Resources */ = {isa = PBXBuildFile; fileRef = B8FAC83D1BDFD6EC0042F5B2 /* EraseAndSnap.png */; };
@@ -89,8 +88,6 @@
 		B87FCA381C3D845C00BF5DDF /* circleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = circleView.m; sourceTree = "<group>"; };
 		B87FCA3A1C3D848E00BF5DDF /* BlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurView.h; sourceTree = "<group>"; };
 		B87FCA3B1C3D848E00BF5DDF /* BlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.m; sourceTree = "<group>"; };
-		B87FCA3D1C3D91A900BF5DDF /* BlurEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurEffectView.h; sourceTree = "<group>"; };
-		B87FCA3E1C3D91A900BF5DDF /* BlurEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurEffectView.m; sourceTree = "<group>"; };
 		B8C921BF1C21DADE0062737D /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		B8C921C01C21DADE0062737D /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		B8E5F4441BD96FC2004A2172 /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
@@ -177,8 +174,6 @@
 				B87FCA3B1C3D848E00BF5DDF /* BlurView.m */,
 				B80582191BD57E6700252C4B /* drawView.h */,
 				B805821A1BD57E6700252C4B /* drawView.m */,
-				B87FCA3D1C3D91A900BF5DDF /* BlurEffectView.h */,
-				B87FCA3E1C3D91A900BF5DDF /* BlurEffectView.m */,
 				B8211A911C08A41A0061C290 /* SnappingView.h */,
 				B8211A921C08A41A0061C290 /* SnappingView.m */,
 				B811956C1C21C65F00FB85CB /* CropView.h */,
@@ -186,9 +181,9 @@
 				B8C921BF1C21DADE0062737D /* Line.h */,
 				B8C921C01C21DADE0062737D /* Line.m */,
 				B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */,
+				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
 				B81E61961C28A42000748542 /* savedImage_large.png */,
 				B81E61971C28A42000748542 /* savedImage_small.png */,
-				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
 				B820583C1C208E5A00C00CE8 /* EraserCollectionViewCell.h */,
 				B820583D1C208E5A00C00CE8 /* EraserCollectionViewCell.m */,
 				B8E5F4441BD96FC2004A2172 /* switch_camera.png */,
@@ -404,7 +399,6 @@
 				B87FCA391C3D845C00BF5DDF /* circleView.m in Sources */,
 				B8C921C11C21DADE0062737D /* Line.m in Sources */,
 				B805821B1BD57E6700252C4B /* drawView.m in Sources */,
-				B87FCA3F1C3D91A900BF5DDF /* BlurEffectView.m in Sources */,
 				B8211A931C08A41A0061C290 /* SnappingView.m in Sources */,
 				B80582021BD57BFB00252C4B /* main.m in Sources */,
 				B8FC1D0C1C20C9AE00532E7D /* MyManager.m in Sources */,

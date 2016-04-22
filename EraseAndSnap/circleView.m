@@ -22,9 +22,9 @@
 
 -(void)drawCircleWIthSize:(CGSize) size withRect:(CGRect) rect{
     
-    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), size.width, size.height)];
-    [[UIColor clearColor] setFill];
-    [ovalPath fill];
+//    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), size.width, size.height)];
+//    [[UIColor clearColor] setFill];
+//    [ovalPath fill];
     
 }
 

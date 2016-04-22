@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol DrawViewProtocolDelegate <NSObject>
+@protocol CropViewProtocolDelegate <NSObject>
 @required
 @property (assign) BOOL drawStarted;
 @property (assign) BOOL  lineInterescted;
@@ -18,7 +18,7 @@
 
 @interface CropView : UIView
 
-@property (assign) id<DrawViewProtocolDelegate> delegate;
+@property (assign) id<CropViewProtocolDelegate> delegate;
 @property (nonatomic,strong) UIBezierPath *path;
 @property (nonatomic,strong) UIColor *lineColor;
 @property (nonatomic,assign) NSUInteger lineWidth;

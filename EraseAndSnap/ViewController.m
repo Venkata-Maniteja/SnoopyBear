@@ -22,7 +22,6 @@
 #import "CropView.h"
 #import "circleView.h"
 #import "BlurView.h"
-#import "BlurEffectView.h"
 
 static const CGFloat kSlideMenuHeight = 95;
 static const CGFloat kSlideMenuOvershoot = 20;
@@ -82,7 +81,6 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 @property (strong,nonatomic)             drawView               *   dView;
 @property (nonatomic,strong)             circleView             *   circleBlurMaskView;
 @property (strong,nonatomic)             BlurView               *   blurView;
-@property (strong,nonatomic)             BlurEffectView         *   blurEffectView;
 @property (strong,nonatomic)    IBOutlet CropView               *   cropView;
 
 @property (nonatomic,strong)             UIImage                *   avCapturedImage;
@@ -879,14 +877,11 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
         _blurView.opaque=NO;
         _blurView.maskAlpha=0.7;
        
-//        [imageUIView addSubview: _blurView];
+        [imageUIView addSubview: _blurView];
         
-        [self addBLurEffectView];
         _circleBlurMaskView=[[circleView alloc]initWithFrame:CGRectMake(20, 20, 60, 60)];
-        _circleBlurMaskView.circleSize=CGSizeMake(60, 60);
         _circleBlurMaskView.backgroundColor=[UIColor clearColor];
-//        [_blurView addSubview:_circleBlurMaskView];
-        [_blurEffectView addSubview:_circleBlurMaskView];
+        [_blurView addSubview:_circleBlurMaskView];
         
         [self applyMask];
         
@@ -898,19 +893,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     
 }
 
--(void)addBLurEffectView{
-    
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-    _blurEffectView = [[BlurEffectView alloc] initWithEffect:blurEffect];
-    _blurEffectView.frame = self.imageUIView.bounds;
-    _blurEffectView.backgroundColor=[UIColor clearColor];
-    _blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _blurEffectView.opaque=NO;
-    _blurEffectView.maskAlpha=0.7;
-    [imageUIView addSubview:_blurEffectView];
-    
-}
+
 
 -(void)applyMask{
     
@@ -918,7 +901,6 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     [_circleBlurMaskView setNeedsDisplay];
     [_blurView setSeeRect:_circleBlurMaskView.frame];    //set the transparency cut on transparency view
     [_blurView setNeedsDisplay];
-//    [_blurEffectView setNeedsDisplay];
     
 }
 
@@ -1125,9 +1107,7 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
 -(IBAction)blurViewAlphaValue:(id)sender{
     
     UISlider *slider=(UISlider *)sender;
-    
     _blurView.alpha=slider.value;
-     _blurEffectView.alpha=slider.value;
     
 }
 
@@ -1138,8 +1118,6 @@ static NSString  * kSkeletonShape=@"skeletonShape.png";
     _blurView.maskAlpha=slider.value;
     [_blurView setNeedsDisplay];
     
-    _blurEffectView.maskAlpha=slider.value;
-    [_blurEffectView setNeedsDisplay];
     
 }
 

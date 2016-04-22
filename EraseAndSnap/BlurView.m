@@ -37,7 +37,7 @@
     
     // Your transparent window. This is for reference, but set this either as a property of the class or some other way
     // Add the transparent window
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:_seeRect cornerRadius:5.0f];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:_seeRect cornerRadius:0.0f];
     [clipPath appendPath:path];
     
     // NOTE: If you want to add more holes, simply create another UIBezierPath and call [clipPath appendPath:anotherPath];
@@ -48,7 +48,7 @@
     [clipPath addClip];
     
     // set your color
-    UIColor *tintColor = [UIColor greenColor];
+    UIColor *tintColor = [UIColor blackColor];
     
     // (optional) set transparency alpha
     CGContextSetAlpha(context, _maskAlpha);

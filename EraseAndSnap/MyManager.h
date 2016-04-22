@@ -26,5 +26,9 @@
 
 //how can i use my manager for, other than saving the flags ?
 
++ (instancetype)sharedInstance;
+-(void)showOverlay;
+-(void)removeOverlay;
+
 
 @end
