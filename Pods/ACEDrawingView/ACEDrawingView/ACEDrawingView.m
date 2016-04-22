@@ -27,6 +27,7 @@
 #import "ACEDrawingTools.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "FCColorPickerViewController.h"
 
 #define kDefaultLineColor       [UIColor blackColor]
 #define kDefaultLineWidth       10.0f;
@@ -36,7 +37,7 @@
 #define PARTIAL_REDRAW          0
 #define IOS8_OR_ABOVE [[[UIDevice currentDevice] systemVersion] integerValue] >= 8.0
 
-@interface ACEDrawingView () {
+@interface ACEDrawingView ()<FCColorPickerViewControllerDelegate> {
     CGPoint currentPoint;
     CGPoint previousPoint1;
     CGPoint previousPoint2;
@@ -48,6 +49,8 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, assign) CGFloat originalFrameYPos;
+
+@property (strong,nonatomic) UIViewController *mainViewController;
 @end
 
 #pragma mark -
@@ -654,6 +657,15 @@
     [self removeFromSuperview];
 }
 -(IBAction)chooseColorAction:(id)sender{
+ 
+    _mainViewController = [self currentTopViewController];
+    FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPicker];
+    colorPicker.color = self.lineColor;
+    colorPicker.delegate = self;
+    
+    [colorPicker setModalPresentationStyle:UIModalPresentationFormSheet];
+    [_mainViewController presentViewController:colorPicker animated:YES completion:nil];
+
     
 }
 -(IBAction)choosePenAction:(id)sender{
@@ -667,6 +679,29 @@
 }
 -(IBAction)chooseClearAction:(id)sender{
     
+}
+
+- (UIViewController *)currentTopViewController
+{
+    UIViewController *topVC = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    while (topVC.presentedViewController)
+    {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
+}
+
+#pragma marks color picker delegates
+
+#pragma mark - FCColorPickerViewControllerDelegate Methods
+
+-(void)colorPickerViewController:(FCColorPickerViewController *)colorPicker didSelectColor:(UIColor *)color {
+    _lineColor = color;
+    [_mainViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)colorPickerViewControllerDidCancel:(FCColorPickerViewController *)colorPicker {
+    [_mainViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

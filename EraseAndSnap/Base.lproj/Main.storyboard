@@ -53,45 +53,35 @@
                                                     <action selector="seeThroughViewAlphaValue:" destination="Fry-TS-fme" eventType="valueChanged" id="0zI-gf-H7f"/>
                                                 </connections>
                                             </slider>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjM-b8-14b">
-                                                <rect key="frame" x="73" y="75" width="94" height="30"/>
-                                                <state key="normal" title="Choose Color"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-2r-JJg">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-2r-JJg">
                                                 <rect key="frame" x="167" y="75" width="30" height="30"/>
-                                                <state key="normal" title="ok"/>
+                                                <state key="normal" title="ok">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="dismissBlurSettings:" destination="Fry-TS-fme" eventType="touchUpInside" id="f5a-Hg-EiL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9Hg-Ty-PYd" secondAttribute="trailing" id="0mB-R2-mWP"/>
                                             <constraint firstItem="a2C-i0-IG7" firstAttribute="top" secondItem="BM4-NC-P12" secondAttribute="top" constant="20" id="39j-bT-0Mr"/>
                                             <constraint firstItem="TH6-gX-Vz5" firstAttribute="trailing" secondItem="8ws-IK-mtA" secondAttribute="trailingMargin" id="4E8-jl-V6g"/>
                                             <constraint firstItem="TH6-gX-Vz5" firstAttribute="top" secondItem="9Hg-Ty-PYd" secondAttribute="bottom" constant="15" id="61q-vp-wUq"/>
                                             <constraint firstAttribute="height" constant="120" id="78t-B3-sDc"/>
-                                            <constraint firstItem="B5M-2r-JJg" firstAttribute="centerY" secondItem="bjM-b8-14b" secondAttribute="centerY" id="DXG-br-yCH"/>
                                             <constraint firstItem="a2C-i0-IG7" firstAttribute="leading" secondItem="BM4-NC-P12" secondAttribute="leading" id="HXU-Kl-ZXy"/>
-                                            <constraint firstItem="B5M-2r-JJg" firstAttribute="leading" secondItem="bjM-b8-14b" secondAttribute="trailing" id="IEP-oQ-ynD"/>
-                                            <constraint firstItem="bjM-b8-14b" firstAttribute="centerY" secondItem="8ws-IK-mtA" secondAttribute="centerY" id="M0B-Yn-AUQ"/>
-                                            <constraint firstItem="bjM-b8-14b" firstAttribute="top" secondItem="9Hg-Ty-PYd" secondAttribute="bottom" constant="40" id="OPC-aW-EcO"/>
-                                            <constraint firstItem="bjM-b8-14b" firstAttribute="top" secondItem="TH6-gX-Vz5" secondAttribute="bottom" id="Rtw-cS-Z8O"/>
                                             <constraint firstAttribute="width" constant="240" id="XmP-Y8-uK8"/>
                                             <constraint firstItem="9Hg-Ty-PYd" firstAttribute="top" secondItem="8ws-IK-mtA" secondAttribute="top" id="Xp3-G4-GUO"/>
                                             <constraint firstItem="9Hg-Ty-PYd" firstAttribute="leading" secondItem="BM4-NC-P12" secondAttribute="trailing" constant="28" id="axA-0g-1z1"/>
                                             <constraint firstItem="BM4-NC-P12" firstAttribute="top" secondItem="8ws-IK-mtA" secondAttribute="top" id="b6E-yI-Wx8"/>
                                             <constraint firstItem="TH6-gX-Vz5" firstAttribute="leading" secondItem="9Hg-Ty-PYd" secondAttribute="leading" id="ctd-8s-kB5"/>
-                                            <constraint firstItem="bjM-b8-14b" firstAttribute="centerX" secondItem="8ws-IK-mtA" secondAttribute="centerX" id="qNu-hU-lbu"/>
                                             <constraint firstItem="BM4-NC-P12" firstAttribute="leading" secondItem="8ws-IK-mtA" secondAttribute="leading" id="tKn-BK-mk1"/>
                                             <constraint firstItem="a2C-i0-IG7" firstAttribute="top" secondItem="BM4-NC-P12" secondAttribute="bottom" constant="10" id="v80-6r-D3q"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="39j-bT-0Mr"/>
-                                                <exclude reference="M0B-Yn-AUQ"/>
-                                                <exclude reference="OPC-aW-EcO"/>
                                             </mask>
                                         </variation>
                                     </view>

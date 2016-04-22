@@ -88,6 +88,6 @@
         </view>
     </objects>
     <resources>
-        <image name="close" width="100" height="100"/>
+        <image name="close" width="25" height="25"/>
     </resources>
 </document>

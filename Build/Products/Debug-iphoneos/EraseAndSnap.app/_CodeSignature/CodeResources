@@ -91,7 +91,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SlzRB3e/WE8hQzpa/qfdI+5L8sI=
+			pA2pWY87+yWY60R/MvEhMy+l5ng=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -109,11 +109,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WqB0OflUrZR0Jpg5y7fFYqxT3DI=
+			ZRu/1Wlej93SFwC9vX5Ipw/5aDk=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>FCColorPickerViewController.nib/objects.nib</key>
+		<data>
+		dG77KFq0W+ulKN5BIeqq7l+Asvk=
+		</data>
+		<key>FCColorPickerViewController.nib/runtime.nib</key>
+		<data>
+		ggvGdyGeGe7CBgR5WP/bxYOdcr4=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		Zcnd9G+EH8vp79ELEyLjrCO4F1o=
@@ -124,7 +132,7 @@
 		</data>
 		<key>SeeThroughView.nib</key>
 		<data>
-		jaFwtoDWoIcMH6EyYRdQhqx3zns=
+		stAa8IndT4EwfnKggWDiP0y5OKQ=
 		</data>
 		<key>TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
@@ -297,6 +305,10 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>colormap.png</key>
+		<data>
+		AV/ROtytVAbvkwlGfx0B2ZxJdZk=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		2dQSFBlvPDmJP/gTr1uw7eI01I0=
@@ -505,11 +517,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SlzRB3e/WE8hQzpa/qfdI+5L8sI=
+			pA2pWY87+yWY60R/MvEhMy+l5ng=
 			</data>
 			<key>hash2</key>
 			<data>
-			U+ZLO2t9jL2q1mKmi6QLOyhwfHL3uXypabqZfih/ac8=
+			YdulG2MJkU9+f9tUle+93lBz6o6RDkFwsULZrG/Vrlo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -531,24 +543,46 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WqB0OflUrZR0Jpg5y7fFYqxT3DI=
+			ZRu/1Wlej93SFwC9vX5Ipw/5aDk=
 			</data>
 			<key>hash2</key>
 			<data>
-			tYnea2zYXQg5/nSZ30+QHVSlAUO0QAMfkfvXLjmr0LA=
+			lNslVWaCchEWe9Wk8yjVewYrrywb9gkgtiqnas0TK/Q=
 			</data>
 			<key>optional</key>
 			<true/>
+		</dict>
+		<key>FCColorPickerViewController.nib/objects.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dG77KFq0W+ulKN5BIeqq7l+Asvk=
+			</data>
+			<key>hash2</key>
+			<data>
+			QfxV6YLffS5aHZXFQtXyQ2UN+52Sc1u2SZ2yMmm0v0I=
+			</data>
+		</dict>
+		<key>FCColorPickerViewController.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ggvGdyGeGe7CBgR5WP/bxYOdcr4=
+			</data>
+			<key>hash2</key>
+			<data>
+			BdNf9558wosahURzeSTyIm6F0Y0bH0Y9a3reCIUPCUw=
+			</data>
 		</dict>
 		<key>SeeThroughView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jaFwtoDWoIcMH6EyYRdQhqx3zns=
+			stAa8IndT4EwfnKggWDiP0y5OKQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			R0Mlqbdb8cdXlOSLcHheRPohRdNeDpcBVGIb5MwSwPs=
+			QCgF+AIKCFeztsUpkluMmnXfbgBVacN8VjIeACG/Ibk=
 			</data>
 		</dict>
 		<key>TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
@@ -797,6 +831,17 @@
 			</data>
 			<key>optional</key>
 			<true/>
+		</dict>
+		<key>colormap.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			AV/ROtytVAbvkwlGfx0B2ZxJdZk=
+			</data>
+			<key>hash2</key>
+			<data>
+			tRfdFzSAJjBnUf5qGofsXo5UFOQ1om4W5Zh6kxuJM6s=
+			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>

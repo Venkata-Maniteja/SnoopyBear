@@ -164,6 +164,9 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     _collectionViewHolder.alpha=0.0f;
     
     smallImage=YES;
+    
+    _undoButton.tintColor=[UIColor clearColor];
+    _cameraFlipButton.tintColor=[UIColor clearColor];
     _undoButton.enabled=NO;
     _bbitemStart.enabled=NO;
     
@@ -246,8 +249,10 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
 -(IBAction)clear:(id)sender{
     [self stopReading];
     
-    _cameraFlipButton.enabled=NO;
+    _cameraFlipButton.tintColor=[UIColor clearColor];
+    _undoButton.tintColor=[UIColor clearColor];
     _undoButton.enabled=NO;
+    _cameraFlipButton.enabled=NO;
     photoSelected=NO;
     
     if (cropMode) {
@@ -381,6 +386,8 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     
     _cameraFlipButton.enabled=NO;
     _undoButton.enabled=NO;
+    _undoButton.tintColor=[UIColor clearColor];
+    _cameraFlipButton.tintColor=[UIColor clearColor];
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Share View Dismissed"
@@ -678,8 +685,10 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
         if (!cropMode) {
             _bbitemStart.enabled=YES;
             _cameraFlipButton.enabled=NO;
+            _cameraFlipButton.tintColor=[UIColor clearColor];
         }
         _undoButton.enabled=YES;
+        _undoButton.tintColor=[UIColor whiteColor];
     }
     
 }

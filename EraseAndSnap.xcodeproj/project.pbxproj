@@ -127,8 +127,31 @@
 			children = (
 				B80582031BD57BFB00252C4B /* AppDelegate.h */,
 				B80582041BD57BFB00252C4B /* AppDelegate.m */,
-				B80582061BD57BFB00252C4B /* ViewController.h */,
-				B80582071BD57BFB00252C4B /* ViewController.m */,
+				B8FBC0E21CCABA500072BB48 /* controllers */,
+				B8FBC0E11CCABA470072BB48 /* views */,
+				B8FBC0E31CCABA590072BB48 /* xibs */,
+				B8FBC0E41CCABA720072BB48 /* model */,
+				B8E5F4441BD96FC2004A2172 /* switch_camera.png */,
+				B805820C1BD57BFB00252C4B /* Assets.xcassets */,
+				B80582111BD57BFC00252C4B /* Info.plist */,
+				B80582001BD57BFB00252C4B /* Supporting Files */,
+			);
+			path = EraseAndSnap;
+			sourceTree = "<group>";
+		};
+		B80582001BD57BFB00252C4B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B80582011BD57BFB00252C4B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8FBC0E11CCABA470072BB48 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B820583C1C208E5A00C00CE8 /* EraserCollectionViewCell.h */,
+				B820583D1C208E5A00C00CE8 /* EraserCollectionViewCell.m */,
 				B87FCA371C3D845C00BF5DDF /* circleView.h */,
 				B87FCA381C3D845C00BF5DDF /* circleView.m */,
 				B87FCA3A1C3D848E00BF5DDF /* BlurView.h */,
@@ -143,30 +166,39 @@
 				B8C921C01C21DADE0062737D /* Line.m */,
 				B8FBC0DA1CCA89F70072BB48 /* SeeThroughView.h */,
 				B8FBC0DB1CCA89F70072BB48 /* SeeThroughView.m */,
-				B8FBC0DD1CCA8A080072BB48 /* SeeThroughView.xib */,
-				B8FBC0DF1CCAA46C0072BB48 /* AceDrawingView.xib */,
-				B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */,
-				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
-				B820583C1C208E5A00C00CE8 /* EraserCollectionViewCell.h */,
-				B820583D1C208E5A00C00CE8 /* EraserCollectionViewCell.m */,
-				B8E5F4441BD96FC2004A2172 /* switch_camera.png */,
-				B8FC1D0A1C20C9AE00532E7D /* MyManager.h */,
-				B8FC1D0B1C20C9AE00532E7D /* MyManager.m */,
-				B80582091BD57BFB00252C4B /* Main.storyboard */,
-				B805820C1BD57BFB00252C4B /* Assets.xcassets */,
-				B805820E1BD57BFB00252C4B /* LaunchScreen.storyboard */,
-				B80582111BD57BFC00252C4B /* Info.plist */,
-				B80582001BD57BFB00252C4B /* Supporting Files */,
 			);
-			path = EraseAndSnap;
+			name = views;
 			sourceTree = "<group>";
 		};
-		B80582001BD57BFB00252C4B /* Supporting Files */ = {
+		B8FBC0E21CCABA500072BB48 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B80582011BD57BFB00252C4B /* main.m */,
+				B80582061BD57BFB00252C4B /* ViewController.h */,
+				B80582071BD57BFB00252C4B /* ViewController.m */,
 			);
-			name = "Supporting Files";
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		B8FBC0E31CCABA590072BB48 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				B80582091BD57BFB00252C4B /* Main.storyboard */,
+				B805820E1BD57BFB00252C4B /* LaunchScreen.storyboard */,
+				B8FBC0DD1CCA8A080072BB48 /* SeeThroughView.xib */,
+				B8FBC0DF1CCAA46C0072BB48 /* AceDrawingView.xib */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		B8FBC0E41CCABA720072BB48 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B823133A1BD6B66200BD6E8E /* CaptureSessionManager.h */,
+				B823133B1BD6B66200BD6E8E /* CaptureSessionManager.m */,
+				B8FC1D0A1C20C9AE00532E7D /* MyManager.h */,
+				B8FC1D0B1C20C9AE00532E7D /* MyManager.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		EB46D6454FF3C7908F4D3B11 /* Pods */ = {
