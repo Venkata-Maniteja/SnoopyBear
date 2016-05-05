@@ -44,7 +44,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAlpha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2C-i0-IG7">
                                                 <rect key="frame" x="0.0" y="40" width="63" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-gX-Vz5">
@@ -270,20 +270,19 @@
                                 <color key="backgroundColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gdD-hY-HPm"/>
-                                    <barButtonItem title="Choose" id="pal-Uh-M4v">
+                                    <barButtonItem image="Stack of Photos-25" id="pal-Uh-M4v">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="selectPhoto:" destination="Fry-TS-fme" id="ppM-Wh-QIe"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Ryy-Kf-ces"/>
-                                    <barButtonItem title="Take  Pic" id="hwu-gv-Jmd">
+                                    <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="Ryy-Kf-ces"/>
+                                    <barButtonItem image="Compact Camera-25" id="hwu-gv-Jmd">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="takeSecondPic:" destination="Fry-TS-fme" id="z69-Pb-tGr"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="9gs-EY-6RD"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WZM-0w-LHi"/>
                                 </items>
                                 <color key="barTintColor" red="1" green="0.27303354369999999" blue="0.362922209" alpha="1" colorSpace="calibratedRGB"/>
@@ -321,10 +320,10 @@
                                 <action selector="clear:" destination="Fry-TS-fme" id="uIa-9n-udR"/>
                             </connections>
                         </barButtonItem>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zum-ak-YkX">
-                            <rect key="frame" x="203" y="7" width="194" height="30"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zum-ak-YkX">
+                            <rect key="frame" x="265" y="10" width="71" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Menu">
+                            <state key="normal" image="Xbox Menu-25">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -391,6 +390,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Compact Camera-25" width="25" height="25"/>
+        <image name="Stack of Photos-25" width="25" height="25"/>
+        <image name="Xbox Menu-25" width="25" height="25"/>
         <image name="switch_camera.png" width="30" height="30"/>
     </resources>
 </document>

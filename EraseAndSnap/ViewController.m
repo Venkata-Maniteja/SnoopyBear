@@ -108,8 +108,12 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
 @property (assign) BOOL firstPicTaken;
 @property (assign) BOOL secondPicTaken;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraFlipButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton;
+@property (weak, nonatomic)  IBOutlet UIBarButtonItem *cameraFlipButton;
+@property (weak, nonatomic)  IBOutlet UIBarButtonItem *undoButton;
+@property (weak, nonatomic)  IBOutlet UIBarButtonItem *bbitemStart;
+@property (nonatomic,strong) IBOutlet UIBarButtonItem *choosePic;
+@property (nonatomic,strong) IBOutlet UIBarButtonItem *clear;
+
 @property (nonatomic,strong) NSArray *paths;
 @property (nonatomic,strong) NSString *documentsDirectory;
 @property (nonatomic,strong) NSString *savedImagePath;
@@ -167,8 +171,10 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     
     _undoButton.tintColor=[UIColor clearColor];
     _cameraFlipButton.tintColor=[UIColor clearColor];
+    _clear.tintColor=[UIColor clearColor];
     _undoButton.enabled=NO;
-    _bbitemStart.enabled=NO;
+    _cameraFlipButton.enabled=NO;
+    _clear.enabled=NO;
     
     _cropView.hidden=YES;
     _blurSettingsView.hidden=YES;
@@ -240,8 +246,6 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     
     [self addTagsToViews];
     
-//    [self testAvFoundation];
-    
     
 }
 
@@ -299,7 +303,8 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:NULL];
+//    [self presentViewController:picker animated:YES completion:NULL];
+    [self.navigationController pushViewController:picker animated:YES];
 }
 
 -(void)takeScreenShot{
@@ -514,10 +519,36 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
 - (void)presentCropViewControllerWithImage:(UIImage*)img
 {
     UIImage *image = img; //Load an image
+ 
+    //TODO: img should not be nil
+    if (img) {
+
+        TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
+        cropViewController.delegate = self;
+        [self presentViewController:cropViewController animated:YES completion:nil];
     
-    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
-    cropViewController.delegate = self;
-    [self presentViewController:cropViewController animated:YES completion:nil];
+    }else{
+        
+        //show alert to select an image
+        UIAlertController *acon=[UIAlertController alertControllerWithTitle:@"No Image selected" message:@"Please select an image from gallery/cameraw" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel=[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
+            [acon dismissViewControllerAnimated:YES completion:nil];
+        }];
+        UIAlertAction *chosePic=[UIAlertAction actionWithTitle:@"Choose pic" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+            [self selectPhoto:nil];
+            [acon dismissViewControllerAnimated:YES completion:nil];
+        }];
+        UIAlertAction *takePic=[UIAlertAction actionWithTitle:@"Take pic" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+            [self startCamera];
+            [acon dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [acon addAction:cancel];
+        [acon addAction:chosePic];
+        [acon addAction:takePic];
+        
+        [self presentViewController:acon animated:YES completion:nil];
+    }
 }
 
 
@@ -668,6 +699,10 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
 }
 
 -(IBAction)undo:(id)sender{
+    
+    _undoButton.enabled=YES;
+    _undoButton.tintColor=[UIColor whiteColor];
+    
     
     [dView undoTheErasing];
     

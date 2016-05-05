@@ -17,11 +17,6 @@
 
 @property (retain) CaptureSessionManager *captureManager;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *bbitemStart;
-
-@property (nonatomic,strong) IBOutlet UIBarButtonItem *choosePic;
-
-@property (nonatomic,strong) IBOutlet UIBarButtonItem *clear;
 
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
