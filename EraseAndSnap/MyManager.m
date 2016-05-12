@@ -81,7 +81,47 @@
 }
 
 
-
+-(void)showAlertWithTitle:(NSString *)title withMessage:(NSString *)message  buttonTitles:(NSArray *)titleArray selectorArray:(NSArray*)customSELArray showOnViewController:(UIViewController *)con{
+    
+    if (!titleArray) {
+        titleArray=@[@"save",@"do nothing",@"cancel"];
+    }
+    
+    UIAlertController *aCon=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    id cancelButton = [titleArray lastObject];
+    
+    [titleArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        SEL customSEL=[[customSELArray objectAtIndex:idx]pointerValue];
+        
+        if (obj==cancelButton) {
+            UIAlertAction *action=[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                if (!con) { return; }
+                IMP imp=[con methodForSelector:customSEL];
+                void (*func)(id,SEL)=(void*)imp;
+                func(con,customSEL);
+                [aCon dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [aCon addAction:action];
+        }else{
+            
+            UIAlertAction *action=[UIAlertAction actionWithTitle:obj style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                if (!con) { return; }
+                IMP imp=[con methodForSelector:customSEL];
+                void (*func)(id,SEL)=(void*)imp;
+                func(con,customSEL);
+                [aCon dismissViewControllerAnimated:YES completion:nil];
+            }];
+            
+            [aCon addAction:action];
+        }
+    }];
+    
+    
+    [con presentViewController:aCon animated:YES completion:nil];
+    
+}
 
 
 @end

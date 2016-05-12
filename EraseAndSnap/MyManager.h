@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface MyManager : NSObject
 
@@ -26,9 +27,10 @@
 
 //how can i use my manager for, other than saving the flags ?
 
+@property (strong,nonatomic) UIImage *chooseImage;
+
 + (instancetype)sharedInstance;
 -(void)showOverlay;
 -(void)removeOverlay;
-
-
+-(void)showAlertWithTitle:(NSString *)title withMessage:(NSString *)message  buttonTitles:(NSArray *)titleArray selectorArray:(NSArray*)customSELArray showOnViewController:(UIViewController *)con;
 @end

@@ -258,6 +258,9 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     _undoButton.enabled=NO;
     _cameraFlipButton.enabled=NO;
     photoSelected=NO;
+    _choosePic.enabled=YES;
+    _clear.enabled=NO;
+    _clear.tintColor=[UIColor clearColor];
     
     if (cropMode) {
         
@@ -469,9 +472,11 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    [self loadDrawViewWithSelectedImage:chosenImage];
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    _myManager.chooseImage=chosenImage;
+    
+    [self loadDrawViewWithSelectedImage:chosenImage];
     
 }
 
@@ -484,12 +489,26 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
 
 -(void)loadDrawViewWithSelectedImage:(UIImage *)choosenImage{
     
+    NSValue* selCommandA = [NSValue valueWithPointer:@selector(activateStretchMode)];
+    NSValue* selCommandB = [NSValue valueWithPointer:@selector(activateAspectFitMode)];
+    
+    NSArray *customSelArray = [NSArray arrayWithObjects:selCommandA, selCommandB, nil ];
+
+    [_myManager showAlertWithTitle:@"Choose one" withMessage:@"Please choose the image display mode" buttonTitles:@[@"Stretch",@"AspectFit"] selectorArray:customSelArray showOnViewController:self];
+    
     [_myManager showOverlay];
+    
+    
+    
+}
+
+-(void)activateStretchMode{
     
     dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)]; //0,0 to 0,64
     dView.delegate=self;
-    [dView drawImage:choosenImage];
+    [dView drawImage:_myManager.chooseImage];
     dView.drawLock=NO;
+    dView.aspectFitMode=NO;
     [dView setErase:[self getImageBasedOnSelection]];
     [imageUIView addSubview:dView];
     [self animateImageUIView];
@@ -499,11 +518,33 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
     _bbitemStart.enabled=NO;
     _bbitemStart.title=@"Take Another Pic";
     _choosePic.enabled=NO;
-    
+    _clear.enabled=YES;
+    _clear.tintColor=[UIColor blackColor];
     photoSelected=YES;
     
+}
+
+-(void)activateAspectFitMode{
+    
+    dView=[[drawView alloc]initWithFrame:CGRectMake(0, 0, imageUIView.frame.size.width, imageUIView.frame.size.height)]; //0,0 to 0,64
+    dView.delegate=self;
+    [dView drawImage:_myManager.chooseImage];
+    dView.drawLock=NO;
+    dView.aspectFitMode=YES;
+    [dView setErase:[self getImageBasedOnSelection]];
+    [imageUIView addSubview:dView];
+    [self animateImageUIView];
     
     
+    firstPicTaken=YES;
+    _bbitemStart.enabled=NO;
+    _bbitemStart.title=@"Take Another Pic";
+    _choosePic.enabled=NO;
+    _clear.enabled=YES;
+    _clear.tintColor=[UIColor blackColor];
+    photoSelected=YES;
+    
+
 }
 
 #pragma Crop controller delegate methods
@@ -700,8 +741,8 @@ static NSString  * kSkeletonShape           =@"skeletonShape";
 
 -(IBAction)undo:(id)sender{
     
-    _undoButton.enabled=YES;
-    _undoButton.tintColor=[UIColor whiteColor];
+    _undoButton.enabled=NO;
+    _undoButton.tintColor=[UIColor clearColor];
     
     
     [dView undoTheErasing];

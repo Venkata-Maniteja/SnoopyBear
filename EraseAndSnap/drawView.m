@@ -48,14 +48,8 @@
 -(void)drawImage:(UIImage *) imageToDraw{
     
     self.pic=imageToDraw;
-//    [imageToDraw drawInRect:self.frame];
-    
     wipingInProgress = NO;
-    
     eraseSpeed = 0.4;
-    
-//    maskColor = color;
-    
     [self setNeedsDisplay];
     
 }
@@ -151,10 +145,12 @@
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.x] forKey:@"x"];
         [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:imageRect.origin.y] forKey:@"y"];
         
-        // draw the image
-//        [srelf.pic drawInRect:imageRect];
+            if (_aspectFitMode) {
+                [self.pic drawInRect:imageRect];
+            }else{
+                [self.pic drawInRect:targetBounds];
+            }
         
-            [self.pic drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];//self.frame];
         }
     
     // Save the screen to restore next time around

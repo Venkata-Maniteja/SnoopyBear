@@ -26,6 +26,7 @@
     UIColor		*maskColor;
     CGFloat		eraseSpeed;
     BOOL        imageDraw;
+   
     
     
 }
@@ -33,6 +34,7 @@
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,strong)  UIImage  *pic;
 @property (assign) BOOL drawLock;
+@property (assign) BOOL aspectFitMode;
 
 -(void)stopShot;
 -(void)recordScreen;
