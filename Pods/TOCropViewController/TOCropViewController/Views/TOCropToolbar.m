@@ -1,7 +1,7 @@
 //
 //  TOCropToolbar.h
 //
-//  Copyright 2015-2016 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2017 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -141,11 +141,6 @@
     [self addSubview:_resetButton];
 }
 
-- (void)setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-}
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -173,6 +168,7 @@
         
         // Work out the cancel button frame
         CGRect frame = CGRectZero;
+        frame.origin.y = self.statusBarVisible ? 20.0f : 0.0f;
         frame.size.height = 44.0f;
         frame.size.width = [self.cancelTextButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:self.cancelTextButton.titleLabel.font}].width + 10;
 
@@ -207,7 +203,7 @@
             width = CGRectGetMinX(self.cancelTextButton.frame) - CGRectGetMaxX(self.doneTextButton.frame);
         }
         
-        CGRect containerRect = (CGRect){x,0,width,44.0f};
+        CGRect containerRect = (CGRect){x,frame.origin.y,width,44.0f};
 
 #if TOCROPTOOLBAR_DEBUG_SHOWING_BUTTONS_CONTAINER_RECT
         containerView.frame = containerRect;
@@ -216,7 +212,7 @@
         CGSize buttonSize = (CGSize){44.0f,44.0f};
         
         NSMutableArray *buttonsInOrderHorizontally = [NSMutableArray new];
-        if (!self.rotateCounterClockwiseButtonHidden) {
+        if (!self.rotateCounterclockwiseButtonHidden) {
             [buttonsInOrderHorizontally addObject:self.rotateCounterclockwiseButton];
         }
         
@@ -254,7 +250,7 @@
         CGSize buttonSize = (CGSize){44.0f,44.0f};
         
         NSMutableArray *buttonsInOrderVertically = [NSMutableArray new];
-        if (!self.rotateCounterClockwiseButtonHidden) {
+        if (!self.rotateCounterclockwiseButtonHidden) {
             [buttonsInOrderVertically addObject:self.rotateCounterclockwiseButton];
         }
         
@@ -287,6 +283,7 @@
         CGPoint origin = horizontally ? CGPointMake(diffOffset, sameOffset) : CGPointMake(sameOffset, diffOffset);
         if (horizontally) {
             origin.x += CGRectGetMinX(containerRect);
+            origin.y += self.statusBarVisible ? 20.0f : 0.0f;
         } else {
             origin.y += CGRectGetMinY(containerRect);
         }
@@ -347,10 +344,10 @@
 
 - (void)setRotateCounterClockwiseButtonHidden:(BOOL)rotateButtonHidden
 {
-    if (_rotateCounterClockwiseButtonHidden == rotateButtonHidden)
+    if (_rotateCounterclockwiseButtonHidden == rotateButtonHidden)
         return;
     
-    _rotateCounterClockwiseButtonHidden = rotateButtonHidden;
+    _rotateCounterclockwiseButtonHidden = rotateButtonHidden;
     [self setNeedsLayout];
 }
 
@@ -573,7 +570,7 @@
     
     _rotateClockwiseButtonHidden = rotateClockwiseButtonHidden;
     
-    if (_rotateClockwiseButton == NO) {
+    if (_rotateClockwiseButtonHidden == NO) {
         _rotateClockwiseButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _rotateClockwiseButton.contentMode = UIViewContentModeCenter;
         _rotateClockwiseButton.tintColor = [UIColor whiteColor];

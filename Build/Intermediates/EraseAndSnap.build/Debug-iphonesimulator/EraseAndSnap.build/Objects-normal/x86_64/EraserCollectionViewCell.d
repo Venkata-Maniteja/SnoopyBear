@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/EraserCollectionViewCell.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/EraserCollectionViewCell.h
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/EraserCollectionViewCell.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/EraserCollectionViewCell.h

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ACEDrawingView-ACEDraggableText.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ACEDrawingView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,7 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-EraseAndSnap.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2B1CB56A5F4491950E9BBE77A7CBD3E7</key>
+		<key>1E1498E80327497F7B2290FAB581F5A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<key>46E15656C90425D2C106D2D3627A94E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B6BDEFEE27EA382DCBDDFE03422A7D3</key>
+		<key>4F0A3B28518DCB2F5E6382A9419C47AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C2F75D06DE5E43E24ED4B36E847B1D9</key>
+		<key>962F5D102865B0A08AFAC7B20A5ADB4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A65D31CACB7CC646414E347A48CAAB23</key>
+		<key>B95E259FB42199384757E043591592F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFF11B5A14C98DDC19CA15D0921AE511</key>
+		<key>B970F6802B094B2C918AE4F2172EB68B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D52144DE9D7255DE912490FF5A806573</key>
 		<dict>
 			<key>primary</key>
 			<true/>

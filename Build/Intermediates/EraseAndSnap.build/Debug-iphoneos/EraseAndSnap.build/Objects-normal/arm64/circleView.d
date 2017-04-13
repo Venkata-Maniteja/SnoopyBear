@@ -1,3 +1,2 @@
-dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/circleView.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/circleView.h
+dependencies: /Users/VenkataManiteja/snoopybeer/EraseAndSnap/circleView.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/circleView.h

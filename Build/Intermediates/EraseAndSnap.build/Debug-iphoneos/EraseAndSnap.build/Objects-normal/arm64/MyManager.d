@@ -1,4 +1,3 @@
-dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/MyManager.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/MyManager.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/SeeThroughView.h
+dependencies: /Users/VenkataManiteja/snoopybeer/EraseAndSnap/MyManager.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/MyManager.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/SeeThroughView.h

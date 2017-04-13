@@ -1,4 +1,3 @@
-dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/CropView.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/CropView.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/Line.h
+dependencies: /Users/VenkataManiteja/snoopybeer/EraseAndSnap/CropView.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/CropView.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/Line.h

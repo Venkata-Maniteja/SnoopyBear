@@ -1,11 +1,31 @@
 dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/ViewController.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/ViewController.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/CaptureSessionManager.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/drawView.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/CropView.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/SnappingView.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/EraserCollectionViewCell.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/circleView.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/BlurView.h \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/MyManager.h
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/ViewController.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/ViewController.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/CaptureSessionManager.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/drawView.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/CropView.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/SnappingView.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/Masonry.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASUtilities.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/View+MASAdditions.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASConstraintMaker.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASConstraint.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASViewAttribute.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/View+MASShorthandAdditions.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/ViewController+MASAdditions.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/NSArray+MASAdditions.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/NSArray+MASShorthandAdditions.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASCompositeConstraint.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASViewConstraint.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/MASLayoutConstraint.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework/Headers/NSLayoutConstraint+MASDebugAdditions.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/EraserCollectionViewCell.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/circleView.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/BlurView.h \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/MyManager.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/TOCropViewController/TOCropViewController.framework/Headers/TOCropViewController.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/TOCropViewController/TOCropViewController.framework/Headers/TOCropView.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/TOCropViewController/TOCropViewController.framework/Headers/TOCropOverlayView.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/TOCropViewController/TOCropViewController.framework/Headers/TOCropToolbar.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/ACEDrawingView/ACEDrawingView.framework/Headers/AceDrawingView.h \
+  /Users/VenkataManiteja/snoopybeer/Build/Products/Debug-iphonesimulator/ACEDrawingView/ACEDrawingView.framework/Headers/ACEDrawingLabelView.h

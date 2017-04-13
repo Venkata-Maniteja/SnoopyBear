@@ -1,4 +1,14 @@
-pod 'Masonry'
-pod 'TOCropViewController'
+
+
+target 'EraseAndSnap' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+   use_frameworks!
+
+  # Pods for Logit
+
+    pod 'Masonry'
+    pod 'TOCropViewController'
 pod 'ACEDrawingView'
 pod 'iOS-Color-Picker'
+
+end

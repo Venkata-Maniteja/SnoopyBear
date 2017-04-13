@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90DC99C57258D3E1F62CA33D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A249167AE2131EAB867E7B14 /* libPods.a */; };
+		340BD95D6B5FE865C870A5F3 /* Pods_EraseAndSnap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E360244F5643FDE4427A481F /* Pods_EraseAndSnap.framework */; };
 		B80582021BD57BFB00252C4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B80582011BD57BFB00252C4B /* main.m */; };
 		B80582051BD57BFB00252C4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B80582041BD57BFB00252C4B /* AppDelegate.m */; };
 		B80582081BD57BFB00252C4B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B80582071BD57BFB00252C4B /* ViewController.m */; };
@@ -34,8 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4EE864F6753F17F10B245451 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A249167AE2131EAB867E7B14 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		783985BC7B99A37F07D07A68 /* Pods-EraseAndSnap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraseAndSnap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EraseAndSnap/Pods-EraseAndSnap.debug.xcconfig"; sourceTree = "<group>"; };
 		B80581FD1BD57BFB00252C4B /* EraseAndSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraseAndSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80582011BD57BFB00252C4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B80582031BD57BFB00252C4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,7 +72,8 @@
 		B8FBC0DF1CCAA46C0072BB48 /* AceDrawingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AceDrawingView.xib; sourceTree = "<group>"; };
 		B8FC1D0A1C20C9AE00532E7D /* MyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManager.h; sourceTree = "<group>"; };
 		B8FC1D0B1C20C9AE00532E7D /* MyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManager.m; sourceTree = "<group>"; };
-		EBEA171CC22B7A2A6AA0490A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C9C51A672E371B9A5124B9A9 /* Pods-EraseAndSnap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EraseAndSnap.release.xcconfig"; path = "Pods/Target Support Files/Pods-EraseAndSnap/Pods-EraseAndSnap.release.xcconfig"; sourceTree = "<group>"; };
+		E360244F5643FDE4427A481F /* Pods_EraseAndSnap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EraseAndSnap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,18 +85,27 @@
 				B805821F1BD57EC100252C4B /* MobileCoreServices.framework in Frameworks */,
 				B805821D1BD57EBB00252C4B /* ImageIO.framework in Frameworks */,
 				B80582181BD57CFA00252C4B /* AVFoundation.framework in Frameworks */,
-				90DC99C57258D3E1F62CA33D /* libPods.a in Frameworks */,
+				340BD95D6B5FE865C870A5F3 /* Pods_EraseAndSnap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BEB488CCC48FC74BFD59381 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				783985BC7B99A37F07D07A68 /* Pods-EraseAndSnap.debug.xcconfig */,
+				C9C51A672E371B9A5124B9A9 /* Pods-EraseAndSnap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		0C97A46CF6B785ED2F53DD60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				B82058381C20670600C00CE8 /* CoreImage.framework */,
-				A249167AE2131EAB867E7B14 /* libPods.a */,
+				E360244F5643FDE4427A481F /* Pods_EraseAndSnap.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,8 +118,8 @@
 				B80582171BD57CFA00252C4B /* AVFoundation.framework */,
 				B80581FF1BD57BFB00252C4B /* EraseAndSnap */,
 				B80581FE1BD57BFB00252C4B /* Products */,
-				EB46D6454FF3C7908F4D3B11 /* Pods */,
 				0C97A46CF6B785ED2F53DD60 /* Frameworks */,
+				0BEB488CCC48FC74BFD59381 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,15 +210,6 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		EB46D6454FF3C7908F4D3B11 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EBEA171CC22B7A2A6AA0490A /* Pods.debug.xcconfig */,
-				4EE864F6753F17F10B245451 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -217,12 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B80582141BD57BFC00252C4B /* Build configuration list for PBXNativeTarget "EraseAndSnap" */;
 			buildPhases = (
-				1D31289BF71D18A328A0C904 /* Check Pods Manifest.lock */,
+				FE3D63249DA5AAAEEB0D4DD9 /* [CP] Check Pods Manifest.lock */,
 				B80581F91BD57BFB00252C4B /* Sources */,
 				B80581FA1BD57BFB00252C4B /* Frameworks */,
 				B80581FB1BD57BFB00252C4B /* Resources */,
-				BF00C5D051525E3D80CF7F92 /* Embed Pods Frameworks */,
-				FD9CBCAF9587BF7477FB94F3 /* Copy Pods Resources */,
+				BECC251D0273BB38D407E399 /* [CP] Embed Pods Frameworks */,
+				46BB03053C49BC72DB1A1720 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,49 +283,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1D31289BF71D18A328A0C904 /* Check Pods Manifest.lock */ = {
+		46BB03053C49BC72DB1A1720 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EraseAndSnap/Pods-EraseAndSnap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BF00C5D051525E3D80CF7F92 /* Embed Pods Frameworks */ = {
+		BECC251D0273BB38D407E399 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EraseAndSnap/Pods-EraseAndSnap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD9CBCAF9587BF7477FB94F3 /* Copy Pods Resources */ = {
+		FE3D63249DA5AAAEEB0D4DD9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,11 +455,12 @@
 		};
 		B80582151BD57BFC00252C4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBEA171CC22B7A2A6AA0490A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 783985BC7B99A37F07D07A68 /* Pods-EraseAndSnap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 37EG32LGCB;
 				INFOPLIST_FILE = EraseAndSnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VenkataManiteja.EraseAndSnap;
@@ -471,11 +472,12 @@
 		};
 		B80582161BD57BFC00252C4B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EE864F6753F17F10B245451 /* Pods.release.xcconfig */;
+			baseConfigurationReference = C9C51A672E371B9A5124B9A9 /* Pods-EraseAndSnap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 37EG32LGCB;
 				INFOPLIST_FILE = EraseAndSnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VenkataManiteja.EraseAndSnap;

@@ -1,3 +1,2 @@
-dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/drawView.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/drawView.h
+dependencies: /Users/VenkataManiteja/snoopybeer/EraseAndSnap/drawView.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/drawView.h

@@ -108,14 +108,10 @@
         if (_backgroundColor != nil) {
             self.view.backgroundColor = _backgroundColor;
         } else {
-//              self.view.backgroundColor = [[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone?[UIColor darkGrayColor]:[UIColor clearColor];
-            self.view.backgroundColor=[UIColor colorWithRed:228/255.0 green:31/255.0 blue:54/255.0 alpha:1];
-            
+            self.view.backgroundColor = [[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone?[UIColor darkGrayColor]:[UIColor clearColor];
         }
     }
 }
-
-
 
 #pragma mark - Color Manipulation
 

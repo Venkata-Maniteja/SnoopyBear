@@ -1,3 +1,2 @@
-dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/BlurView.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/BlurView.h
+dependencies: /Users/VenkataManiteja/snoopybeer/EraseAndSnap/BlurView.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/BlurView.h

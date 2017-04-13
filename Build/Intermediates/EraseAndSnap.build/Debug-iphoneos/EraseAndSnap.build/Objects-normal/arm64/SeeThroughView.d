@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/SeeThroughView.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/SeeThroughView.h
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/SeeThroughView.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/SeeThroughView.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/AppDelegate.m \
-  /Users/VenkataManiteja/Desktop/iOS_World/my_work/EraseAndSnap/EraseAndSnap/AppDelegate.h
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/AppDelegate.m \
+  /Users/VenkataManiteja/snoopybeer/EraseAndSnap/AppDelegate.h

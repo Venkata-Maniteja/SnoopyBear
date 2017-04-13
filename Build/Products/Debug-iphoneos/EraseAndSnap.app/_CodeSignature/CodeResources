@@ -6,7 +6,7 @@
 	<dict>
 		<key>AceDrawingView.nib</key>
 		<data>
-		V+mNHkLEFoePusOisDi6C/9gxIk=
+		slr8OR0VdEzOwv91ZXjl+0ZIbBc=
 		</data>
 		<key>AppIcon29x29@2x.png</key>
 		<data>
@@ -58,62 +58,32 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		lWoArIlZA6t84ZGeasBq7pU2c4E=
+		yCCKJuF2WcIyr5CCNQUsdD61qBE=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ks0j2DVsSWlmfXA2TK30kdxxIFU=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		8C7GHc4VYlgccPA/Ws9r7s7bQPQ=
+		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			n2t8gsDpfE6XkhG31p7IQJRxTxU=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		n2t8gsDpfE6XkhG31p7IQJRxTxU=
+		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			AdkhKaLreTJK0awZjsvZz6Q2xvo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		k7GSeqY/NVZsk0xYQXAbZx5Y6IE=
+		</data>
 		<key>Base.lproj/Main.storyboardc/Fry-TS-fme-view-Xkr-I2-Bc2.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8a3EwiHcfSEnVw6nbFlwNYUMvTs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		qR4ltqcNcuBQQvG1nAQhCQW1aFI=
+		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pUm5hphsdjAY4emrspPZYbAfo/U=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		pUm5hphsdjAY4emrspPZYbAfo/U=
+		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-slQ-i1-vps.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			O1ciKU/wlEWVLAOg/cerzgOdVWA=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<data>
+		edar2cprgv3mJW/PzVx677jDm20=
+		</data>
 		<key>FCColorPickerViewController.nib/objects.nib</key>
 		<data>
 		dG77KFq0W+ulKN5BIeqq7l+Asvk=
@@ -122,9 +92,272 @@
 		<data>
 		ggvGdyGeGe7CBgR5WP/bxYOdcr4=
 		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/Info.plist</key>
+		<data>
+		HN1mVr3/Ae7eGqM8NttlNFZM/+w=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_close.png</key>
+		<data>
+		GEA/5oWmJVXd+enL3d1i2g9QyTg=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_close@2x.png</key>
+		<data>
+		OxiiK6IZThG5i5ZJJ16rqGL2DdA=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_close@3x.png</key>
+		<data>
+		rGmXlG7TrmtlRIdpGvJsfJi5P1k=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_resize.png</key>
+		<data>
+		g0b8nOgSExg4VZCSL8Hf6+Z2ldM=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_resize@2x.png</key>
+		<data>
+		w5A9eBVvjdXz5imAvShw3r1LyMs=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_resize@3x.png</key>
+		<data>
+		mSufiO+N23E27Vebj7YKHSInqro=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/ACEDrawingView</key>
+		<data>
+		NaUbbwAurKpDlHC2qkv5FRixLHY=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/Info.plist</key>
+		<data>
+		ZhQR4EMdhay/mdEXDrVQVmhqtk4=
+		</data>
+		<key>Frameworks/ACEDrawingView.framework/_CodeSignature/CodeResources</key>
+		<data>
+		QGNrp85TeZXt2YLg/22grhqMREo=
+		</data>
+		<key>Frameworks/Masonry.framework/Info.plist</key>
+		<data>
+		8C89QsBiSXYk5XiOPDffipAepGQ=
+		</data>
+		<key>Frameworks/Masonry.framework/Masonry</key>
+		<data>
+		qm4j7xad5TuvA4J0vqUErs4QZ3g=
+		</data>
+		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
+		<data>
+		K+gjfGx3f12XADgQ8z8+jx5ZiPU=
+		</data>
+		<key>Frameworks/TOCropViewController.framework/Info.plist</key>
+		<data>
+		43Oh3mcHovOciJjybCfKGnTCtbE=
+		</data>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewController</key>
+		<data>
+		LL5gWXniQGqMiEb1Wksc9Nn5xhU=
+		</data>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CHWQYN5qLwERQQgUi0u4vwv812s=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/Info.plist</key>
+		<data>
+		MCtFGHJRnjfFrH9/NJyA8rKy2+I=
+		</data>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ar.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZovqS7tWrd8BKeYOq48FgdpaeY0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/da.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eUQ5FSXie6fKVn+bpItu65mSwZc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/de.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V64YK2wYF8mUmM9EpWjqBA4yktQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/en.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CHWQYN5qLwERQQgUi0u4vwv812s=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/es.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LU7XSBXgVy08sIbfXb3rsC+KQls=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/fr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y1qn/QPyVBHAzd+R3no+g1fEiUc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/id.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C35TvpAq6Bj85XdroW+z/t0Y8Wg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/it.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kkuhFsIk0xmKIsNUeHRLYEDBdWE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ja.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Rg6oYvsmneeCvp9XP/Bo5F/oBXE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ko.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZnnReAZOX4/55IewJFf8f1Mke1g=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/nl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JnVhz1EmcREc3jaIi7u2QitbH98=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/pl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Et91YBrq+1q9P1QvgBnf3FqneWM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/pt.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NnL2EQpiJDFAscuSOBv1b6lCw10=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ru.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/lTN5285Su5gEnMpRJ+tGoHFFcg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/tr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4TElYnExd6h6reCfGx/d5KZo9Xs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/vi.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YHUxuTu/dc5NGqIEof2sXek0/co=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/zh-Hans.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			agYFSvz1kA6+sCFczsG7yRckTE8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/zh-Hant.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ps2VkckhnvVJ9uAJV2Aty4Yws/Q=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/_CodeSignature/CodeResources</key>
+		<data>
+		UnJtz4E0Z7einVT5+PSJ27kPZ28=
+		</data>
+		<key>Frameworks/iOS_Color_Picker.framework/FCColorPickerViewController.nib/objects.nib</key>
+		<data>
+		NaVCCxQa98Bd5cstcuMo9fkU1fA=
+		</data>
+		<key>Frameworks/iOS_Color_Picker.framework/FCColorPickerViewController.nib/runtime.nib</key>
+		<data>
+		W8BrFP/wRRztsY6Z/vq25egwPzc=
+		</data>
+		<key>Frameworks/iOS_Color_Picker.framework/Info.plist</key>
+		<data>
+		zMzcpt8bkX2W4J3EtPAADDGSqSc=
+		</data>
+		<key>Frameworks/iOS_Color_Picker.framework/_CodeSignature/CodeResources</key>
+		<data>
+		ZHgP9v5ApZa6D7odOUKBawfqOJc=
+		</data>
+		<key>Frameworks/iOS_Color_Picker.framework/colormap.png</key>
+		<data>
+		i18rHKXiER7B9Dv5yE5h2xccbmg=
+		</data>
+		<key>Frameworks/iOS_Color_Picker.framework/iOS_Color_Picker</key>
+		<data>
+		yp0qddqFN+qiwzmKJcpOrUPpfnA=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		qsSG5llZIwQYyh9AmMP1cQFbkrg=
+		pcx8oBJt/lVUfI7xCckDd9GyenE=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -132,7 +365,7 @@
 		</data>
 		<key>SeeThroughView.nib</key>
 		<data>
-		BqrUiXi7mxz3Y1X7K1O/iwTRURE=
+		IRb3ZX4Ecz1aMnpRPabqiySEQts=
 		</data>
 		<key>TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
 		<dict>
@@ -311,7 +544,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		2dQSFBlvPDmJP/gTr1uw7eI01I0=
+		jutBPJijIEQjzjsNXOpUgxGhDcQ=
 		</data>
 		<key>switch_camera.png</key>
 		<data>
@@ -324,11 +557,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V+mNHkLEFoePusOisDi6C/9gxIk=
+			slr8OR0VdEzOwv91ZXjl+0ZIbBc=
 			</data>
 			<key>hash2</key>
 			<data>
-			tmMXPsbUcOR2vvu+04D0l1lmPFVhIQVTDRD5T10nFjw=
+			7RQFweHHo4N4mCZ0f9Z1+UyJY/qfY+wnvjJpDITKjMY=
 			</data>
 		</dict>
 		<key>AppIcon29x29@2x.png</key>
@@ -467,25 +700,23 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lWoArIlZA6t84ZGeasBq7pU2c4E=
+			yCCKJuF2WcIyr5CCNQUsdD61qBE=
 			</data>
 			<key>hash2</key>
 			<data>
-			SwrgpuMh4DEHbXi7ZkTrhK49TBihrRI1F2b0ER844IM=
+			eDeaLNrrE1/KTW+C4PoQUV7dT2SWwKA0sMUVq8bFxt0=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ks0j2DVsSWlmfXA2TK30kdxxIFU=
+			8C7GHc4VYlgccPA/Ws9r7s7bQPQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			ShsK++XK/zbwZlBmkYdCfbh2h50SczhtoUZYo5GVcGo=
+			KEkiLS7fsuRnSbO0wiLo1VvXDFhCFZZTSm4oZ7CLuPQ=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<dict>
@@ -497,34 +728,28 @@
 			<data>
 			HyVdXMU7Ux4/KalAao30mpWOK/lEPT4gvYN09wf31cg=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AdkhKaLreTJK0awZjsvZz6Q2xvo=
+			k7GSeqY/NVZsk0xYQXAbZx5Y6IE=
 			</data>
 			<key>hash2</key>
 			<data>
-			DqfMR0Qwv12ZZqau+SJwMsov7ELgFYEWyEsajddrifc=
+			iaGLUdt1Bz6H8Y48Il72ozk+XVT6FBCIAfJ1sgVACpA=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Fry-TS-fme-view-Xkr-I2-Bc2.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8a3EwiHcfSEnVw6nbFlwNYUMvTs=
+			qR4ltqcNcuBQQvG1nAQhCQW1aFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			AjbjosppoKxQ7apXXEaLzCFCbWcfGsqj1POS1AcBkXI=
+			vlfAWFqsS48zURsG8OUaA+eiUw0OmhOUPxP2n+2kjrA=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
@@ -536,21 +761,17 @@
 			<data>
 			qxb9Fycg8I5vTUyU0gE0InhEHkKhF2/6nT0YTi2OAzc=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-slQ-i1-vps.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O1ciKU/wlEWVLAOg/cerzgOdVWA=
+			edar2cprgv3mJW/PzVx677jDm20=
 			</data>
 			<key>hash2</key>
 			<data>
-			GVIMzNqHwmTsYwtywdAeSMzVDR+ufEn2iI2ytq0UR/Q=
+			glLfCNsadcS5ELqq4zXwhBTbL10vQWJNfzXLO2ysHNA=
 			</data>
-			<key>optional</key>
-			<true/>
 		</dict>
 		<key>FCColorPickerViewController.nib/objects.nib</key>
 		<dict>
@@ -574,15 +795,515 @@
 			BdNf9558wosahURzeSTyIm6F0Y0bH0Y9a3reCIUPCUw=
 			</data>
 		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HN1mVr3/Ae7eGqM8NttlNFZM/+w=
+			</data>
+			<key>hash2</key>
+			<data>
+			T6VCkKLn2c5R1GVKsjYxKLx4W0XsQVJovZ4lR4//9gc=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_close.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GEA/5oWmJVXd+enL3d1i2g9QyTg=
+			</data>
+			<key>hash2</key>
+			<data>
+			bBRoBSXzXTmgKcx/3DVpZf6z7iC3sAMqIpr+YZWVCHU=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_close@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OxiiK6IZThG5i5ZJJ16rqGL2DdA=
+			</data>
+			<key>hash2</key>
+			<data>
+			qSyxRV0Ou8KFGlOzLG31IVzD/O2Jw+iccz8S+inbixY=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_close@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rGmXlG7TrmtlRIdpGvJsfJi5P1k=
+			</data>
+			<key>hash2</key>
+			<data>
+			QuCoEMSKN4OCzH5IL4OcAJ1kUZA+4bEqFhdMovU/dYQ=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_resize.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			g0b8nOgSExg4VZCSL8Hf6+Z2ldM=
+			</data>
+			<key>hash2</key>
+			<data>
+			+tiBOBb9OXfCvRFkQlLm/LgxzSzneOTlzoiVG51nAg4=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_resize@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			w5A9eBVvjdXz5imAvShw3r1LyMs=
+			</data>
+			<key>hash2</key>
+			<data>
+			tFDFLMfWjwy8K69Q+WvoFGUj4o/G9uWHtPDYkV/GYDI=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDraggableText.bundle/sticker_resize@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mSufiO+N23E27Vebj7YKHSInqro=
+			</data>
+			<key>hash2</key>
+			<data>
+			fb7j7TPA9Ij8yabNdWO+fzuCT2nZvqSRNbduIQXwkgo=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/ACEDrawingView</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NaUbbwAurKpDlHC2qkv5FRixLHY=
+			</data>
+			<key>hash2</key>
+			<data>
+			vokrWjOi0Q42zrS05hDcke5LCE88O7P6zdhqRCQVf4E=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZhQR4EMdhay/mdEXDrVQVmhqtk4=
+			</data>
+			<key>hash2</key>
+			<data>
+			FN5RrD6dPGFSIXiQl6cJoL7gSGVzQnQKzct/E+shMvc=
+			</data>
+		</dict>
+		<key>Frameworks/ACEDrawingView.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QGNrp85TeZXt2YLg/22grhqMREo=
+			</data>
+			<key>hash2</key>
+			<data>
+			BvQp23aje/mSyaZ4a2reasXr5vXLo2uSTUyl2wOjiNk=
+			</data>
+		</dict>
+		<key>Frameworks/Masonry.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8C89QsBiSXYk5XiOPDffipAepGQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			TTnxGsfPtMx4G1Zy8wGV/RRSge3DOtXCgZbQBCEFnEA=
+			</data>
+		</dict>
+		<key>Frameworks/Masonry.framework/Masonry</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qm4j7xad5TuvA4J0vqUErs4QZ3g=
+			</data>
+			<key>hash2</key>
+			<data>
+			V7hsS89GF7nVx5zlX0EiGBm2/chnJF66eO//bLo+yLI=
+			</data>
+		</dict>
+		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			K+gjfGx3f12XADgQ8z8+jx5ZiPU=
+			</data>
+			<key>hash2</key>
+			<data>
+			OTTBwY05KpVkhO8ewHiXaG1uflYQ21XsecfJjzgSuoI=
+			</data>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			43Oh3mcHovOciJjybCfKGnTCtbE=
+			</data>
+			<key>hash2</key>
+			<data>
+			LmaaQ84b0d2sacJIWDU1mPTPr9BygGR8jb7Q5TR5Iaw=
+			</data>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewController</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LL5gWXniQGqMiEb1Wksc9Nn5xhU=
+			</data>
+			<key>hash2</key>
+			<data>
+			L8WB0234bp9rjvMa2dvpKgsIR42uQzDjZspZayFcPjI=
+			</data>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CHWQYN5qLwERQQgUi0u4vwv812s=
+			</data>
+			<key>hash2</key>
+			<data>
+			5JRkxJUEBh1vZ83cnuEZv99906HUgevYX2adrOHaRnM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MCtFGHJRnjfFrH9/NJyA8rKy2+I=
+			</data>
+			<key>hash2</key>
+			<data>
+			MaH1vV1j5lms665e1gjVZunVAXa+3zMZ1YtbcmqUY2M=
+			</data>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ar.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZovqS7tWrd8BKeYOq48FgdpaeY0=
+			</data>
+			<key>hash2</key>
+			<data>
+			a6QQwuw3JL4vsYJHf03EIOFhC2HhkK8TlCiBMWBd4WU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/da.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eUQ5FSXie6fKVn+bpItu65mSwZc=
+			</data>
+			<key>hash2</key>
+			<data>
+			T8NthfLWIcfxqGyvgZztpzNOZUMTIpo5kaRqHgpAGzQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/de.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V64YK2wYF8mUmM9EpWjqBA4yktQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			U1BAVgswylfMTGck6a0Mapa0dcxt3nVs1/b5rOC8ssw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/en.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CHWQYN5qLwERQQgUi0u4vwv812s=
+			</data>
+			<key>hash2</key>
+			<data>
+			5JRkxJUEBh1vZ83cnuEZv99906HUgevYX2adrOHaRnM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/es.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LU7XSBXgVy08sIbfXb3rsC+KQls=
+			</data>
+			<key>hash2</key>
+			<data>
+			IRi5viKy2C2QfsjjvfNYy6A1+AbhHfz6npAdFlTsKoE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/fr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y1qn/QPyVBHAzd+R3no+g1fEiUc=
+			</data>
+			<key>hash2</key>
+			<data>
+			K187OHTkus67YHrxNK2fAFWmqS5m+BaMBcKqL0f1my4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/id.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C35TvpAq6Bj85XdroW+z/t0Y8Wg=
+			</data>
+			<key>hash2</key>
+			<data>
+			SE1rkQJ8GskqwNTK4vnsWtX3JZzajMdFqOIsoTQ39l0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/it.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kkuhFsIk0xmKIsNUeHRLYEDBdWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			3EYA/g7v1tzNlByanGim/2jI5NheeNxlIXmr6J+Ivr4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ja.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Rg6oYvsmneeCvp9XP/Bo5F/oBXE=
+			</data>
+			<key>hash2</key>
+			<data>
+			SuCOlxNpFhjKdcYQmzNItbfGzk9D65X4zw2iIFI3Rjo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ko.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZnnReAZOX4/55IewJFf8f1Mke1g=
+			</data>
+			<key>hash2</key>
+			<data>
+			FQn0okzxawzohHJ/Tuas/hOegqDl13w87eW36NNORzE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/nl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JnVhz1EmcREc3jaIi7u2QitbH98=
+			</data>
+			<key>hash2</key>
+			<data>
+			IwwOA7K8sxyt/dV4AOACdH8NtaA63D/Vc3Snd6trhDk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/pl.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Et91YBrq+1q9P1QvgBnf3FqneWM=
+			</data>
+			<key>hash2</key>
+			<data>
+			y3Zl3MvEPXHvx+9WuKp8tTM2Ce49YM00b4rGafSyq4s=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/pt.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NnL2EQpiJDFAscuSOBv1b6lCw10=
+			</data>
+			<key>hash2</key>
+			<data>
+			V6i2CkDPz5F5YJvkEU22q/FNtjSW1K68tLLJrRIEHPc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/ru.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/lTN5285Su5gEnMpRJ+tGoHFFcg=
+			</data>
+			<key>hash2</key>
+			<data>
+			4e9HQlV4kHtiXWD+VlG03ywO5+ZSDdb73etBbBC1+rU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/tr.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4TElYnExd6h6reCfGx/d5KZo9Xs=
+			</data>
+			<key>hash2</key>
+			<data>
+			9DvqEM0q2GfMCdHc0foTARD4jZp4XPcKuSM9+Uw4vsU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/vi.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YHUxuTu/dc5NGqIEof2sXek0/co=
+			</data>
+			<key>hash2</key>
+			<data>
+			cfcqrjAVhTyhz1FfBHRV/DnZSRfn03vk3UsSsS+CEvs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/zh-Hans.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			agYFSvz1kA6+sCFczsG7yRckTE8=
+			</data>
+			<key>hash2</key>
+			<data>
+			/wSYF7xCd3abHcL0VqD3vJXvmZP0KwpO95LzA6U3RZ8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/TOCropViewControllerBundle.bundle/zh-Hant.lproj/TOCropViewControllerLocalizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ps2VkckhnvVJ9uAJV2Aty4Yws/Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			KVjOXQxzCMJpcJWl1DnRXIX7O/y3vNhyHeAC9xVcJXE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Frameworks/TOCropViewController.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UnJtz4E0Z7einVT5+PSJ27kPZ28=
+			</data>
+			<key>hash2</key>
+			<data>
+			MpL1XZk1QkFdQ6fdh+2nEHcGBorKd9wUoKVykVLNSPo=
+			</data>
+		</dict>
+		<key>Frameworks/iOS_Color_Picker.framework/FCColorPickerViewController.nib/objects.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NaVCCxQa98Bd5cstcuMo9fkU1fA=
+			</data>
+			<key>hash2</key>
+			<data>
+			DPeDOXaK7XvuzFU3WOvzmuhnlL/+tWbpLmEjq9pVWPU=
+			</data>
+		</dict>
+		<key>Frameworks/iOS_Color_Picker.framework/FCColorPickerViewController.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W8BrFP/wRRztsY6Z/vq25egwPzc=
+			</data>
+			<key>hash2</key>
+			<data>
+			DiaiH8SANNTiUxlPkUc82tko0OPK/rhydljRoNj+/KI=
+			</data>
+		</dict>
+		<key>Frameworks/iOS_Color_Picker.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zMzcpt8bkX2W4J3EtPAADDGSqSc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Mvnfqi8rWqyMhE5tpdRaRnMPIxANuOiEr2ZV1UmlyB0=
+			</data>
+		</dict>
+		<key>Frameworks/iOS_Color_Picker.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZHgP9v5ApZa6D7odOUKBawfqOJc=
+			</data>
+			<key>hash2</key>
+			<data>
+			mCwDqik78ZhwV9yFuuSK59a/5/+ceUsREs3+ZkidzBk=
+			</data>
+		</dict>
+		<key>Frameworks/iOS_Color_Picker.framework/colormap.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			i18rHKXiER7B9Dv5yE5h2xccbmg=
+			</data>
+			<key>hash2</key>
+			<data>
+			OEY8uFb4q57/Dm52MHatSquWA2lHj+DHpgkgz5aSsAo=
+			</data>
+		</dict>
+		<key>Frameworks/iOS_Color_Picker.framework/iOS_Color_Picker</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yp0qddqFN+qiwzmKJcpOrUPpfnA=
+			</data>
+			<key>hash2</key>
+			<data>
+			4gi3OdMnFI3fau89zd8usJOuKV6jHQufQfrkcJtbejI=
+			</data>
+		</dict>
 		<key>SeeThroughView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BqrUiXi7mxz3Y1X7K1O/iwTRURE=
+			IRb3ZX4Ecz1aMnpRPabqiySEQts=
 			</data>
 			<key>hash2</key>
 			<data>
-			atpbb5Zgdc1zDz6IWLmayU0fytCeCmGTAw8OQttt1wI=
+			N13bNOFKyF7EpGzjrMeQwC+y2l2mtYe4y+6GUQhSdMQ=
 			</data>
 		</dict>
 		<key>TOCropViewControllerBundle.bundle/Base.lproj/TOCropViewControllerLocalizable.strings</key>
@@ -847,11 +1568,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2dQSFBlvPDmJP/gTr1uw7eI01I0=
+			jutBPJijIEQjzjsNXOpUgxGhDcQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			vFrB5F4sW/Bvmm8XvRHitoP5QeAlPJMgWe2whRXvEYc=
+			iihH99KRJvqtLTi3NSlN+pPPQCKC+yBL4kmX1Ql6rQw=
 			</data>
 		</dict>
 		<key>switch_camera.png</key>
@@ -883,6 +1604,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -928,6 +1654,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
